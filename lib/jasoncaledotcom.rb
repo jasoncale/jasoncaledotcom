@@ -12,7 +12,7 @@ module Jasoncaledotcom
       attr_accessor :repo 
     end
 
-    self.repo = Repo.new("articles/.git")
+    self.repo = Repo.new(File.expand_path('./articles/.git'))
 
     def self.commits
       repo.commits
