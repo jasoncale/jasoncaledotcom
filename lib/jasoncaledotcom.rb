@@ -8,7 +8,7 @@ module Jasoncaledotcom
       attr_accessor :git_repo 
     end
 
-    self.git_repo = Repo.new("articles/.git")
+    self.git_repo = Repo.new(".git")
 
     def self.commits
       git_repo.commits
