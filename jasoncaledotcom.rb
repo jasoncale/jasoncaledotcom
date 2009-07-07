@@ -7,6 +7,8 @@ set :public, 'public'
 set :views,  'views'
 
 get '/' do
+  @articles = Article.all
+  haml :index
 end
 
 get '/:id' do

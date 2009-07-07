@@ -1,2 +1,7 @@
-%p Hello!
-%p Default sinatra-gen index (generated at Tue Jul 07 22:30:54 +0100 2009)
+-@articles.each do |article|
+  .article
+    %p.post_date
+      escaped
+      %strong=article.post_date.strftime("%e %B, %Y")
+
+    =article.render
