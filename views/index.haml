@@ -1,8 +1,9 @@
 -@articles.each do |article|
   .article
     %p.post_date
-      escaped
+      born
       %strong=article.post_date.strftime("%e %B, %Y")
-    
+
     %h3=article.title
     =article.body
+    

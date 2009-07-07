@@ -55,7 +55,7 @@ module Jasoncaledotcom
         )
       end
 
-      return articles
+      return articles.reverse
     end
     
     def self.info(name)
