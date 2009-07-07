@@ -3,5 +3,6 @@
     %p.post_date
       escaped
       %strong=article.post_date.strftime("%e %B, %Y")
-
-    =article.render
+    
+    %h3=article.title
+    =article.body

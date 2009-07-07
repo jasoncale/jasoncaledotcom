@@ -1,52 +1,73 @@
+require 'active_support/core_ext/date'
+require 'active_support/inflector' 
+require 'grit'
+require 'rdiscount'
+
 module Jasoncaledotcom
-  require 'grit'
 
   class GitStore
     include Grit
 
     class << self
-      attr_accessor :git_repo 
+      attr_accessor :repo 
     end
 
-    self.git_repo = Repo.new(".git")
+    self.repo = Repo.new(".git")
 
     def self.commits
-      git_repo.commits
+      repo.commits
     end
-
+    
+    def self.master
+      repo.commits.first.tree
+    end
+    
+    def self.get(name)
+      (master / name)
+    end
+    
+    def self.log(path)
+      repo.log('master', path)
+    end
+    
   end
 
   class Article
 
-    attr_accessor :body, :post_date, :permalink
+    attr_accessor :title, :body, :post_date, :permalink
 
-    def initialize(body, date, permalink)
-      @body = body
+    def initialize(title, body, date, permalink)
+      @title = title
+      @body = RDiscount.new(body).to_html
       @post_date = date
-    end
-
-    def render
-      haml_engine = Haml::Engine.new(@body).render
+      @permalink = permalink
     end
 
     def self.all
       articles = []
-
-      GitStore.commits.each do |commit|
-        commit.tree.contents.each do |article|
-          articles << Article.new(
-            article.data,
-            commit.authored_date,
-            create_permalink(article.name)
-          )
-        end
+      
+      GitStore.get("articles").contents.each do |article|
+        articles << Article.new(
+          parse_title(article.name),
+          article.data,
+          info(article.name).authored_date,
+          remove_ext(article.name)
+        )
       end
 
       return articles
     end
+    
+    def self.info(name)
+      GitStore.log("articles/#{name}").first
+    end
 
-    def self.create_permalink(name)
+    def self.remove_ext(name)
       name.gsub(/.haml/, '')
+    end
+
+    def self.parse_title(name)
+      remove_ext(name).gsub(/\d-/, '').gsub(/-/, '_').humanize
     end
 
   end
