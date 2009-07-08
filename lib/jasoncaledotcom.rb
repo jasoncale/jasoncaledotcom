@@ -12,7 +12,7 @@ module Jasoncaledotcom
       attr_accessor :repo 
     end
 
-    self.repo = Repo.new(File.expand_path('./articles/.git'))
+    self.repo = Repo.new(".git")
 
     def self.commits
       repo.commits
@@ -46,7 +46,7 @@ module Jasoncaledotcom
     def self.all
       articles = []
       
-      GitStore.master.contents.each do |article|
+      GitStore.get("articles").contents.each do |article|
         articles << Article.new(
           parse_title(article.name),
           article.data,
@@ -59,7 +59,7 @@ module Jasoncaledotcom
     end
     
     def self.info(name)
-      GitStore.log("#{name}").first
+      GitStore.log("articles/#{name}").first
     end
 
     def self.remove_ext(name)
