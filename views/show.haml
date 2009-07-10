@@ -1,0 +1,7 @@
+.article
+  %p.post_date
+    born
+    %strong=@article.post_date.strftime("%e %B, %Y")
+
+  %h3=@article.title
+  =@article.body

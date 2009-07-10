@@ -7,6 +7,8 @@ require 'haml'
 require 'sass'
 
 require File.join(File.dirname(__FILE__), 'lib', 'jasoncaledotcom')
+require File.join(File.dirname(__FILE__), 'lib', 'help_me_out')
+
 
 set :public, 'public'
 set :views,  'views'
@@ -23,6 +25,8 @@ get '/style.css' do
   sass :stylesheet
 end
 
-get '/:id' do
+get '/articles/:id' do
+  @article = Article.open("articles/#{params[:id]}")
+  haml :show
 end
 

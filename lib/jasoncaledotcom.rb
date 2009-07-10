@@ -1,36 +1,7 @@
 require 'active_support/core_ext/date'
 require 'active_support/inflector' 
-require 'grit'
 require 'rdiscount'
-
 module Jasoncaledotcom
-
-  class GitStore
-    include Grit
-
-    class << self
-      attr_accessor :repo 
-    end
-
-    self.repo = Repo.new(File.expand_path(".git"))
-
-    def self.commits
-      repo.commits
-    end
-    
-    def self.master
-      repo.commits.first.tree
-    end
-    
-    def self.get(name)
-      (master / name)
-    end
-    
-    def self.log(path)
-      repo.log('master', path)
-    end
-    
-  end
 
   class Article
 
@@ -42,26 +13,34 @@ module Jasoncaledotcom
       @post_date = date
       @permalink = permalink
     end
-
-    def self.all
-      articles = []
-      
-      GitStore.get("articles").contents.each do |article|
-        articles << Article.new(
-          parse_title(article.name),
-          article.data,
-          info(article.name).authored_date,
-          remove_ext(article.name)
-        )
-      end
-
-      return articles.reverse
+    
+    class << self
+      attr_accessor :article_dir
     end
     
-    def self.info(name)
-      GitStore.log("articles/#{name}").first
+    self.article_dir = "articles"
+
+    
+    def self.all
+      articles = (Dir.glob(File.join('**', "articles", "*")).map { |filename| Article.open(filename) })
+      
+      # remove any falses ..
+      articles.select {|article| article }
     end
 
+    def self.open(filename)
+      article = false
+      
+      if File.exist?(filename)
+        File.open(filename) do |f|
+          article_name = File.basename(filename)
+          article = Article.new(parse_title(article_name), f.readlines.join(""), f.ctime, filename)
+        end
+      end
+      
+      article
+    end
+    
     def self.remove_ext(name)
       name.gsub(/.haml/, '')
     end
@@ -71,4 +50,5 @@ module Jasoncaledotcom
     end
 
   end
+  
 end

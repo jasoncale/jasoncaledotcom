@@ -4,6 +4,7 @@
       born
       %strong=article.post_date.strftime("%e %B, %Y")
 
-    %h3=article.title
+    %h3
+      =link article.title, article.permalink, "visit #{article.title}" 
     =article.body
     
