@@ -2,7 +2,7 @@ I've really found it hard to have a personal website, I've been creating things 
 
 ![It's business time](/images/business_time.jpg "It's business time")
 
-I guess I've always rationalised that the work I do should speak for me, which is fine but historically, and definitely recently the work I've been doing has not been noticeably mine. Being a [contract for hire](http://jaseandtonic.com/ "Ruby pirate for hire: Jase &amp; Tonic Ltd"), you don't always get to shout out loud that you did this and that - unfortunately transparency hasn't permeated the psyche of all the agencies across the land.
+I guess I've always rationalised that the work I do should speak for me, which is fine but historically (and definitely recently), the work I've been doing has not been noticeably mine. Being a [contract for hire](http://jaseandtonic.com/ "Ruby pirate for hire: Jase &amp; Tonic Ltd"), you don't always get to shout out loud that you did this and that - unfortunately transparency hasn't permeated the psyche of all the agencies across the land.
 
 Whilst I intend be delving deeper into my recent portfolio of work on the upcoming (re)launch of my [company website](http://jaseandtonic.com/ "Jase &amp; Tonic Ltd") I don't intend to talk shop here much. Over the last year my interests have grown outside of the web; Food, [craft beer](http://en.wikipedia.org/wiki/Microbrewery) and [cycling](http://www.flickr.com/photos/jase_n_tonic/2893775798/, "picture of my beloved bike") have been battling for my time alongside my lifetime best friend [music](http://last.fm/user/jase_n_tonic "my Last.fm profile").
 
