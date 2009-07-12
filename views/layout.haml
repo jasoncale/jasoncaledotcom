@@ -15,13 +15,26 @@
         .main
           = yield
         .sidebar
-          %h3 Thee Skinny
-          %p  
-            =((Time.now - Time.parse("07/27/83"))/(60*60*24)/365.2422).to_i
-            year old, mustard eating
-            %a{:href => "http://jaseandtonic.com"}ruby hacker &amp; designer 
-            who lives in 
-            %a{:href => "http://maps.google.co.uk/maps?f=q&source=s_q&hl=en&geocode=&q=Wandsworth,+London+SW18+1BT,+UK&sll=51.459768,-0.188046&sspn=0.00857,0.022724&ie=UTF8&ll=51.459743,-0.188119&spn=0.00857,0.022724&z=16&iwloc=A", :title => "It's a link to map - don't come break my heart" }South London
+          .about
+            %h3 Thee Skinny
+            %p  
+              =((Time.now - Time.parse("07/27/83"))/(60*60*24)/365.2422).to_i
+              year old, mustard eating
+              %a{:href => "http://jaseandtonic.com"}ruby hacker &amp; designer 
+              who lives in 
+              %a{:href => "http://maps.google.co.uk/maps?f=q&source=s_q&hl=en&geocode=&q=Wandsworth,+London+SW18+1BT,+UK&sll=51.459768,-0.188046&sspn=0.00857,0.022724&ie=UTF8&ll=51.459743,-0.188119&spn=0.00857,0.022724&z=16&iwloc=A", :title => "It's a link to map - don't come break my heart" }South London
+          
+          .last_fm
+            %h3 Love thy ears
+            -@last_fm_tracks.each do |track|
+              -src = !track.image.blank? ? track.image : "/images/missing.png"
+              %a{:href => track.url, :title => "#{track.artist}: #{track.name}"}
+              
+                %img{:src => src}
+          
+          .twitter
+            %h3 See with thine eyes
+          
         .clear
       #footer
         %p The End

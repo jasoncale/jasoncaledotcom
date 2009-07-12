@@ -10,6 +10,6 @@ module Sinatra
       "<a href ='#{link}' title='#{title}'>#{text}</a>"
     end
   end
-
+  
   helpers HelpMeOut
 end

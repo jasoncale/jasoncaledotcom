@@ -252,7 +252,7 @@ a:hover
     :font-size 1.8em
     :position absolute
     :top 1.5em
-    :right 3em
+    :right 2em
     
     
 #content
@@ -264,31 +264,32 @@ a:hover
   .main
     :width 48em
     :float left
-    :margin-right 1em
+    :margin-right 2em
     
     .article
       :margin 0 0 4em 0
       
       p.post_date
         :font-size 1.2em
-        :padding 0 0 1em 0
+        :padding 0 0 0.5em 0
 
       h3
         :font-size 3.6em
 
       .article_body
-        :padding 1.5em 0 0 0
-        
+      
         p
           :font-size 1.4em
           :line-height 1.6em
-          :padding 1em 0
+          :padding 1em 0 0 0
     
         img
           :padding 0.5em
           :background #ecebea
           :border 1px solid #e6e6e6
           :width 33.2em
+          :margin-top 0.5em
+          :margin-bottom 0.5em
           
         h3
           :font-size 2em
@@ -298,18 +299,36 @@ a:hover
         
               
   .sidebar
-    :width 17em
+    :width 20em
     :float left
     :margin-left 1em
     
-    h3
-      :text-transform uppercase
-      :font-size 1.4em
-      :line-height 1.6em
+    div
+      :margin-bottom 1em
+    
+      h3
+        :text-transform uppercase
+        :font-size 1.4em
+        :line-height 2em
       
-    p
-      :font-size 1.2em
-      :line-height 1.3em
+      p
+        :font-size 1.2em
+        :line-height 1.3em
+              
+    .last_fm
+    
+      a
+
+        img
+          :width 5em
+          :background #ecebea
+          :border 1px solid #e6e6e6
+          :padding 0.2em
+          :margin 0.1em
+    
+      a:hover
+        :background none
+                
     
 #footer
   :background #000
