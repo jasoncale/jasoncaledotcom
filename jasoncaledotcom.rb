@@ -18,6 +18,7 @@ include Jasoncaledotcom
 before do
   if !(request.path_info =~ /.css/)
     @last_fm_tracks = LastFm::Track.recent
+    @tweet = Tweet.latest
   end
   
   response.headers['Cache-Control'] = 'public, max-age=300'
@@ -35,6 +36,10 @@ end
 
 get '/articles/:id' do
   @article = Article.open("articles/#{params[:id]}")  
-  haml :show
+  if @article
+    haml :show
+  else
+    haml :not_found
+  end
 end
 

@@ -3,6 +3,8 @@ require 'active_support/inflector'
 require 'rdiscount'
 require 'httparty'
 
+require 'iconv'
+
 module Jasoncaledotcom
 
   class Article
@@ -33,10 +35,12 @@ module Jasoncaledotcom
     def self.open(filename)
       article = false
       
+      filename << ".markdown" if !(filename =~ /.markdown/)
+      
       if File.exist?(filename)
         File.open(filename) do |f|
-          article_name = File.basename(filename)
-          article = Article.new(parse_title(article_name), f.readlines.join(""), f.ctime, filename)
+          article_name = remove_ext(File.basename(filename))
+          article = Article.new(parse_title(article_name), f.readlines.join(""), f.ctime, "articles/#{to_permalink(article_name)}")
         end
       end
       
@@ -44,11 +48,15 @@ module Jasoncaledotcom
     end
     
     def self.remove_ext(name)
-      name.gsub(/.haml/, '')
+      name.gsub(/.markdown/, '')
     end
 
     def self.parse_title(name)
       remove_ext(name).gsub(/\d-/, '').gsub(/-/, '_').humanize
+    end
+
+    def self.to_permalink(string)
+        (Iconv.new('US-ASCII//TRANSLIT', 'utf-8').iconv string).gsub(/[^\w\s\-\â€”]/,'').gsub(/[^\w]|[\_]/,' ').split.join('-').downcase  
     end
 
   end
@@ -91,7 +99,6 @@ module Jasoncaledotcom
             _get("user.getrecenttracks")['lfm']['recenttracks']['track'].each do |track|  
               # get medium
               image_url = (track['image'][1] =~ /http/) ? track['image'][1] : ""
-            
               tracks << Track.new(track['artist'], track['name'], image_url, track['url'])
             end
             tracks
@@ -107,8 +114,29 @@ module Jasoncaledotcom
 
   end
   
-  class Twitter
-  
+  class Tweet
+    include HTTParty
+    base_uri 'twitter.com'
+    basic_auth ENV['TWITTER_USER'], ENV['TWITTER_PASS']
+    format :json
+    
+    attr_accessor :id, :text, :created_at
+    
+    def initialize(id, text, created_at)
+      @id = id
+      @text = text
+      @created_at = Time.parse(created_at)
+    end
+    
+    class << self
+      def latest
+        @latest ||= (
+          #find latest tweet that doesnt have a @ in it ..
+          tweet = get("/statuses/user_timeline.json").select {|tweet| (tweet['text'] !~ /^@/) }.first
+          tweet = Tweet.new(tweet['id'], tweet['text'], tweet['created_at']) if tweet
+        )
+      end
+    end
   end
   
 end
