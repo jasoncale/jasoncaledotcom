@@ -60,9 +60,13 @@ module Jasoncaledotcom
     
     class Base
       include HTTParty
-      
+  
       base_uri 'http://ws.audioscrobbler.com/2.0/'
-      default_params :user => "jase_n_tonic", :api_key => "8d3b5aa67c4caf8066c15ea0de6b29b8", :limit => 12
+  
+      # LAST FM user and key are set using Heroku config settings
+      # http://blog.heroku.com/archives/2009/4/7/config-vars/
+  
+      default_params :user => ENV["LASTFM_USER"], :api_key => ENV['LASTFM_KEY'], :limit => 12
       format :xml
       
       def self._get(method)
