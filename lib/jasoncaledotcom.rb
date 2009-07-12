@@ -3,8 +3,6 @@ require 'active_support/inflector'
 require 'rdiscount'
 require 'httparty'
 
-#Your API Key is 8d3b5aa67c4caf8066c15ea0de6b29b8 and your secret is 091dbea64856560a84390051118d8df4
-
 module Jasoncaledotcom
 
   class Article
