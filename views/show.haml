@@ -1,7 +1,1 @@
-.article
-  %p.post_date
-    born
-    %strong=@article.post_date.strftime("%e %B, %Y")
-
-  %h3=@article.title
-  =@article.body
+=haml(:article, :layout => false, :locals => { :article => @article })

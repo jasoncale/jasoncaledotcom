@@ -1,0 +1,9 @@
+.article
+  %p.post_date
+    born
+    %strong=article.post_date.strftime("%e %B, %Y")
+
+  %h3
+    =link article.title, "/articles/#{article.permalink}", "Visit article: #{article.title}" 
+  .article_body
+    =article.body

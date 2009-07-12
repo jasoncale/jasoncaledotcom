@@ -38,7 +38,7 @@ module Jasoncaledotcom
       if File.exist?(filename)
         File.open(filename) do |f|
           article_name = remove_ext(File.basename(filename))
-          article = Article.new(parse_title(article_name), f.readlines.join(""), f.ctime, "articles/#{to_permalink(article_name)}")
+          article = Article.new(parse_title(article_name), f.readlines.join(""), f.ctime, to_permalink(article_name))
         end
       end
       
