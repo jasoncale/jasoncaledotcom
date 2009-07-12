@@ -32,13 +32,13 @@
                 %img{:src => src, :alt => "#{track.name}"}
           
           .twitter
-            %h3 Read Thy Tweet
+            %h3 Read thy tweet
             %p=@tweet.text
             %p.tweet_date
               =link distance_of_time_in_words_to_now(@tweet.created_at) << " ago", tweet_url(@tweet.id), "go to twitter"
               
           .friends
-            %h3 Recommended links
+            %h3 Clicketh thine link
             %ul
               %li=link "Tipped", "http://tipped.co.uk", "Awesome local search - I help out behind the scenes"
               %li=link "Joel Brazil", "http://twitter.com/joelbrazil", "Tipped.co.uk founder, craft beer drinker, fountain of knowledge."
