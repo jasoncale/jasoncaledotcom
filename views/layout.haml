@@ -29,7 +29,7 @@
             -@last_fm_tracks.each do |track|
               -src = !track.image.blank? ? track.image : "/images/missing.png"
               %a{:href => track.url, :title => "#{track.artist}: #{track.name}"}
-                %img{:src => src}
+                %img{:src => src, :alt => "#{track.name}"}
           
           .twitter
             %h3 Read Thy Tweet
