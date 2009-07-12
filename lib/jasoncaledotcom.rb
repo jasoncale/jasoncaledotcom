@@ -103,4 +103,12 @@ module Jasoncaledotcom
 
   end
   
+  class Flickr
+
+  end
+  
+  class Twitter
+  
+  end
+  
 end
