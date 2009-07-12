@@ -2,7 +2,6 @@ require 'active_support/core_ext/date'
 require 'active_support/inflector' 
 require 'rdiscount'
 require 'httparty'
-
 require 'iconv'
 
 module Jasoncaledotcom
