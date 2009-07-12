@@ -2,7 +2,6 @@ require 'active_support/core_ext/date'
 require 'active_support/inflector' 
 require 'rdiscount'
 require 'httparty'
-require 'iconv'
 
 module Jasoncaledotcom
 
@@ -55,7 +54,7 @@ module Jasoncaledotcom
     end
 
     def self.to_permalink(string)
-        (Iconv.new('US-ASCII//TRANSLIT', 'utf-8').iconv string).gsub(/[^\w\s\-\â€”]/,'').gsub(/[^\w]|[\_]/,' ').split.join('-').downcase  
+        string.gsub(/[^\w\s\-\â€”]/,'').gsub(/[^\w]|[\_]/,' ').split.join('-').downcase  
     end
 
   end
