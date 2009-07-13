@@ -7,3 +7,6 @@
     =link article.title, "/articles/#{article.permalink}", "Visit article: #{article.title}" 
   .article_body
     =article.body
+    
+  %p.twitter_retweet
+    %a.retweet="Jason Cale: #{article.title}"
