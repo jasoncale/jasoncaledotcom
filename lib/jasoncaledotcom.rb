@@ -28,7 +28,7 @@ module Jasoncaledotcom
     
     def self.all(reset = false)
       # remove any falses ..
-      (article_files(reset).map { |filename| Article.open(filename) }).select {|article| article }
+      (article_files(reset).map { |filename| Article.open(filename) }).select {|article| article }.reverse
     end
 
     def self.open(filename)

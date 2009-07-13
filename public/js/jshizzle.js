@@ -1,0 +1,1 @@
+ChiliBook.recipeFolder = "/js/";  
