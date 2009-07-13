@@ -1,3 +1,7 @@
+:meta:title: An unmarketed product
+:meta:date: Mon Jul 12 21:41:12 +0100 2009
+
+
 I&rsquo;ve really found it hard to have a personal website, I&rsquo;ve been creating things on the web since I was a teenager and for the last 6 years professionally - but when it comes to my own site, where I&rsquo;m meant to have my own voice, it&rsquo;s kinda like standing naked in-front of your peers. 
 
 ![It&rsquo;s business time](/images/business_time.jpg "It&rsquo;s business time")

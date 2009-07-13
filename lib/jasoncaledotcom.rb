@@ -22,12 +22,13 @@ module Jasoncaledotcom
     
     self.article_dir = "articles"
 
+    def self.count(reset = false)
+      article_files(reset).size
+    end
     
-    def self.all
-      articles = (Dir.glob(File.join('**', "articles", "*")).map { |filename| Article.open(filename) })
-      
+    def self.all(reset = false)
       # remove any falses ..
-      articles.select {|article| article }
+      (article_files(reset).map { |filename| Article.open(filename) }).select {|article| article }
     end
 
     def self.open(filename)
@@ -37,8 +38,10 @@ module Jasoncaledotcom
       
       if File.exist?(filename)
         File.open(filename) do |f|
-          article_name = remove_ext(File.basename(filename))
-          article = Article.new(parse_title(article_name), f.readlines.join(""), f.ctime, to_permalink(article_name))
+          title, date, body = parse_data(f.readlines)
+          permalink = to_permalink(remove_ext(File.basename(filename)))
+                    
+          article = Article.new(title, body, date, permalink)
         end
       end
       
@@ -48,13 +51,47 @@ module Jasoncaledotcom
     def self.remove_ext(name)
       name.gsub(/.markdown/, '')
     end
+    
+    def self.add_ext(name)
+      name << ".markdown" if !(name =~ /.markdown/)
+      name
+    end
 
     def self.parse_title(name)
       remove_ext(name).gsub(/\d-/, '').gsub(/-/, '_').humanize
     end
 
     def self.to_permalink(string)
-        string.gsub(/[^\w\s\-\â€”]/,'').gsub(/[^\w]|[\_]/,' ').split.join('-').downcase  
+      string.gsub(/[^\w\s\-\â€”]/,'').gsub(/[^\w]|[\_]/,' ').split.join('-').downcase  
+    end
+    
+    def self.build_filename(title)
+      add_ext(to_permalink("#{count+1}-#{title}"))
+    end
+    
+    def self.path(name)
+      File.join(article_dir, add_ext(name))
+    end
+    
+    def self.parse_data(lines)
+      title, date, body = "", "", []
+      
+      lines.each do |line|
+        if line =~ /^:meta/
+          title = line.gsub(/:meta:title:\s/, '') if line =~ /:meta:title:/
+          date = Date.parse(line.gsub(/:meta:date:\s/, '')) if line =~ /:meta:date:/
+        else
+          body << line
+        end
+      end
+      
+      return title, date, body.join("")
+    end
+    
+    def self.article_files(reset = false)
+      @article_files = nil if reset
+
+      @article_files ||= (Dir.glob(File.join('**', "articles", "*")))
     end
 
   end
