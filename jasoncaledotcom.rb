@@ -18,7 +18,7 @@ include Jasoncaledotcom
 before do
   domain = 'http://jasoncale.com'
   
-  if (!env['HTTP_HOST'] =~ /localhost/) && env['HTTP_HOST'] =~ /www.jasoncale.com/
+  if (!env['HTTP_HOST'] =~ /localhost/) && env['HTTP_HOST'] =~ /www/
     redirect domain
     return false
   else
