@@ -74,3 +74,13 @@ get '/rss.xml' do
     end
   end
 end
+
+configure :production do
+  not_found do
+    haml :not_found
+  end
+
+  error do
+    haml :error
+  end
+end
