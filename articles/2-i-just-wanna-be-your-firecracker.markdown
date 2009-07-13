@@ -7,7 +7,7 @@ Tonight I've added a few extras to the site, and fixed a few bugs that had crept
 * **Titles with lots of punctuation** - The way I first setup the articles was to parse the title from the article file. The problem with this is that any punctuation in the filenames will mess up the file manipulation.
 
 #### Article dates &amp; titles
-These were fairly trivial, I've added a manifest to each article file [(see the source for this article)](http://github.com/jasoncale/jasoncaledotcom/raw/26029a026d422e5d51c51c34a878ee547b86ab70/articles/2-i-just-wanna-be-your-firecracker.markdown) - and a [simple rake task](http://github.com/jasoncale/jasoncaledotcom/blob/d00c802662757b873f47564284b7a744bb766b73/Rakefile) to generate articles, so I don't have to fill this in by hand when creating now articles. When I parse the files I set the article object's title and post_date attributes from the meta data, then I remove it from the body so the rest of the file can be rendered as markdown.
+These were fairly trivial, I've added a manifest to each article file [(see the source for this article)](http://github.com/jasoncale/jasoncaledotcom/raw/26029a026d422e5d51c51c34a878ee547b86ab70/articles/2-i-just-wanna-be-your-firecracker.markdown) - and a [simple rake task](http://github.com/jasoncale/jasoncaledotcom/blob/d00c802662757b873f47564284b7a744bb766b73/Rakefile) to generate articles, so I don't have to fill this in by hand when creating new articles. When I parse the files I set the article object's title and post_date attributes from the meta data, then I remove it from the body so the rest of the file can be rendered as markdown.
 
 Cool I thought .. so I added a few extra bits while I was at it.
 
