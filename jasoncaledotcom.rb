@@ -16,12 +16,20 @@ set :views,  'views'
 include Jasoncaledotcom
 
 before do
-  if !(request.path_info =~ /.css/)
-    @last_fm_tracks = LastFm::Track.recent
-    @tweet = Tweet.latest
-  end
+  domain = 'http://jasoncale.com'
   
-  response.headers['Cache-Control'] = 'public, max-age=300'
+  if (!env['HTTP_HOST'] =~ /localhost/) && env['HTTP_HOST'] =~ /www.jasoncale.com/
+    redirect domain
+    return false
+  else
+  
+    if !(request.path_info =~ /.css/)
+      @last_fm_tracks = LastFm::Track.recent
+      @tweet = Tweet.latest
+    end
+
+    response.headers['Cache-Control'] = 'public, max-age=300'
+  end
 end
 
 get '/' do
