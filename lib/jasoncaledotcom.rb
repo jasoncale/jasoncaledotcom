@@ -129,15 +129,13 @@ module Jasoncaledotcom
 
       class << self
         def recent
-          @recent_tracks ||= (
-            tracks = []
-            _get("user.getrecenttracks")['lfm']['recenttracks']['track'].each do |track|  
-              # get medium
-              image_url = (track['image'][1] =~ /http/) ? track['image'][1] : ""
-              tracks << Track.new(track['artist'], track['name'], image_url, track['url'])
-            end
-            tracks
-          )
+          tracks = []
+          _get("user.getrecenttracks")['lfm']['recenttracks']['track'].each do |track|  
+            # get medium
+            image_url = (track['image'][1] =~ /http/) ? track['image'][1] : ""
+            tracks << Track.new(track['artist'], track['name'], image_url, track['url'])
+          end
+          tracks
         end
       end
 
@@ -165,11 +163,9 @@ module Jasoncaledotcom
     
     class << self
       def latest
-        @latest ||= (
-          #find latest tweet that doesnt have a @ in it ..
-          tweet = get("/statuses/user_timeline.json").select {|tweet| (tweet['text'] !~ /^@/) }.first
-          tweet = Tweet.new(tweet['id'], tweet['text'], tweet['created_at']) if tweet
-        )
+        #find latest tweet that doesnt have a @ in it ..
+        tweet = get("/statuses/user_timeline.json").select {|tweet| (tweet['text'] !~ /^@/) }.first
+        tweet = Tweet.new(tweet['id'], tweet['text'], tweet['created_at']) if tweet
       end
     end
   end
