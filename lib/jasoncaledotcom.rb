@@ -2,6 +2,7 @@ require 'active_support/core_ext/date'
 require 'active_support/inflector' 
 require 'rdiscount'
 require 'httparty'
+require 'flickr_fu'
 
 module Jasoncaledotcom
 
@@ -144,7 +145,7 @@ module Jasoncaledotcom
   end
   
   class Flickr
-
+    
   end
   
   class Tweet
