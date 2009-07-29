@@ -30,16 +30,22 @@
           
           .last_fm
             %h3 Love thy ears
-            -@last_fm_tracks.each do |track|
-              -src = !track.image.blank? ? track.image : "/images/missing.png"
-              %a{:href => track.url, :title => "#{track.artist}: #{track.name}"}
-                %img{:src => src, :alt => "#{track.name}"}
+            -if production?
+              -@last_fm_tracks.each do |track|
+                -src = !track.image.blank? ? track.image : "/images/missing.png"
+                %a{:href => track.url, :title => "#{track.artist}: #{track.name}"}
+                  %img{:src => src, :alt => "#{track.name}"}
+            -else
+              %p Tracks not loaded in development
           
           .twitter
             %h3 Read thy tweet
-            %p=@tweet.text
-            %p.tweet_date
-              =link distance_of_time_in_words_to_now(@tweet.created_at) << " ago", tweet_url(@tweet.id), "go to twitter"
+            -if production?            
+              %p=@tweet.text
+              %p.tweet_date
+                =link distance_of_time_in_words_to_now(@tweet.created_at) << " ago", tweet_url(@tweet.id), "go to twitter"
+            -else
+              %p Tweets not loaded in development
               
           .friends
             %h3 Clicketh thine link

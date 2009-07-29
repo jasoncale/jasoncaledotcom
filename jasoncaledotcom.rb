@@ -17,17 +17,19 @@ set :views,  'views'
 include Jasoncaledotcom
 
 before do
-  domain = 'jasoncale.com'
+  if production?
+    domain = 'jasoncale.com'
   
-  if !(env['HTTP_HOST'] =~ /localhost|^#{domain}/)
-    redirect "http://#{domain}"
-  else
-    if !(request.path_info =~ /.css/)
-      @last_fm_tracks = LastFm::Track.recent
-      @tweet = Tweet.latest
-    end
+    if !(env['HTTP_HOST'] =~ /localhost|^#{domain}/)
+      redirect "http://#{domain}"
+    else    
+      if !(request.path_info =~ /.css/) 
+        @last_fm_tracks = LastFm::Track.recent
+        @tweet = Tweet.latest
+      end
     
-    response.headers['Cache-Control'] = 'public, max-age=300'
+      response.headers['Cache-Control'] = 'public, max-age=300'
+    end
   end
 end
 
