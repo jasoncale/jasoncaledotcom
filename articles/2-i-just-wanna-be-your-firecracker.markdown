@@ -16,3 +16,5 @@ I've also added a quick RSS feed for the site, if you like that kinda thing ..
 
 #### Twitter Integration
 Someone (i thought it was [Cole Henley](http://twitter.com/cole007) but I can't find the tweet) posted a link on twitter today to a nice little 'repost' link made by jQuery creator John Resig. It's dead simple to pop in (I just did it while typing this), and is pretty cool .. check out his [blog post here](http://ejohn.org/blog/retweet/), and you will see the 'retweet' link below this article. Pretty cool - although I probably could do with tweaking the whitespace it seems to create..
+
+**edit:** I've removed this .. it was a bit pointless, no-one was gonna retweet and also, it slowed down my own js stuff .. meh.
