@@ -4,7 +4,7 @@
 
 I have a bit of a weakness for Ryan Adams, some people agree with me .. others think I've lost my mind.
 
-I don't really care, I love this version of this song (give it a few seconds to start).
+I don't really care, and I love this version of this song (give it a few seconds to start).
 
 <input type="hidden" class="music" value="the-rescue-blues.mp3" />
 
