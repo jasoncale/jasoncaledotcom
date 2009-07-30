@@ -6,7 +6,7 @@ I have a bit of a weakness for Ryan Adams, some people agree with me .. others t
 
 I don't really care, and I love this version of this song (give it a few seconds to start).
 
-<input type="hidden" class="music" value="the-rescue-blues.mp3" />
+[the rescue blues](http://jasoncaleassets.s3-external-3.amazonaws.com/the-rescue-blues.mp3)
 
 Those who know will recognise it off his country pop wonder album [Gold](http://tinyurl.com/59crxu "Wikipedia entry"), but it's a hell of a lot slower, his voice breaks and its all over the place.
 
