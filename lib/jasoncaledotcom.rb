@@ -1,21 +1,9 @@
 require 'active_support/core_ext/date'
 require 'active_support/inflector' 
 require 'rdiscount'
+require 'net/http'
+require 'uri'
 require 'httparty'
-
-# monkey patch HTTParty to use a configurable timeout
-module HTTParty
-  class Request
-    private
-      def http
-        http = Net::HTTP.new(uri.host, uri.port, options[:http_proxyaddr], options[:http_proxyport])
-        http.use_ssl = (uri.port == 443)
-        http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-        http.open_timeout = http.read_timeout = options[:timeout].to_i  if options[:timeout].to_i > 0
-        http
-      end
-  end
-end
 
 module Jasoncaledotcom
 
@@ -176,8 +164,23 @@ module Jasoncaledotcom
     end
     
     class << self
+      
+      def is_up?
+        url = URI.parse("http://twitter.com/statuses/public_timeline.json")
+
+        http = Net::HTTP.new(url.host, url.port)
+        http.read_timeout = 5
+        http.open_timeout = 5
+
+        resp = http.start() {|http|
+          http.get(url.path)
+        }
+
+        return (resp.code =~ /2|3\d{2}/)
+      end
+      
       def latest
-        if (Net::HTTP.get_response(URI.parse("http://twitter.com/statuses/public_timeline.json")).code =~ /2|3\d{2}/)
+        if (is_up?)
           #find latest tweet that doesnt have a @ in it ..
           tweet = get("/statuses/user_timeline.json", :timeout => 100).select {|tweet| (tweet['text'] !~ /^@/) }.first
           tweet = Tweet.new(tweet['id'], tweet['text'], tweet['created_at']) if tweet
