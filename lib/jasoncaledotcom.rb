@@ -3,6 +3,20 @@ require 'active_support/inflector'
 require 'rdiscount'
 require 'httparty'
 
+# monkey patch HTTParty to use a configurable timeout
+module HTTParty
+  class Request
+    private
+      def http
+        http = Net::HTTP.new(uri.host, uri.port, options[:http_proxyaddr], options[:http_proxyport])
+        http.use_ssl = (uri.port == 443)
+        http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+        http.open_timeout = http.read_timeout = options[:timeout].to_i  if options[:timeout].to_i > 0
+        http
+      end
+  end
+end
+
 module Jasoncaledotcom
 
   class Article
@@ -163,9 +177,13 @@ module Jasoncaledotcom
     
     class << self
       def latest
-        #find latest tweet that doesnt have a @ in it ..
-        tweet = get("/statuses/user_timeline.json").select {|tweet| (tweet['text'] !~ /^@/) }.first
-        tweet = Tweet.new(tweet['id'], tweet['text'], tweet['created_at']) if tweet
+        if (Net::HTTP.get_response(URI.parse("http://twitter.com/statuses/public_timeline.json")).code =~ /2|3\d{2}/)
+          #find latest tweet that doesnt have a @ in it ..
+          tweet = get("/statuses/user_timeline.json", :timeout => 100).select {|tweet| (tweet['text'] !~ /^@/) }.first
+          tweet = Tweet.new(tweet['id'], tweet['text'], tweet['created_at']) if tweet
+        else
+          false
+        end
       end
     end
   end
