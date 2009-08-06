@@ -40,10 +40,13 @@
           
           .twitter
             %h3 Read thy tweet
-            -if production? && @tweet
-              %p=@tweet.text
-              %p.tweet_date
-                =link distance_of_time_in_words_to_now(@tweet.created_at) << " ago", tweet_url(@tweet.id), "go to twitter"
+            -if production?
+              -if @tweet
+                %p=@tweet.text
+                %p.tweet_date
+                  =link distance_of_time_in_words_to_now(@tweet.created_at) << " ago", tweet_url(@tweet.id), "go to twitter"
+              -else
+                %p Oh no, it looks like Twitter is down .. whooops!
             -else
               %p Tweets not loaded in development
               
