@@ -169,14 +169,20 @@ module Jasoncaledotcom
         url = URI.parse("http://twitter.com/statuses/public_timeline.json")
 
         http = Net::HTTP.new(url.host, url.port)
-        http.read_timeout = 5
-        http.open_timeout = 5
+        http.read_timeout = 3
+        http.open_timeout = 3
+        
+        begin
+          resp = http.start() {|http|
+            http.get(url.path)
+          }
+          
+          return (resp.code =~ /2|3\d{2}/)
+          
+        rescue (Timeout::Error||Errno::ECONNRESET) => e
+          return false
+        end
 
-        resp = http.start() {|http|
-          http.get(url.path)
-        }
-
-        return (resp.code =~ /2|3\d{2}/)
       end
       
       def latest
