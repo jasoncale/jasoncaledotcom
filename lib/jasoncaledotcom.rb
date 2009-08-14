@@ -6,7 +6,7 @@ require 'uri'
 require 'httparty'
 
 module Jasoncaledotcom
-
+  
   class Article
 
     attr_accessor :title, :body, :post_date, :permalink
