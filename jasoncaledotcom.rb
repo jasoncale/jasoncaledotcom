@@ -25,7 +25,7 @@ before do
     else    
       if !(request.path_info =~ /.css/) 
         @last_fm_tracks = LastFm::Track.recent
-        @tweet = Tweet.latest
+        #@tweet = Tweet.latest
       end
     
       response.headers['Cache-Control'] = 'public, max-age=300'
