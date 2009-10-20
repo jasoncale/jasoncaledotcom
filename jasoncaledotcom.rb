@@ -24,7 +24,7 @@ before do
       redirect "http://#{domain}"
     else    
       if !(request.path_info =~ /.css/) 
-        @last_fm_tracks = LastFm::Track.recent
+        #@last_fm_tracks = LastFm::Track.recent
         #@tweet = Tweet.latest
       end
     
@@ -34,8 +34,13 @@ before do
 end
 
 get '/' do
-  @articles = Article.all
+  #@articles = Article.all
   haml :index
+end
+
+get '/card.css' do  
+  content_type 'text/css', :charset => 'utf-8'
+  sass :card
 end
 
 get '/style.css' do  
