@@ -9,12 +9,13 @@ module Jasoncaledotcom
   
   class Article
 
-    attr_accessor :title, :body, :post_date, :permalink
+    attr_accessor :title, :body, :post_date, :permalink, :meta
 
-    def initialize(title, body, date, permalink)
-      @title = title
-      @body = RDiscount.new(body).to_html
-      @post_date = date
+    def initialize(body, meta, permalink)
+      @title = meta[:title]
+      @body = Haml::Engine.new(body).render
+      @post_date = meta[:date]
+      @meta = meta[:meta]
       @permalink = permalink
     end
     
@@ -36,26 +37,24 @@ module Jasoncaledotcom
     def self.open(filename)
       article = false
       
-      filename << ".markdown" if !(filename =~ /.markdown/)
+      filename << ".yml" if !(filename =~ /.yml/)
       
       if File.exist?(filename)
-        File.open(filename) do |f|
-          title, date, body = parse_data(f.readlines)
-          permalink = to_permalink(remove_ext(File.basename(filename)))
-                    
-          article = Article.new(title, body, date, permalink)
-        end
+        data = YAML.load_file(filename)
+        permalink = to_permalink(remove_ext(File.basename(filename)))
+        
+        article = Article.new(data[:content], data, permalink)
       end
       
       article
     end
     
     def self.remove_ext(name)
-      name.gsub(/.markdown/, '')
+      name.gsub(/.yml/, '')
     end
     
     def self.add_ext(name)
-      name << ".markdown" if !(name =~ /.markdown/)
+      name << ".yml" if !(name =~ /.yml/)
       name
     end
 
@@ -76,18 +75,20 @@ module Jasoncaledotcom
     end
     
     def self.parse_data(lines)
-      title, date, body = "", "", []
+      meta = {}
+      body = []
       
       lines.each do |line|
-        if line =~ /^:meta/
-          title = line.gsub(/:meta:title:\s/, '') if line =~ /:meta:title:/
-          date = Date.parse(line.gsub(/:meta:date:\s/, '')) if line =~ /:meta:date:/
+        if line.match(/:meta:([a-z]+):(.+)/)
+          key, val = $1.to_sym, $2
+          val = Date.parse(val) if key.eql?(:date)
+          meta[key] = val
         else
           body << line
         end
       end
       
-      return title, date, body.join("")
+      return body.join(""), meta
     end
     
     def self.article_files(reset = false)

@@ -4,5 +4,5 @@
 require File.join(File.dirname(__FILE__), 'jasoncaledotcom.rb')
 
 disable :run
-set :env, :production
-run Sinatra.application
+set :environment, :production
+run Sinatra::Application

@@ -5,20 +5,32 @@
     %meta{ :name => "verify-v1", :content => "LMNlM2zu0bV5F2wzWqXN5UCfNHhSPiqLdtByuaEftQo=" }
     %title
       Jason Cale :: Young Delta Heart :: Ruby developer :: UI Designer :: iPhone Developer
-    %link{:rel => "stylesheet", :href => "/card.css", :type => "text/css", :media => "screen", :charset => "utf-8"}
-  %body
-    = yield    
-    -non_haml do
-      <!--[if IE 6]>
-      <script type="text/javascript" src="http://shapeshed.github.com/ie6-notice/ie6notice-1.0.0.min.js"></script>
-      <![endif]-->
-      <script type="text/javascript">
-      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-      </script>
-      <script type="text/javascript">
-      try {
-      var pageTracker = _gat._getTracker("UA-10196028-1");
-      pageTracker._trackPageview();
-      } catch(err) {}
-      </script>
+    %link{:rel => "stylesheet", :href => "/style.css", :type => "text/css", :media => "screen", :charset => "utf-8"}
+    %link{:rel => "alternate", :type => "application/rss+xml", :title => "RSS", :href => "http://#{env['HTTP_HOST']}/rss.xml"}
+    %script{ :src => "/js/jquery.js", :type => "text/javascript", :charset => "utf-8" }
+    %script{ :src => "/js/audio-player.js", :type => "text/javascript", :charset => "utf-8" }
+    %script{ :src => "/js/jshizzle.js", :type => "text/javascript", :charset => "utf-8" }
+    
+    %script{ :src => "http://use.typekit.com/tyb5svm.js", :type => "text/javascript" }
+    %script{ :type => "text/javascript" }
+      try{Typekit.load();}catch(e){}
+      
+    /
+      [if IE]>
+      <style type="text/css">
+      \.clearfix { zoom: 1; }
+      </style>
+      <![endif]
+
+  %body.tk-republic-web
+    #page
+      #masthead
+        .title_wrapper.clearfix
+          %h1 
+            %a{:href => "/", :title => "home"}YOUNG DELTA HEART
+          %h2
+            a freelance web programmer and interface designer. 
+            %strong Yeah I go both ways.
+      #content
+        .main
+          = yield

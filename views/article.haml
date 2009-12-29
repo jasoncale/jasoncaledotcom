@@ -1,9 +1,27 @@
 .article
-  %p.post_date
-    born
-    %strong=article.post_date.strftime("%e %B, %Y")
+  %h2.article_title=article.title
+  
+  %h3.week
+    Week
+    =article.meta[:week]
+  
+  .info_52_articles.clearfix
+  
+    %p
+      This blog is participating in the 
+      %a{:href => "http://project52.info/"}52 articles 
+      challenge. 
 
-  %h3
-    =link article.title, "/articles/#{article.permalink}", "Visit article: #{article.title}" 
+    %p In which I write at least one article per week for an entire year. Blimey.
+
+    %p
+      Elsewhere you can find me on 
+      =succeed(",") do
+        %a{:href => "http://twitter.com/jasoncale", :title => "Beware manic ramblings of an idiot savant"}twitter
+      %a{:href => "http://jaseandtonic.com", :title => "Jase & Tonic Ltd"}hire me solo 
+      or as part of the 
+      =succeed(".") do
+        %a{:href => "http://gofreerange.com", :title => "Web development nirvana"}best team in town
+  
   .article_body
     =article.body

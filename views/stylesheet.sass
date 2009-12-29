@@ -1,18 +1,13 @@
-
-/* 
-  Jasoncale.com
-  First comes Mr Mayer's reset stuff
-  http://meyerweb.com/eric/tools/css/reset/
-  then below that you will find my shit
-
 html
   :margin 0
   :padding 0
   :border 0
   :outline 0
+  :font-weight inherit
+  :font-style inherit
   :font-size 100%
+  :font-family inherit
   :vertical-align baseline
-  :background transparent
 
 
 body
@@ -20,112 +15,88 @@ body
   :padding 0
   :border 0
   :outline 0
+  :font-weight inherit
+  :font-style inherit
   :font-size 100%
+  :font-family inherit
   :vertical-align baseline
-  :background transparent
   :line-height 1
+  :color black
+  :font-family "Cochin", "Times New Roman", serif
+  :font-size 62.5%
+  :background #fcef50 url(http://jaseandtonic.com/i/bg_noise.png)
 
 
-div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p
+div, span, applet, object, iframe
   :margin 0
   :padding 0
   :border 0
   :outline 0
+  :font-weight inherit
+  :font-style inherit
   :font-size 100%
+  :font-family inherit
   :vertical-align baseline
-  :background transparent
 
 
-blockquote
+h1
   :margin 0
   :padding 0
-  :border 0
-  :outline 0
-  :font-size 100%
-  :vertical-align baseline
-  :background transparent
-  :quotes none
+  :color rgb(40, 47, 40)
+  :font-size 10em
+  :font-weight bold
+  :text-transform uppercase
 
-  &:before, &:after
-    :content ''
-    :content none
-
-
-pre, a, abbr, acronym, address, big, cite, code
+h2
   :margin 0
   :padding 0
-  :border 0
-  :outline 0
-  :font-size 100%
-  :vertical-align baseline
-  :background transparent
+  :color rgb(40, 47, 40)
+  :font-size 3.5em
+  :font-weight bold
 
-
-del
+h3, h4, h5, h6, p
   :margin 0
   :padding 0
-  :border 0
-  :outline 0
-  :font-size 100%
-  :vertical-align baseline
-  :background transparent
-  :text-decoration line-through
+  :font-size 2em
 
-
-dfn, em, font, img
+blockquote, pre
   :margin 0
   :padding 0
-  :border 0
-  :outline 0
-  :font-size 100%
-  :vertical-align baseline
-  :background transparent
 
-
-ins
+a
   :margin 0
-  :padding 0
-  :border 0
-  :outline 0
-  :font-size 100%
-  :vertical-align baseline
-  :background transparent
+  :padding 0          
   :text-decoration none
+  :color #ed1a62  
+  
+  &:hover, &:focus
+    :text-decoration underline
+    :background transparent
+  
 
+abbr, acronym, address, big, cite, code, del, dfn
+  :margin 0
+  :padding 0
 
-kbd
+em
+  :margin 0
+  :padding 0
+  :font-style italic
+  :color #bbb
+
+font, img, ins, kbd, q, s, samp, small, strike, sub, sup, tt, var, dl, dt, dd, fieldset, form, label, legend
   :margin 0
   :padding 0
   :border 0
   :outline 0
+  :font-weight inherit
+  :font-style inherit
   :font-size 100%
+  :font-family inherit
   :vertical-align baseline
-  :background transparent
 
-
-q
-  :margin 0
-  :padding 0
-  :border 0
-  :outline 0
-  :font-size 100%
-  :vertical-align baseline
-  :background transparent
-  :quotes none
-
-  &:before, &:after
-    :content ''
-    :content none
-
-
-s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd
-  :margin 0
-  :padding 0
-  :border 0
-  :outline 0
-  :font-size 100%
-  :vertical-align baseline
-  :background transparent
+strong
+  :font-weight bold
 
 
 ol, ul
@@ -133,239 +104,155 @@ ol, ul
   :padding 0
   :border 0
   :outline 0
+  :font-weight inherit
+  :font-style inherit
   :font-size 100%
+  :font-family inherit
   :vertical-align baseline
-  :background transparent
   :list-style none
+  :font-size 2em
+
+  li
+    :margin 0
+    :padding 0
 
 
-li, fieldset, form, label, legend
-  :margin 0
-  :padding 0
-  :border 0
+*:focus
   :outline 0
-  :font-size 100%
-  :vertical-align baseline
-  :background transparent
-
-
-table
-  :margin 0
-  :padding 0
-  :border 0
-  :outline 0
-  :font-size 100%
-  :vertical-align baseline
-  :background transparent
-  :border-collapse collapse
-  :border-spacing 0
-
-
-caption, tbody, tfoot, thead, tr, th, td
-  :margin 0
-  :padding 0
-  :border 0
-  :outline 0
-  :font-size 100%
-  :vertical-align baseline
-  :background transparent
-
-
-* :focus
-  :outline 0
-  
-  
-/* Website styles
-  1. General
-  2. Masthead
-  3. Content
-    3.1 General
-    3.2 Main Column
-    3.3 Sidebar
-  4. Footer 
-  Written by jase, on a sunday night
-
-/* 
-  General
-  
-  Colours:
-    off_white     #fffff9
-    bg_purple     #655b7d
-    mh_purple     #311d60
-    border_black  #1e1b27
-    img_border    #ecebea
-  
-!off_white    = #fffff9
-!bg_purple    = #655b7d
-!mh_purple    = #230f52
-!border_black = #1e1b27
-!img_border   = #ecebea  
-
-/* 1. General Styling
-
-body
-  :background-color = !bg_purple
-  :color white
-  :text-align center
-  :font-size 62.5%
-  :font-family  Helvetica, Arial, sans-serif
-  
   
 #page
-  :width 86em
-  :margin 0 auto
-  :text-align left
-  
-a
-  :color #ff0060
-  :text-decoration none
-  
-a:hover
-  :color white
-  :background #ff0060
+  #masthead
+    :background black
+    :padding 1em 0
+    
+    .title_wrapper
+      :width 960px
+      :margin 0 auto  
+      :-webkit-box-shadow 2px 2px 3px rgba(0, 0, 0, 0.4)
+      :-moz-box-shadow 2px 2px 3px rgba(0, 0, 0, 0.4)
+      :box-shadow 2px 2px 3px rgba(0, 0, 0, 0.4)
 
-/* 2. Masthead
-
-#masthead
-  :padding 0 5em
-  :position relative
-  :height 5.5em
-  :background-color = !mh_purple
-  :border-top 4px solid
-  :border-bottom 5px solid
-  :border-color = !border_black
-  :padding-top 2em
-  
-  h1, h2
-    :font-size 3.6em
-    :font-family "Georgia"
-    :font-weight normal
-  
-    a
-      :text-decoration none
-      :color white
+      h1  
+        :float left
+        :font-size 2em
+        :color #fff
+        :font-weight normal
       
-    a:hover
-      :color #e3e3e3
+        a
+          :color #fff
+      
+          &:hover
+            :text-decoration none
   
-  h2
-    :font-size 1.8em
-    :position absolute
-    :top 1.5em
-    :right 2em
-    
-    
-#content
-  :border-top 4px solid #ccccc7
-  :background = !off_white
-  :padding 4em 5em 2em 5em
-  :color #454545
-    
-  .main
-    :width 48em
-    :float left
-    :margin-right 2em
-    
-    h3
-      :font-size 3.6em
-    
-    p
-      :font-size 1.4em
-      :line-height 1.6em
-      :padding 0.5em 0 0.5em 0
+      h2
+        :font-size 1.5em
+        :color #dac5e4
+        :font-weight normal
+        :width 711px
+        :float right
+      
+        strong
+          :padding-left 1em
+          :color #fff
+          :font-weight normal
         
-      
+  #content
+    :margin 0 auto
+    :padding-bottom 4em
+    :width 960px
+    
     .article
-      :margin 0 0 4em 0
+      :padding-top 5em
       
-      p.post_date
-        :font-size 1.2em
-        :padding 0 0 0.5em 0
+      h2
+        :color #ddd
+      
+      .info_52_articles
+        :padding 10px 20px 0 0
+        :width 220px
+        
+        p
+          :color #dadada
+          :font-size 1.4em
+          :padding-bottom 1em
+          :line-height 1.5em
+          
+      h2.article_title
+        :font-size 6em
+        :float right
+        :width 711px
+        :color #000
+        :line-height 1.1em
+        
+      h3.week
+        :font-size 6em
+        :font-weight normal
+        :width 240px
+        :color #fff
 
       .article_body
-    
-        img
-          :padding 0.5em
-          :background #ecebea
-          :border 1px solid #e6e6e6
-          :width 33.2em
-          :margin-top 0.5em
-          :margin-bottom 0.5em
-          
+        :background white
+        :padding 2em 0
+        :margin-top 2em
+        :-moz-border-radius 6px
+        :-webkit-border-radius 6px
+        
+        h2
+          :color #333
+          :font-weight normal
+          :padding 0.5em 28px
+          :font-size 6em
+        
         h3
-          :font-size 2em
+          :color #444
+          :font-weight normal
+          :padding 1em 28px 0 28px
+          :font-size 3em
           
         h4
-          :margin-top 1em
-          :font-size 1.5em
-
-        h5
-          :margin-top 1em
-          :font-size 1.4em
-          
-        ul
-          :font-size 1.4em
-          :padding 1em
-          :margin-left 1em
+          :font-weight normal
+          :padding 1em 28px 0 28px
+          :font-size 2em
         
-          li
-            :line-height 1.6em
-            :list-style circle
-            :padding-bottom 1em
-            
-    p.twitter_retweet
-      :margin-top 1em
-      :text-align right
-     
-      a:hover
-        :background transparent
-      
-              
-  .sidebar
-    :width 18em
-    :float left
-    :margin-left 1em
-    
-    div
-      :margin-bottom 1em
-    
-      h3
-        :text-transform uppercase
-        :font-size 1.4em
-        :line-height 2em
-      
-      p, li
-        :font-size 1.2em
-        :line-height 1.3em
-              
-    .last_fm
-    
-      a
-
         img
-          :width 5em
-          :background #ecebea
+          :max-width 904px
+          :margin 2em 28px
+          :-webkit-box-shadow 2px 2px 5px rgba(0, 0, 0, 0.2)
+          :-moz-box-shadow 2px 2px 5px rgba(0, 0, 0, 0.2)
+          :box-shadow 2px 2px 5px rgba(0, 0, 0, 0.2)
+          :background #eee
+          :padding 4em
           :border 1px solid #e6e6e6
-          :padding 0.2em
-          :margin 0.1em
-    
-      a:hover
-        :background none
+          :display block
+          
+        img.center
+          :margin 2em auto
         
-    .twitter
-      .tweet_date
-        :padding-top 0.2em
-        :text-align right
+        img.bleed
+          :margin 0 0 2em 0
+          :max-width 960px
+          :border none
+          :-webkit-box-shadow none
+          :-moz-box-shadow none
+          :box-shadow none
+          :padding 0
+          
+        p
+          :font-size 1.4em
+          :padding 0.2em 2em 0.5em 2em
+          :line-height 1.6em
+          :width 50em
+          
+          img
+            :max-width 100%
                 
-    
-#footer
-  :background #000
-  :font-size 13.7em
-  :text-transform uppercase
-  :text-align center
-  :color #454545
-  :font-weight bold
-  :padding 0.5em 0
-    
-.clear
+        
+        
+        
+.clearfix:after
+  :content "."
+  :display block
+  :height 0
   :clear both
+  :visibility hidden
+      

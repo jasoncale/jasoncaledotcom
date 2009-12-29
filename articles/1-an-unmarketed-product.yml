@@ -1,0 +1,31 @@
+:title: | The joy of painting with Ruby: an introduction to ruby-processing.
+:date: Mon Jul 12 21:41:12 +0100 2009
+:meta:
+  :week: 1
+  
+:content: |
+  
+  %h2 This is a heading 2 which is big
+  
+  %img.bleed{:src => "http://farm3.static.flickr.com/2796/4188197770_4017ac3a7c_b.jpg"}
+  
+  %p
+    Jason showed us how to use Processing with Ruby. Processing is an open source programming language for people who want to program images, animations and interaction. It’s written in Java, and is available to Ruby programmers via the ruby-processing gem.
+
+  %p The command you run to launch Processing via ruby-processing is rp5. So if you had some code that described your “art” in a file you could type:
+  
+  %h3 This is a heading three
+
+  %p You can also get rp5 to auto refresh your visualisation, modifying the images as you save new versions of your code:
+
+  %p When you’re done you can create a packaged application (that works on Windows, Linux and Mac):
+  
+  %img.portrait{:src=>"http://img.ffffound.com/static-data/assets/6/780bc3f016989036cb9aa72bbf643ad3fcf5fe0a_m.jpg"}
+  
+  %p It was a very graphical talk, so there’s not a lot I can do to get across the true depth of what rp5 is capable of, but if Ruby Manor videos should become available, definitely check this one out. Here’s the basic layout of a ruby-processing script:
+
+  %h4 subheading
+
+  %p Jason then showed us an example of how to grab a video feed from a web cam and display it in a window. He then modified it with Ruby, overlaying a grid of small ellipses over the top of the image. Downsampling, effectively. Here’s a shot of the camera pointing at the audience:
+    
+  %img.center{:src => "http://www.carolinefabes.com/files/gimgs/4_6-60004.jpg"}
