@@ -250,6 +250,33 @@ ol, ul
           
           img
             :max-width 100%
+            
+        ul, ol
+          :padding-left 1em
+          :margin 0.5em 1em 2em 1em
+          
+          li
+            :font-size 1.4em
+            p
+              :font-size 1em
+        
+        ul
+          :list-style disc
+        
+        ol
+          :padding-left 1.5em
+          :list-style decimal
+          
+        blockquote
+          :display block
+          :padding 2em
+          :font-size 2em
+          :position relative
+          
+          span.source
+            :display block
+            :color red
+            :padding-top 1em
         
 .clearfix:after
   :content "."
