@@ -7,7 +7,7 @@
   
   %h2 This is a heading 2 which is big
   
-  %img.bleed{:src => "http://farm3.static.flickr.com/2796/4188197770_4017ac3a7c_b.jpg"}
+  
   
   %p
     Jason showed us how to use Processing with Ruby. Processing is an open source programming language for people who want to program images, animations and interaction. It’s written in Java, and is available to Ruby programmers via the ruby-processing gem.
@@ -15,8 +15,10 @@
   %p The command you run to launch Processing via ruby-processing is rp5. So if you had some code that described your “art” in a file you could type:
   
   %h3 This is a heading three
-
+  
   %p You can also get rp5 to auto refresh your visualisation, modifying the images as you save new versions of your code:
+    
+  %img.bleed{:src => "http://farm3.static.flickr.com/2796/4188197770_4017ac3a7c_b.jpg"}
 
   %p When you’re done you can create a packaged application (that works on Windows, Linux and Mac):
   
