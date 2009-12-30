@@ -187,10 +187,10 @@ ol, ul
         :font-family "ff-typestar-black-web-1","ff-typestar-black-web-2"
         :padding 1em
         :line-height 1.4em
-        :-moz-border-radius-topright .15em
-        :-webkit-border-top-right-radius .15em
-        :-moz-border-radius-topleft .15em
-        :-webkit-border-top-left-radius .15em
+        :-moz-border-radius-topright 10px
+        :-webkit-border-top-right-radius 10px
+        :-moz-border-radius-topleft 10px
+        :-webkit-border-top-left-radius 10px
 
       .meta
         :background #ededed
@@ -200,7 +200,8 @@ ol, ul
 
       .article_body
         :background white
-        :padding 4em 6em 2em 6em
+        :padding 4em 6em 4em 6em
+        :border-bottom 1px solid #ddd
         
         h2
           :color #333
@@ -278,6 +279,20 @@ ol, ul
             :display block
             :color red
             :padding-top 1em
+            
+    .copyriiiight
+      
+      :font-size 1.3em
+      :padding 2em 0
+      
+      a
+        :background url(http://jaseandtonic.com/i/logo.png) no-repeat
+        :text-indent -3000px
+        :display block
+        :margin 0 auto
+        :width 313px
+        :height 57px
+        
         
 .clearfix:after
   :content "."
