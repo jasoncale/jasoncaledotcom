@@ -6,7 +6,7 @@
     %title
       Jason Cale :: Young Delta Heart :: Ruby developer :: UI Designer :: iPhone Developer
     %link{:rel => "stylesheet", :href => "/style.css", :type => "text/css", :media => "screen", :charset => "utf-8"}
-    %link{:rel => "alternate", :type => "application/rss+xml", :title => "RSS", :href => "http://#{env['HTTP_HOST']}/rss.xml"}
+    / %link{:rel => "alternate", :type => "application/rss+xml", :title => "RSS", :href => "http://#{env['HTTP_HOST']}/rss.xml"}
     %script{ :src => "/js/jquery.js", :type => "text/javascript", :charset => "utf-8" }
     %script{ :src => "/js/audio-player.js", :type => "text/javascript", :charset => "utf-8" }
     %script{ :src => "/js/jshizzle.js", :type => "text/javascript", :charset => "utf-8" }
@@ -29,7 +29,12 @@
           %h1 
             %a{:href => "/", :title => "home"}YOUNG DELTA HEART
           %h2
-            a freelance web programmer and interface designer. 
+            by 
+            =succeed(".") do
+              %a{:href => "http://twitter.com/jasoncale", :title => "Twitter, of course"}Jason Cale
+            Web programmer and interface designer at 
+            =succeed(".") do
+              %a{:href => "http://jaseandtonic.com", :title => "My Company"}Jase &amp; Tonic
             %strong Yeah I go both ways.
       #content
         .main
