@@ -1,13 +1,11 @@
 :title: | The joy of painting with Ruby: an introduction to ruby-processing.
 :date: Mon Jul 12 21:41:12 +0100 2009
 :meta:
-  :week: 1
+  :week: one
   
 :content: |
   
-  %h2 This is a heading 2 which is big
-  
-  
+  %h2 Get your fucking tits out, baby!
   
   %p
     Jason showed us how to use Processing with Ruby. Processing is an open source programming language for people who want to program images, animations and interaction. It’s written in Java, and is available to Ruby programmers via the ruby-processing gem.
