@@ -4,7 +4,11 @@
   %p.meta
     this is week 
     =article.meta[:week] 
-    in 52 articles, an experiment that makes me write an article each week for your pleasure.
+    in 
+    =succeed(",") do
+      %a{:href => "http://project52.info/", :title => "Get down and write your bad self"}project 52
+    
+    an experiment that makes me write an article each week for your pleasure.
     
     
   .article_body
