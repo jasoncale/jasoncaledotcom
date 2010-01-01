@@ -1,6 +1,6 @@
 require 'sinatra/base'
 
-module Sinatra
+module Jase
   module HelpMeOut
     def h(text)
       Rack::Utils.escape_html(text)
@@ -38,8 +38,40 @@ module Sinatra
         from_time = Time.parse(from_time)
       end
       distance_of_time_in_words(from_time, Time.now)
-    end    
-  end
+    end
+    
+    def code_sample(title, file)
+      lines = File.readlines(File.join('public', 'examples', file))
+      
+      haml_tag(:div, :class => 'code_sample') do
+        
+        haml_tag(:h3) do
+          haml_concat title
+          haml_concat link("(download source)", "/examples/#{file}", "Download code")
+        end
+        
+        haml_tag(:ol, {:class => 'code'})  do 
+      
+          lines.each do |line|
+            haml_tag(:li) do
+              code_class = line.match(/(\s+)(.+)/) ? "tab_#{($1.length / 2)}" : ""
+            
+              haml_tag(:code, {:class => code_class }) do
+                haml_concat h(line)
+              end
+            
+            end
+          end
 
-  helpers HelpMeOut
+        end
+      
+      end
+      
+    end
+    
+  end
+end
+
+module Sinatra
+  helpers Jase::HelpMeOut
 end

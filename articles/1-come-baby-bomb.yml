@@ -1,0 +1,12 @@
+:title: | Come baby bomb
+:date: Fri Jan 01 18:03:18 +0000 2010
+:meta:
+  :week: one
+:published: false
+:content: |
+
+  %h2 Start writing article here..
+  
+  %p some
+  
+  -code_sample("Setting up the widget", 'article_1/form.html.txt')

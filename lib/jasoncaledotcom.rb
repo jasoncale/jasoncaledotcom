@@ -5,11 +5,21 @@ require 'net/http'
 require 'uri'
 require 'httparty'
 
+
+require File.join(File.dirname(__FILE__), 'help_me_out')
+
+
+module Haml
+  module Helpers
+    include Jase::HelpMeOut
+  end
+end
+
 module Jasoncaledotcom
   
   class Article
 
-    attr_accessor :title, :body, :post_date, :permalink, :meta
+    attr_accessor :title, :body, :post_date, :permalink, :meta, :published
 
     def initialize(body, meta, permalink)
       @title = meta[:title]
@@ -17,6 +27,11 @@ module Jasoncaledotcom
       @post_date = meta[:date]
       @meta = meta[:meta]
       @permalink = permalink
+      @published = meta[:published]
+    end
+    
+    def published?
+      published.eql?(true)
     end
     
     class << self
@@ -29,9 +44,9 @@ module Jasoncaledotcom
       article_files(reset).size
     end
     
-    def self.all(reset = false)
+    def self.all(reset = false, published = true)
       # remove any falses ..
-      (article_files(reset).map { |filename| Article.open(filename) }).select {|article| article }.reverse
+      (article_files(reset).map { |filename| Article.open(filename) }).select {|article| article && (article.published == published) }.reverse
     end
 
     def self.open(filename)

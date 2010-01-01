@@ -8,8 +8,6 @@ require 'sass'
 require 'builder'
 
 require File.join(File.dirname(__FILE__), 'lib', 'jasoncaledotcom')
-require File.join(File.dirname(__FILE__), 'lib', 'help_me_out')
-
 
 set :public, 'public'
 set :views,  'views'

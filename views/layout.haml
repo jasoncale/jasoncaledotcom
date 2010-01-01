@@ -7,14 +7,11 @@
       Jason Cale :: Young Delta Heart :: Ruby developer :: UI Designer :: iPhone Developer
     %link{:rel => "stylesheet", :href => "/style.css", :type => "text/css", :media => "screen", :charset => "utf-8"}
     %link{:rel => "alternate", :type => "application/rss+xml", :title => "RSS", :href => "http://#{env['HTTP_HOST']}/rss.xml"}
-    %script{ :src => "/js/jquery.js", :type => "text/javascript", :charset => "utf-8" }
-    %script{ :src => "/js/audio-player.js", :type => "text/javascript", :charset => "utf-8" }
-    %script{ :src => "/js/jshizzle.js", :type => "text/javascript", :charset => "utf-8" }
     
     %script{ :src => "http://use.typekit.com/tyb5svm.js", :type => "text/javascript" }
     %script{ :type => "text/javascript" }
       try{Typekit.load();}catch(e){}
-      
+    
     /
       [if IE]>
       <style type="text/css">
@@ -42,7 +39,12 @@
           
         %p.copyriiiight
           %a{:href => "http://jaseandtonic.com", :title => "Fine fine fine stuff."}Made by Jase
-          
+    
+    %script{ :src => "/js/jquery.js", :type => "text/javascript", :charset => "utf-8" }
+    %script{ :src => "/js/audio-player.js", :type => "text/javascript", :charset => "utf-8" }
+    %script{ :src => "/js/jquery.beautyOfCode.js", :type => "text/javascript", :charset => "utf-8" } 
+    %script{ :src => "/js/jshizzle.js", :type => "text/javascript", :charset => "utf-8" }  
+    
     %script{ :type => "text/javascript" }
       var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
       document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
