@@ -9,9 +9,10 @@ namespace :jc do
     else    
       article_name = Article.build_filename(args.title)
       File.open(Article.path(article_name), "w") do |f|
-        f << ":meta:title: #{args.title}\n"
-        f << ":meta:date: #{Time.now.to_s}\n"
-        f << "\n\nStart writing article here"
+        f << ":title: | #{args.title}\n"
+        f << ":date: #{Time.now.to_s}\n"
+        f << ":meta:\n  :some_attribute: value\n"
+        f << ":content: |\n\n  %h2 Start writing article here.."    
       end
     end
   end
