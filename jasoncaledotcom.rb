@@ -20,14 +20,10 @@ before do
   
     if !(env['HTTP_HOST'] =~ /localhost|^#{domain}/)
       redirect "http://#{domain}"
-    else    
-      if !(request.path_info =~ /.css/) 
-        #@last_fm_tracks = LastFm::Track.recent
-        #@tweet = Tweet.latest
-      end
-    
+    else        
       response.headers['Cache-Control'] = 'public, max-age=300'
     end
+    
   end
 end
 
