@@ -1,36 +1,32 @@
-(function($) {
+var app = (function($) {
+  
+  var createLink = function (el, linkText, classNames, append) {
+    
+    if (!linkText) linkText = '';
+    if (!classNames) classNames = ''; 
+    
+    var link = '<a href="#" class="'+ classNames +'">'+ linkText +'</a>';
+    
+    if (append) {
+      el.append(link);
+      return el.find('a:last-child');
+    } else {
+      el.wrap(link);
+      return el.parent();
+    }
+  }
+  
+  function getSisterInput(element) {
+    return $(element).siblings('input:radio, input:checkbox');
+  }
   
   $.fn.extend({
-    
-    createLink: function (linkText, classNames, append) {
-      
-      if (!linkText) linkText = '';
-      if (!classNames) classNames = ''; 
-      
-      var link = '<a href="#" class="'+ classNames +'">'+ linkText +'</a>';
-      
-      if (append) {
-        $(this).append(link);
-        return $(this).find('a:last-child');
-      } else {
-        $(this).wrap(link);
-        return $(this).parent();
-      }
 
-    },
-    
     enableLabelToggle: function(action_callback) {
-      $(this).createLink("", "action").click(function () {
-        // find the input related to label
-        // and define a function to retrieve it for later ..
-        $.fn.extend({
-          input: function () {
-              return $(this).siblings('input:radio, input:checkbox');
-            }
-        })
+      createLink($(this), "", "action").click(function () {
         
-        // create a local reference to it to use now ..
-        var input = $(this).input();
+        // grab related input element ..
+        var input = getSisterInput($(this));
                 
         // is the input checked?
         var selected = !input.attr('checked');
@@ -90,7 +86,11 @@
       return $(this);
     }
 
-  })
+  });
+  
+  return {
+    createLink: createLink
+  }
   
 })(jQuery);
       
@@ -113,7 +113,7 @@
       
       $(this).addClass('js');
       
-      $(this).find('.employee').createLink("options", "toggle_options", true).click(function () {
+      app.createLink($(this).find('.employee'), "options", "toggle_options", true).click(function () {
         
         var link = $(this);
         
