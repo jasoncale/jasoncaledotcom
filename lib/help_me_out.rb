@@ -40,7 +40,7 @@ module Jase
       distance_of_time_in_words(from_time, Time.now)
     end
     
-    def code_sample(title, file)
+    def code_sample(title, file, range = nil)
       lines = File.readlines(File.join('public', 'examples', file))
       
       haml_tag(:div, :class => 'code_sample') do
@@ -50,16 +50,17 @@ module Jase
           haml_concat link("(download source)", "/examples/#{file}", "Download code")
         end
         
-        haml_tag(:ol, {:class => 'code'})  do 
-      
-          lines.each do |line|
+        range = (0..lines.length) if range.nil? || !range.respond_to?(:min)
+        
+        haml_tag(:ol, { :class => 'code', :start => (range.min + 1) })  do 
+          
+          lines[range].each do |line|
             haml_tag(:li) do
               code_class = line.match(/(\s+)(.+)/) ? "tab_#{($1.length / 2)}" : ""
             
               haml_tag(:code, {:class => code_class }) do
                 haml_concat h(line)
               end
-            
             end
           end
 

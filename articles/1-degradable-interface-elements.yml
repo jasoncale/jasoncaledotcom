@@ -1,0 +1,23 @@
+:title: | The fine art of degradable interface elements
+:date: Fri Jan 01 18:03:18 +0000 2010
+:meta:
+  :week: one
+:published: false
+:content: |
+
+  %h2 Start writing article here..
+  
+  %p 
+    sometthing here
+    %code li:hover
+    is eslewhere an experiment that makes me write an article each week for your pleasure. an experiment that makes me write an article each week for your pleasure. an experiment that makes me write an article each week for your pleasure. an experiment that makes me write an article each week for your pleasure.
+  
+  -code_sample("Creating the widget form", 'article_1/example_1.html', 6..32)
+  
+  %pre
+    %code=h '<link rel="stylesheet" href="screen.css" type="text/css" />'
+    
+  -code_sample("Adding some style", 'article_1/screen.css')
+  
+  -code_sample("Add the Javascript", 'article_1/example_2.html', 92..99)
+  

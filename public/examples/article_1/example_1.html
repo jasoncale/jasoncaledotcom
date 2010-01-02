@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <link rel="stylesheet" href="screen.css" type="text/css" media="screen" charset="utf-8">
+  </head>
+  <body>
+    <form action="" method="get">
+      <h2>Employee settings</h2>
+      <ul id="employee_update_settings">
+        
+        <li class="employee">
+          <img src="i/avatar.png" alt="profile image" class="avatar" />
+          <h3>Dave</h3>
+          <ul class="employee_options">
+            <li class="manager">
+              <label for="manager_dave">Manager</label>
+              <input type="radio" id="manager_dave" name="friend[manager][]" value="dave" checked />
+            </li>
+            <li class="assistant">
+              <label for="assistant_dave">Assistant</label>
+              <input type="checkbox" id="assistant_dave" name="friend[assistant][]" value="dave" />
+            </li>
+            <li class="remove">
+              <label for="remove_dave">Sack?</label>
+              <input type="checkbox" id="remove_dave" name="friend[remove][]" value="dave" />
+            </li>
+          </ul>
+        </li>
+      
+        <li class="employee">
+          <img src="i/avatar.png" alt="profile image" class="avatar" />
+          <h3>Sam</h3>
+          <ul class="employee_options">
+            <li class="manager">
+              <label for="manager_sam">Manager</label>
+              <input type="radio" id="manager_sam" name="friend[manager][]" value="sam" />
+            </li>
+            <li class="assistant">
+              <label for="assistant_sam">Assistant</label>
+              <input type="checkbox" id="assistant_sam" name="friend[assistant][]" value="sam" />
+            </li>
+            <li class="remove">
+              <label for="remove_sam">Sack?</label>
+              <input type="checkbox" id="remove_sam" name="friend[remove][]" value="sam" />
+            </li>
+          </ul>
+        </li>
+        
+        <li class="employee">
+          <img src="i/avatar.png" alt="profile image" class="avatar" />
+          <h3>Frank</h3>
+          <ul class="employee_options">
+            <li class="manager">
+              <label for="manager_frank">Manager</label>
+              <input type="radio" id="manager_frank" name="friend[manager][]" value="frank" />
+            </li>
+            <li class="assistant">
+              <label for="assistant_frank">Assistant</label>
+              <input type="checkbox" id="assistant_frank" name="friend[assistant][]" value="frank" />
+            </li>
+            <li class="remove">
+              <label for="remove_frank">Sack?</label>
+              <input type="checkbox" id="remove_frank" name="friend[remove][]" value="frank" />
+            </li>
+          </ul>
+        </li>
+      
+        <li class="employee">
+          <img src="i/avatar.png" alt="profile image" class="avatar" />
+          <h3>John</h3>
+          <ul class="employee_options">
+            <li class="manager">
+              <label for="manager_john">Manager</label>
+              <input type="radio" id="manager_john" name="friend[manager][]" value="john" />
+            </li>
+            <li class="assistant">
+              <label for="assistant_john">Assistant</label>
+              <input type="checkbox" id="assistant_john" name="friend[assistant][]" value="john" />
+            </li>
+            <li class="remove">
+              <label for="remove_john">Sack?</label>
+              <input type="checkbox" id="remove_john" name="friend[remove][]" value="john" />
+            </li>          
+          </ul>
+        </li>
+        
+      </ul>
+      <input type="submit" value="Save changes" />
+    </form>
+  </body>
+</html>

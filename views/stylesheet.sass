@@ -358,7 +358,32 @@ ol, ul
           li:hover
             :background #111
             :color green
+        
+        pre
+          :font-size 1.4em
+          :line-height 1.6em
+          :color #ccc
+          :background black
+          :padding 1em 5em
+          :-webkit-box-shadow 0.1em 0.1em 0.4em rgba(0, 0, 0, 0.3)
+          :-moz-box-shadow 0.1em 0.1em 0.4em rgba(0, 0, 0, 0.3)
+          :box-shadow 0.1em 0.1em 0.4em rgba(0, 0, 0, 0.3)
+          -webkit-transition-property: color, background
+          -webkit-transition-duration: 0.5s, 0.5s
+          
+          code
+            :font-size 1.1em
             
+        pre:hover
+          :background #111 
+          :color green
+          
+        p
+          code
+            :padding 0.5em 0.5em
+            :color #ccc
+            :background #2f2f2f
+        
     .notice        
       :background black
       :color #ddd
@@ -373,7 +398,6 @@ ol, ul
       p
         :font-size 1.4em
         :padding 1em
-        
         
     .copyriiiight
       
