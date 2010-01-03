@@ -7,4 +7,8 @@ $(document).ready(function() {
     AudioPlayer.embed($(this).attr("id"), {soundFile: $(this).attr('href')}); 
   });
 
+  $('code.eval').click(function () {
+    eval($(this).html());
+  })
+
 });

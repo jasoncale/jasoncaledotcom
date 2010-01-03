@@ -380,9 +380,18 @@ ol, ul
           
         p
           code
-            :padding 0.5em 0.5em
+            :padding 0.3em 0.5em
             :color #ccc
             :background #2f2f2f
+        
+        code.eval
+          :cursor pointer
+          :color inherit
+          -webkit-transition-property: color
+          -webkit-transition-duration: 0.5s
+          
+          &:hover
+            :color #ed1a62
         
     .notice        
       :background black

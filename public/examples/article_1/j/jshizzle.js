@@ -1,7 +1,23 @@
 var app = (function($) {
+    
+  // createLink() is a utility to wrap or append an element
+  // with a link .. usually to add behaviour to a bit of markup.
+  // 
+  // it will return a jQuery reference to the newly created element
+  // so it can be chained or have events bound to it.
+  // 
+  // createLink($('span')).click(function () { $(this).hide() });
+  // 
+  // passing in linkText, classNames will put those onto the link
+  // 
+  // and passing a boolean to append will append the link to the 
+  // element passed into the function instead of wrapping it.
+  // 
+  // NOTE: I'm saving a reference to createLink so I can return
+  // it outside of the wrapper, and use it elsewhere in the 
+  // application, whilst encapsulating its magic.
   
   var createLink = function (el, linkText, classNames, append) {
-    
     if (!linkText) linkText = '';
     if (!classNames) classNames = ''; 
     
@@ -134,3 +150,7 @@ var app = (function($) {
   });
   
 })(jQuery);
+
+$(document).ready(function () {
+  $('#employee_update_settings').employeeWidget();
+});

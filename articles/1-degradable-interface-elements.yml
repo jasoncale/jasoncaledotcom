@@ -5,7 +5,7 @@
 :published: false
 :content: |
 
-  %h2 Overview
+  %h2 What is the problem?
   
   %p When working on a web application, you will ultimately have to deal with prefrences, settings or controls to allow your users to modify the application behaviour. The simple route is to create a separate page to house these options, with a table or list of form elements representing the user's settings.
 
@@ -45,7 +45,15 @@
 
   %p Hopefully you want to know how to create this, and as luck has it I'm going to try and show you.
 
-  %p First comes the markup, the best place to start really, as it will inform what you can and cant do. Here is a selection of the most important bits, you can download the source to view the html in its entirety.
+  
+  %h4 Building the form.
+  %p 
+    First comes the markup, the best place to start really, as it will inform what you can and cant do. Here is a selection of the most important bits, you can always view source on the 
+    =succeed(',') do
+      =link("example", '/examples/article_1/example_1.html', "view example script")
+    which you can also access by clicking on 
+    =link("download source", '/examples/article_1/example_1.html', "view example script")
+    in the code block.
 
   -code_sample("Creating the widget form", 'article_1/example_1.html', 6..32)
 
@@ -57,5 +65,76 @@
 
   %p Yawnsville is just around the corner, so lets divert our attention to the heart of the matter. The javascript that turns this rather timid little form into a man with it's own little bit of Mick Jagger swagger.
 
-  %p If you are a sadist, you can have a look at the <full source here> but baby steps is the way we like to work, so lets start small.
+  %p 
+    If you are a sadist, you can have a look at the 
+    =link("full source here", "/examples/article_1/j/jshizzle.js", "View the javascript")
+    but baby steps is the way we like to work, so lets break it down a little and look at a few techniques used in the script, which should make things a little clearer.
 
+  %h3 Wrapping up your code to keep it warm.
+  %p Your code is special, so don't just leave it lying round where it could get into trouble. Where possible you should try to encapsulate and there are javascript idioms that allow you to do just that.
+  
+  %p
+    %pre 
+      %code (function ($) { ... })(jQuery); // useful for encapsulating a reference to jQuery
+  
+  %p This is the big one that I use for creating a sealed block of code which has a reference to jQuery into passed into to it when initialised for use throughout the library. 
+  
+  %p For a simple demonstration of what this does, consider following snippet:
+  
+  %p
+    %pre 
+      %code.eval (function (name) { alert("Hello from " + name); })("Jase")
+  
+  %h4 See for yourself
+  %p If you have a browser with a javascript console enabled (for instance firebug or safari with the developer bar enabled) you can copy in the following snippet into the console and it will define a function, and then execute it with whatever you pass into it in the second pair of parenthesis. Alternately you can just click on the snippet above as I've bound it to execute the same script, and hopefully you should see an alert.
+  
+
+  %h4 Back to jQuery    
+  %p This idiom is used a lot with jQuery as it allow you to pass in a reference to jQuery into your own closures, which also allows you to use the dollar notation throughout your code library, without worrying about conflicts if another library is introduced application that also happens to use the dollar notation (prototype.js for example).
+  
+  %p
+    %pre 
+      %code (function ($) { $('.div').show(); })(jQuery);
+          
+
+  %h3 Writing utility functions
+  
+  %p Once you start writing an real length of script, you are going to start repeating yourself. Which is fine whilst you are playing around, but if you have any plans to keep that script around for longer than an afternoon you had better start refactoring.
+  
+  %p Even in this little example, I've created two utility functions that encapsulate a little of bit of code that I need to execute over and over in the body of the main script.
+  
+  -code_sample("Create link helper", 'article_1/j/jshizzle.js', 15..32)
+  
+  %p 
+    As you can hopefully see 
+    %code createLink()
+    is a utility to wrap or append an element
+    with a link .. usually to add behaviour to a bit of markup.
+
+  %p It will return a jQuery reference to the newly created element so it can be chained or have events bound to it, like so:
+
+  %p
+    %pre 
+      %code createLink($('span')).click(function () { $(this).hide() });
+
+  %p 
+    Passing in strings to
+    %code linkText
+    and 
+    %code classNames 
+    as parameters will place their values into the link html and a boolean to 
+    %code append 
+    will somewhat expectedly append the link to the element passed into the function instead of wrapping it.
+
+  -code_sample("Sister input", 'article_1/j/jshizzle.js', 34..36)
+  
+  %p 
+    The
+    %code getSisterInput()
+    function is a little contrived, but these two approaches allow you to create helper methods within your application without polluting the object space, and by creating a reference to 
+    %code createLink
+    we return a reference to be used in other parts of the application too.
+    
+  %p As we move onto the widget details, you will see these functions get used, and hopefully you will see their use in context.
+    
+  
