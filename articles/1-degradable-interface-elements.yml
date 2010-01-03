@@ -5,19 +5,57 @@
 :published: false
 :content: |
 
-  %h2 Start writing article here..
+  %h2 Overview
   
+  %p When working on a web application, you will ultimately have to deal with prefrences, settings or controls to allow your users to modify the application behaviour. The simple route is to create a separate page to house these options, with a table or list of form elements representing the user's settings.
+
+  %p However as applications get more complex, and the user interaction becomes more context heavy you may find that separating your preferences outside of the user flow becomes a hiderence to the user experience.
+
+  %p Your users are frustrated, and your client is too, your answer is to place the controls in an accessible place within the user interaction flow.
+
+  %p Perhaps you already have the form working on a separate page, so pulling that html into an overlay isnt too hard. You already have a link to the settings within the page you need to incorperate with, so with a bit of javascript you can modify that link to activate your overlay providing a nice enhancement to the user.
+
+  %p (If the above statement sounds like it really is too hard, send me an email or message me on twitter about it and I'll write something up for that also)
+
+  %p Overlays are fine, but when you have an interface that has multiple setting, or preference modifiers it starts to behave like a jack-in-a-box orgy.
+
+  %p Complex inline interface elements, provide you with an excellent opportunity to allow the user to modify complex settings via a simple interface, and one that shouldn't get in the way of the user flow. An example of this that I'm going to cover is take from an application that I designed and built for a startup called ideapi.
+
+  %p The project is in private beta, so I can't give too much away but a user can author briefs, and to manage how their contacts work interact with the brief we needed a way to allow the brief owner to manage this.
+
+  %p The following video provide a quick overview of solution I came up with:
+
+  %p VIDEO HERE
+
+  %p As you can I have encapsulated a number of fairly complex relationships within a simple interface, which allows the user to quickly update their preferences and get back to what they were doing without breaking flow.
+
+  %p Whilst the interface uses javascript and ajax to enhance the experience, if you take these away you will find an widely accessible form element behind it that will allow the user to make the same modifications no matter what their browsing experience is, which is just the way I like it.
+
+  %p picture of the form element without js
+
+  %p Now you have a bit of background on what we are trying to achive lets dive in and get started. Because this article is inevitably going to get a bit code heavy, I'm going to assume that you know all about html, css and basic jQuery. If you don't, well bare with me as I'm sure you will get something out of reading on.
+
+  %h3 The working example.
+  %p For our example application, we need a way of managing our employees. They are rambuncious lot so we shift around the roles quite a lot to keep things interesting. To do this we have created an interface element not unlike the one featured in ideapi.
+
   %p 
-    sometthing here
-    %code li:hover
-    is eslewhere an experiment that makes me write an article each week for your pleasure. an experiment that makes me write an article each week for your pleasure. an experiment that makes me write an article each week for your pleasure. an experiment that makes me write an article each week for your pleasure.
-  
+    You can see the finished article
+    =succeed('.') do
+      %a{:href => "/examples/article_1/example_2.html"}here
+
+  %p Hopefully you want to know how to create this, and as luck has it I'm going to try and show you.
+
+  %p First comes the markup, the best place to start really, as it will inform what you can and cant do. Here is a selection of the most important bits, you can download the source to view the html in its entirety.
+
   -code_sample("Creating the widget form", 'article_1/example_1.html', 6..32)
-  
-  %pre
-    %code=h '<link rel="stylesheet" href="screen.css" type="text/css" />'
-    
-  -code_sample("Adding some style", 'article_1/screen.css')
-  
-  -code_sample("Add the Javascript", 'article_1/example_2.html', 92..99)
-  
+
+  %p I've also added the basic CSS for the form, which lays out the form as it would look to any poor soul without javascript enabled or available.
+
+  %p Here is a snapshot of the action, with a link for you to peruse the full thing.
+
+  -code_sample("Adding some style", 'article_1/screen.css', 22..45)
+
+  %p Yawnsville is just around the corner, so lets divert our attention to the heart of the matter. The javascript that turns this rather timid little form into a man with it's own little bit of Mick Jagger swagger.
+
+  %p If you are a sadist, you can have a look at the <full source here> but baby steps is the way we like to work, so lets start small.
+
