@@ -7,39 +7,52 @@
 
   %h2 What is the problem?
   
-  %p When working on a web application, you will ultimately have to deal with prefrences, settings or controls to allow your users to modify the application behaviour. The simple route is to create a separate page to house these options, with a table or list of form elements representing the user's settings.
+  %p When working on a web application, you will ultimately have to deal with preferences, settings or controls to allow your users to modify the application behaviour. The simple route is to create a separate page to house these options, with a table or list of form elements representing the user's settings.
 
-  %p However as applications get more complex, and the user interaction becomes more context heavy you may find that separating your preferences outside of the user flow becomes a hiderence to the user experience.
+  %p However as applications get more complex, and the user interaction becomes more context heavy you may find that separating your preferences outside of the user flow becomes a hinderance to the user experience.
 
   %p Your users are frustrated, and your client is too, your answer is to place the controls in an accessible place within the user interaction flow.
 
-  %p Perhaps you already have the form working on a separate page, so pulling that html into an overlay isnt too hard. You already have a link to the settings within the page you need to incorperate with, so with a bit of javascript you can modify that link to activate your overlay providing a nice enhancement to the user.
+  %p Perhaps you already have the form working on a separate page, so pulling that html into an overlay isn't too hard. You already have a link to the settings within the page you need to incorporate with, so with a bit of javascript you can modify that link to activate your overlay providing a nice enhancement to the user.
 
   %p (If the above statement sounds like it really is too hard, send me an email or message me on twitter about it and I'll write something up for that also)
 
   %p Overlays are fine, but when you have an interface that has multiple setting, or preference modifiers it starts to behave like a jack-in-a-box orgy.
 
-  %p Complex inline interface elements, provide you with an excellent opportunity to allow the user to modify complex settings via a simple interface, and one that shouldn't get in the way of the user flow. An example of this that I'm going to cover is take from an application that I designed and built for a startup called ideapi.
+  %img.bleed{:src => "http://farm3.static.flickr.com/2776/4246537388_4991871407_o.jpg", :alt => "Early interface sketch"}
+  
+  %h3 Getting inline
+  
+  %p 
+    Complex inline interface elements, provide you with an excellent opportunity to allow the user to modify complex settings via a simple interface, and one that shouldn't get in the way of the user flow. An example of this that I'm going to cover is take from an application that I designed and built for a startup called
+    =succeed('.') do
+      =link("ideapi", "http://jaseandtonic.com/the-work")
 
-  %p The project is in private beta, so I can't give too much away but a user can author briefs, and to manage how their contacts work interact with the brief we needed a way to allow the brief owner to manage this.
+  %p The project is still in development, so I can't give too much away but we needed a way to allow a user to manage collaborators on a brief proposal.
 
-  %p The following video provide a quick overview of solution I came up with:
+  %p The following video provide a quick overview of solution I'm currently implementing:
 
-  %p VIDEO HERE
+  %p.screenr
+    <object classid='clsid:d27cdb6e-ae6d-11cf-96b8-444553540000' codebase='http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,115,0' width='560' height='345'><param name='movie' value='http://screenr.com/Content/assets/screenr_1116090935.swf' /><param name='flashvars' value='i=37293' /><param name='allowFullScreen' value='true' /><embed src='http://screenr.com/Content/assets/screenr_1116090935.swf' flashvars='i=37293' allowFullScreen='true' width='560' height='345' pluginspage='http://www.macromedia.com/go/getflashplayer'></embed></object>
+
 
   %p As you can I have encapsulated a number of fairly complex relationships within a simple interface, which allows the user to quickly update their preferences and get back to what they were doing without breaking flow.
 
   %p Whilst the interface uses javascript and ajax to enhance the experience, if you take these away you will find an widely accessible form element behind it that will allow the user to make the same modifications no matter what their browsing experience is, which is just the way I like it.
 
-  %p picture of the form element without js
+  %img{:src => "http://farm3.static.flickr.com/2682/4246587372_7b52ac2d5e_o.jpg", :alt => "form without js enabled"}
+  
 
-  %p Now you have a bit of background on what we are trying to achive lets dive in and get started. Because this article is inevitably going to get a bit code heavy, I'm going to assume that you know all about html, css and basic jQuery. If you don't, well bare with me as I'm sure you will get something out of reading on.
+  %p Now you have a bit of background on what we are trying to achieve lets dive in and get started. Because this article is inevitably going to get a bit code heavy, I'm going to assume that you know all about html, CSS and basic jQuery. Even if you don't, maybe bare with me as I'm sure you will get something out of reading on.
 
   %h3 The working example.
-  %p For our example application, we need a way of managing our employees. They are rambuncious lot so we shift around the roles quite a lot to keep things interesting. To do this we have created an interface element not unlike the one featured in ideapi.
+  %p 
+    For our example application, we need a way of managing our employees. They are rambunctious lot so we shift around the roles quite a lot to keep things interesting. To do this we have created an interface element not unlike the one featured in 
+    =succeed('.') do
+      =link("ideapi", "http://jaseandtonic.com/the-work")
 
   %p 
-    You can see the finished article
+    You can see the finished example
     =succeed('.') do
       %a{:href => "/examples/article_1/example_2.html"}here
 
@@ -109,7 +122,7 @@
     As you can hopefully see 
     %code createLink()
     is a utility to wrap or append an element
-    with a link .. usually to add behaviour to a bit of markup.
+    with a link .. usually to add behaviour a document element.
 
   %p It will return a jQuery reference to the newly created element so it can be chained or have events bound to it, like so:
 
@@ -117,6 +130,9 @@
     %pre 
       %code createLink($('span')).click(function () { $(this).hide() });
 
+  %p Which will find any span elements, wrap them in a link, which when clicked will hide the link and its descendants (the original span element).
+
+  %h4 Optional extras
   %p 
     Passing in strings to
     %code linkText
@@ -131,10 +147,177 @@
   %p 
     The
     %code getSisterInput()
-    function is a little contrived, but these two approaches allow you to create helper methods within your application without polluting the object space, and by creating a reference to 
+    function is a little contrived, but these two approaches allow you to create helper methods within your application without polluting the overall object space, and by creating a reference to 
     %code createLink
     we return a reference to be used in other parts of the application too.
     
+  %p You can see where I do this a little further down the script, which I've included below .. But you may have to look at that line in context if you want to get the full gist.
+    
+  -code_sample("Returning created methods to the outside world", 'article_1/j/jshizzle.js', 117..120)
+    
   %p As we move onto the widget details, you will see these functions get used, and hopefully you will see their use in context.
     
+  %h3 An earnest jQuery plugin
+  %p Our widget is a standalone bit of code that we want to attach to our list of employees. If you have used jQuery for any length of time, chances are you have used a jQuery plugin or at least the functional level at which they operate. It goes a little bit like this:
+    
+  %p
+    %pre
+      %code $('#employee_update_settings').employeeWidget();
+
+  %p 
+    Hopefully the above looks like something you have seen before, basically we want to encapsulate our behaviour into a nice one-liner to use inside the usual
+    %code $(document).ready()
+    setup when writing jQuery. It also means we can hide the real meat away into a separate file should we wish, and not scare off any of those 'real designers' with our terribly dreary code. Not to mention refactoring it enough so we could use it across multiple projects!
   
+  %h4 Defining a plugin
+  
+  %p A plugin is just a function that you apply to the jQuery api, which is basically a fancy way of saying this:
+  
+  %p
+    %pre
+      %code $.fn.pluginName = function () { ... } ;
+      
+  %p A practical example below shows how you could create a plugin that when applied to an element, clicking said element would fade it out. 
+  
+  -code_sample("Simple jQuery plugin", 'article_1/j/simple_plugin.js')
+    
+  %h4 Our example
+  %p 
+    Taking what we have just learned, look at the following code. It is the main part of the script which transforms the employee widget into the final version, with a little help from our custom helper methods (some of which we are yet to cover), it makes sense it you can see how we bind the different events and animations onto the elements within the employee widget.
+    
+  %p 
+    You will notice that I'm using 
+    %code $.fn.extend( { pluginName: function .. })
+    instead of 
+    %br
+    %code $.fn.pluginName = function () {}
+    when defining the plugin. It is essentially the same thing, but for more information on the extend method you should consult the     
+    =succeed('.') do
+      =link("jQuery documentation", 'http://docs.jquery.com/Utilities/jQuery.extend', "Read about extending objects")
+
+  
+  -code_sample("The employee widget plugin", 'article_1/j/jshizzle.js', 138..190)
+  
+  %p
+    Once you have digested the above, and if you are struggling try to read the code line by line, breaking it down they are simple jQuery statements in isolation. 
+
+  %p 
+    However the following functions you won't have come across yet 
+    %code enableLabelToggle()
+    ,
+    %code employeeManagerCallback()
+    ,
+    %code employeeAssistantCallback()
+    and 
+    %code employeeRemoveCallback()
+    which can be found in the final three lines of the plugin above.
+  
+  -code_sample("The employee widget plugin", 'article_1/j/jshizzle.js', 176..178)
+  
+  %h4 Taking a lowly label &amp; making it shine.
+  %p We want our widget to control the form that is submitted to our application, so whatever fancy ui elements we can think up will ultimately have to be translated onto the form inputs underneath.
+  
+  %p 
+    The first function we need to implement to do this is the 
+    %code enableLabelToggle()
+    a somewhat dubious function name, nevertheless it's principal role is taking a form label and turning it into the toggle links we see in the 
+    =succeed('.') do
+      =link("final example", '/examples/article_1/example_2.html', "View finished example")
+      
+  %p Here is the code (I can see you are getting into this now):
+    
+  -code_sample("Making labels rock", 'article_1/j/jshizzle.js', 38..115)
+  
+  %p 
+    A quick summary of what is happening in our
+    %code enableLabelToggle()
+    function:
+  
+  %ol
+    %li 
+      %p Wrap the label in a link and define the onclick function*.
+    %li 
+      %p Create a reference to the input we want to toggle.
+    %li 
+      %p Find out if the input is currently selected / checked.
+    %li 
+      %p Apply rules to figure out if we can toggle the input.
+    %li 
+      %p If so, we toggle the input, and update the link.
+    %li
+      %p If the input is a radio element, we update all radio links.
+    %li 
+      %p Fire the link callback that is passed into the function
+    %li
+      %p Listen for any input changes (catching any initial states) and to update the links as they happen.
+    
+    
+    
+    
+  %p * Yes we could bind the function straight onto the label, but I'm sure that isn't as accessible?
+  
+  %h3 Defining the callbacks
+  
+  %p The final piece of the puzzle, is what makes the widget actually useful and I've left it out for you to define in your own application. This is where you fire some ajax call off to update the backend, and then probably update the widget with a result. It is where your widget becomes alive.
+  
+  %p Here are the callbacks as defined in our example:
+    
+  -code_sample("Separating out functionality with callbacks", 'article_1/j/jshizzle.js', 126..136)
+  
+  %p You should be able to match up what you see in the code to what happens when you click on any of the actions - check your console to see the messages being output (I previously had alerts but I think they detract from the overall experience of the widget example).
+  
+  %h4 Why use callbacks?
+  %p The reason why I've separated each function out into a callback, is the <strong>manager</strong>, <strong>assistant</strong> and <strong>remove</strong> actions are undoubtably doing different things.
+  
+  %p 
+    We could very easily define an ajax request (or whatever the action does) inside of 
+    %code enableLabelToggle()
+    but it would start getting unwieldy and lose focus if we had lots of different actions all with individually defined behaviour.
+    We would also have to check what type of action has occurred (i.e. remove) whereas when we bind the 
+    %code employeeRemoveCallback()
+    to all labels that are associated with the remove input elements
+    (
+    %code .employee_options li.remove label
+    )
+    we are are removing the need to do this. Using callbacks promotes cleaner code and provides us with greater flexibility and perhaps most important of all it increases readability.
+  
+  %h3 Adding style to our behavioural additions.
+  %p You may remember in our widget plugin, we added a class to our employee list called 'js' which we can use to hook additional CSS declarations onto once the javascript has been attached. You can see these at the bottom of the stylesheet linked to the example page, but here is a quick snapshot of some of the additions to the CSS.
+  
+  -code_sample("Uprating our widget", 'article_1/screen.css', 107..138)
+  
+  %h4 Wrapping up
+  %p So there you have it, all the elements needed to create a degradable interface elements that not only enhance the user experience but also degrade gracefully for less able devices.
+      
+  %h3 Hang on a minute.
+  %p 
+    You may think that we have written a hell of a lot of code to achieve what could be argued as something that does very little? Should you say:
+    
+  %blockquote 
+    Surely Jase, this is why the jQuery UI project exists?! 
+    %span.source - A frustrated designer
+  %p Well yes, you can get away with the crafty one-liners we all love but sometimes they just don't exist, or you end up writing boat loads of bridge code just to get it working the way you need. I'd probably say:
+  
+  %blockquote 
+    You need to make something bespoke, baby.
+    %span.source - A wily Jase
+  
+  %p In reality once you get to grips with jQuery internals, you will be writing these kind of enhancements a dime a dozen. You will also find that you can write a really complex yet elegant interface elements in 100 lines that would normally take you five or ten times that with vanilla javascript. Best of all, its 100% degradable and unobtrusive so it makes everybody happy.
+  
+  %h3 Thanks for reading
+  %p This has been my first article (of 52 this year), and I hope it wasn't too overwhelming and you could get through it fairly easily (extra well done if you got this far without skipping!).
+  
+  %p
+    Any comments feel free to 
+    =succeed(",") do
+      =link("send me an email", "mailto:jase@jaseandtonic.com")
+    or message me on 
+    =link("twitter", "http://twitter.com/jasoncale", "Follow me on twitter")
+    and I'll try to respond.
+  
+  %h3 Want something similar on your project? 
+  %p
+    =link("I'm for hire", "http://jaseandtonic.com", "Jase &amp; Tonic Ltd") 
+    and also available as part of the 
+    =succeed('.') do
+      =link("best team in town", "http://gofreerange.com", "Go FreeRange")

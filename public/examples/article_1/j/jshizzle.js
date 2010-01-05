@@ -41,18 +41,22 @@ var app = (function($) {
     enableLabelToggle: function(action_callback) {
       createLink($(this), "", "action").click(function () {
         
-        // grab related input element ..
+        // grab related input element .. using our lovely
+        // little utility method.
         var input = getSisterInput($(this));
                 
-        // is the input checked?
+        // is the input checked? - (try it in the console)
         var selected = !input.attr('checked');
         
-        // we can add some behavioural rules here...
+        // now we add some behavioural rules ...
         var canChange = true;
         
         // make sure we don't uncheck any radio buttons that are selected
         if (input.attr('type') == "radio" && input.attr('checked')) canChange = false;
         
+        // we add more later, lets stay agile and all that ..
+        
+        // if all our rules passed, we are good to make the change.
         if (canChange) {
           // toggle the link's class name depending on input state
           $(this).toggleClass('selected', selected);
@@ -73,9 +77,15 @@ var app = (function($) {
           };
         };
         
+        // call the function passed into enableLabelToggle
+        // using apply to make any references to 'this'
+        // inside the callback function point to this link.
         action_callback.apply($(this));
 
+        // return false, so it doesn't do anything else.
         return false;
+        
+        //next we loop through each matching label, and apply the following:
       }).each(function () {
         
         // we also want to catch any change
@@ -99,11 +109,13 @@ var app = (function($) {
         
       });
       
+      // return $(this) so we can chain the method should we wish.
       return $(this);
     }
 
   });
   
+  // return our helper method so it can be used outside of this closure.
   return {
     createLink: createLink
   }
@@ -124,29 +136,48 @@ var app = (function($) {
     $(this).parents().filter('.employee').fadeOut();
   }
   
+  // Here I'm using $.fn.extend to add my functions to the jQuery
+  // api, this is just a different way to defining a plugin action
+  // but has the same effect of doing
+  //  
+  // $.fn.employWidget = function () {}
+  //
+  
   $.fn.extend({
     employeeWidget: function () {
-      
+      // add the js class to the element, so we can
+      // do specific css to javascript users
       $(this).addClass('js');
       
+      // you can see we are using app.createLink() a reference to
+      // our utility class outside of its own closure.
       app.createLink($(this).find('.employee'), "options", "toggle_options", true).click(function () {
-        
+        // grab a reference to the toggle link
         var link = $(this);
         
-        $(this).siblings('.employee_options').slideToggle('slow', function () {          
+        //toggle the options table up and down
+        $(this).siblings('.employee_options').slideToggle('slow', function () {
+          // once the slideToggle has finished, work out whether to add
+          // the selected class to the options link .. if the options block
+          // has the css display property of 'block' we know that it is visible
           link.toggleClass('selected', ($(this).css('display') == "block"));
         });
         
+        // always make the link active when it is clicked
+        // to provide instant feedback to the user (it will update
+        // once the slideToggle animation has finished)
         link.toggleClass('selected', true);
         
+        // finally we hide the employee options, 
+        // so they are hidden when the page loads
       }).siblings('.employee_options').hide();
     
+      // apply our enableLabelToggle to each label in the options list, passing in
+      // the relevant callback to fire once it is clicked
       $(this).find('.employee_options li.manager label').enableLabelToggle(employeeManagerCallback);
       $(this).find('.employee_options li.assistant label').enableLabelToggle(employeeAssistantCallback);
       $(this).find('.employee_options li.remove label').enableLabelToggle(employeeRemoveCallback);
-  
     }
-  
   });
   
 })(jQuery);
