@@ -58,8 +58,10 @@ module Jase
             haml_tag(:li) do
               code_class = line.match(/(\s+)(.+)/) ? "tab_#{($1.length / 2)}" : ""
               
-              code_class << " comment" if line.match(/^\s*(#|\/{2})/)
-                
+              if File.extname(file).match(/rb|js/) 
+                code_class << " comment" if line.match(/^\s*(#|\/{2})/)
+              end
+              
               haml_tag(:code, {:class => code_class }) do
                 haml_concat h(line)
               end

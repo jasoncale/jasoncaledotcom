@@ -28,8 +28,10 @@ before do
 end
 
 get '/' do
-  #@articles = Article.all
+  # #@articles = Article.all
   haml :index
+  
+  # redirect 'articles/1-degradable-interface-elements'
 end
 
 get '/card.css' do  
