@@ -90,7 +90,7 @@
     %pre 
       %code (function ($) { ... })(jQuery); // useful for encapsulating a reference to jQuery
   
-  %p This is the big one that I use for creating a sealed block of code which has a reference to jQuery into passed into to it when initialised for use throughout the library. 
+  %p This is the technique that I use for creating a sealed block of code which needs access to jQuery. So I pass a reference to jQuery as a parameter when the function is initialised for use throughout the library.
   
   %p For a simple demonstration of what this does, consider following snippet:
   
