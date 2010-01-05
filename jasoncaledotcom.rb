@@ -29,9 +29,9 @@ end
 
 get '/' do
   # #@articles = Article.all
-  haml :index
+  # haml :index
   
-  # redirect 'articles/1-degradable-interface-elements'
+  redirect 'articles/1-degradable-interface-elements'
 end
 
 get '/card.css' do  

@@ -11,38 +11,36 @@
 
   %p However as applications get more complex, and the user interaction becomes more context heavy you may find that separating your preferences outside of the user flow becomes a hinderance to the user experience.
 
-  %p Your users are frustrated, and your client is too, your answer is to place the controls in an accessible place within the user interaction flow.
+  %p Your users are frustrated, and your client is too. Your answer is to place the controls in an accessible place within the user interaction flow.
 
-  %p Perhaps you already have the form working on a separate page, so pulling that html into an overlay isn't too hard. You already have a link to the settings within the page you need to incorporate with, so with a bit of javascript you can modify that link to activate your overlay providing a nice enhancement to the user.
+  %p Perhaps you already have the form working on a separate page, so pulling that html into an overlay isn't too hard. You also have a link to the settings on the page you need to incorporate with, so with a bit of javascript you can modify that link to activate your overlay providing a nice enhancement to the user.
 
-  %p (If the above statement sounds like it really is too hard, send me an email or message me on twitter about it and I'll write something up for that also)
+  %p (If the above statement sounds like it really is too hard, send me an email or message me on twitter about it and maybe I'll write something up for that in a future article)
 
-  %p Overlays are fine, but when you have an interface that has multiple setting, or preference modifiers it starts to behave like a jack-in-a-box orgy.
+  %p Overlays are fine, but when you have an interface that has multiple settings, or preference modifiers it starts to behave like a jack-in-a-box orgy.
 
   %img.bleed{:src => "http://farm3.static.flickr.com/2776/4246537388_4991871407_o.jpg", :alt => "Early interface sketch"}
   
   %h3 Getting inline
   
   %p 
-    Complex inline interface elements, provide you with an excellent opportunity to allow the user to modify complex settings via a simple interface, and one that shouldn't get in the way of the user flow. An example of this that I'm going to cover is take from an application that I designed and built for a startup called
+    Complex inline interface elements, provide you with an excellent opportunity to allow the user to modify complex settings via a simple interface, and one that shouldn't get in the way of the user flow. An example of this that I'm going to cover is taken from an application that I designed and built for a startup called
     =succeed('.') do
       =link("ideapi", "http://jaseandtonic.com/the-work")
 
-  %p The project is still in development, so I can't give too much away but we needed a way to allow a user to manage collaborators on a brief proposal.
+  %p The project is still in development, so I can't give too much away, but we needed a way to allow users to manage collaborators on a brief proposal.
 
-  %p The following video provide a quick overview of solution I'm currently implementing:
+  %p The following video provides a quick overview of solution I'm currently implementing:
 
   %p.screenr
     <object classid='clsid:d27cdb6e-ae6d-11cf-96b8-444553540000' codebase='http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,115,0' width='560' height='345'><param name='movie' value='http://screenr.com/Content/assets/screenr_1116090935.swf' /><param name='flashvars' value='i=37293' /><param name='allowFullScreen' value='true' /><embed src='http://screenr.com/Content/assets/screenr_1116090935.swf' flashvars='i=37293' allowFullScreen='true' width='560' height='345' pluginspage='http://www.macromedia.com/go/getflashplayer'></embed></object>
 
-
-  %p As you can I have encapsulated a number of fairly complex relationships within a simple interface, which allows the user to quickly update their preferences and get back to what they were doing without breaking flow.
+  %p As you can see I have encapsulated a number of fairly complex relationships within a simple interface, this allows the user to quickly update their preferences and get back to what they were doing without breaking flow.
 
   %p Whilst the interface uses javascript and ajax to enhance the experience, if you take these away you will find an widely accessible form element behind it that will allow the user to make the same modifications no matter what their browsing experience is, which is just the way I like it.
 
   %img{:src => "http://farm3.static.flickr.com/2682/4246587372_7b52ac2d5e_o.jpg", :alt => "form without js enabled"}
   
-
   %p Now you have a bit of background on what we are trying to achieve lets dive in and get started. Because this article is inevitably going to get a bit code heavy, I'm going to assume that you know all about html, CSS and basic jQuery. Even if you don't, maybe bare with me as I'm sure you will get something out of reading on.
 
   %h3 The working example.
@@ -51,17 +49,17 @@
     =succeed('.') do
       =link("ideapi", "http://jaseandtonic.com/the-work")
 
-  %p 
+  %p.emphasise
     You can see the finished example
     =succeed('.') do
       %a{:href => "/examples/article_1/example_2.html"}here
 
-  %p Hopefully you want to know how to create this, and as luck has it I'm going to try and show you.
+  %p Hopefully you want to know how to recreate this, and as luck has it I'm going to try and show you.
 
   
   %h4 Building the form.
   %p 
-    First comes the markup, the best place to start really, as it will inform what you can and cant do. Here is a selection of the most important bits, you can always view source on the 
+    First comes the markup, the best place to start really, as it will inform what you can and can't do. Here is a selection of the most important bits, you can always view source on the 
     =succeed(',') do
       =link("example", '/examples/article_1/example_1.html', "view example script")
     which you can also access by clicking on 
@@ -70,7 +68,7 @@
 
   -code_sample("Creating the widget form", 'article_1/example_1.html', 6..32)
 
-  %p I've also added the basic CSS for the form, which lays out the form as it would look to any poor soul without javascript enabled or available.
+  %p I've also added the basic CSS, which lays out the form as it would look to any poor soul without javascript enabled or available.
 
   %p Here is a snapshot of the action, with a link for you to peruse the full thing.
 
@@ -100,10 +98,9 @@
   
   %h4 See for yourself
   %p If you have a browser with a javascript console enabled (for instance firebug or safari with the developer bar enabled) you can copy in the following snippet into the console and it will define a function, and then execute it with whatever you pass into it in the second pair of parenthesis. Alternately you can just click on the snippet above as I've bound it to execute the same script, and hopefully you should see an alert.
-  
 
   %h4 Back to jQuery    
-  %p This idiom is used a lot with jQuery as it allow you to pass in a reference to jQuery into your own closures, which also allows you to use the dollar notation throughout your code library, without worrying about conflicts if another library is introduced application that also happens to use the dollar notation (prototype.js for example).
+  %p This idiom is used a lot with jQuery as it allows you to pass in a reference to jQuery into your own closures, which also allows you to use the dollar notation throughout your code library, without worrying about conflicts should another library be introduced to the application that also happens to use the dollar notation (prototype.js for example).
   
   %p
     %pre 
