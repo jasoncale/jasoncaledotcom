@@ -180,7 +180,7 @@
     
   %h4 Our example
   %p 
-    Taking what we have just learned, look at the following code. It is the main part of the script which transforms the employee widget into the final version, with a little help from our custom helper methods (some of which we are yet to cover), it makes sense it you can see how we bind the different events and animations onto the elements within the employee widget.
+    Taking what we have just learned, look at the following code. It is the main part of the script which transforms the employee widget into the final version, with a little help from our custom helper methods (some of which we are yet to cover), it should make sense how we bind the different events and animations onto the elements within the employee widget.
     
   %p 
     You will notice that I'm using 
@@ -196,7 +196,7 @@
   -code_sample("The employee widget plugin", 'article_1/j/jshizzle.js', 138..190)
   
   %p
-    Once you have digested the above, and if you are struggling try to read the code line by line, breaking it down they are simple jQuery statements in isolation. 
+    If you are struggling try to read the code line by line, breaking it down as they come, you should see they are just simple jQuery statements in isolation. 
 
   %p 
     However the following functions you won't have come across yet 
