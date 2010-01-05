@@ -285,6 +285,11 @@
   
   %h4 Wrapping up
   %p So there you have it, all the elements needed to create a degradable interface elements that not only enhance the user experience but also degrade gracefully for less able devices.
+  
+  %p.emphasise
+    Just to recap you can see the finished example
+    =succeed('.') do
+      %a{:href => "/examples/article_1/example_2.html"}here
       
   %h3 Hang on a minute.
   %p 
