@@ -28,15 +28,7 @@ before do
 end
 
 get '/' do
-  # #@articles = Article.all
-  # haml :index
-  
-  redirect 'articles/1-degradable-interface-elements'
-end
-
-get '/card.css' do  
-  content_type 'text/css', :charset => 'utf-8'
-  sass :card
+  redirect Article.current.path
 end
 
 get '/style.css' do  
@@ -45,8 +37,10 @@ get '/style.css' do
 end
 
 get '/articles/:id' do
-  @article = Article.open("articles/#{params[:id]}")  
+  @article = Article.open("articles/#{params[:id]}")
   if @article
+    @previous_article, @next_article = @article.previous, @article.next
+    
     haml :show
   else
     haml :not_found

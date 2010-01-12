@@ -30,8 +30,25 @@ module Jasoncaledotcom
       @published = meta[:published]
     end
     
+    def previous
+      Article.open_by_id(id - 1)
+    end
+    
+    def id
+      permalink.match(/(\d+).*/)[1].to_i
+    end
+    
+    def next
+      Article.open_by_id(id + 1)
+    end
+    
+    
     def published?
       published.eql?(true)
+    end
+    
+    def path
+      "#{Article::article_dir}/#{permalink}"
     end
     
     class << self
@@ -42,8 +59,21 @@ module Jasoncaledotcom
       end
 
       def all(reset = false, published = true)
-        # remove any falses ..
+        published(reset, published)
+      end
+      
+      def published(reset = false, published = true)
         (article_files(reset).map { |filename| Article.open(filename) }).select {|article| article && (article.published == published) }.reverse
+      end
+      
+      def current(reset = false, published = true)
+        published(reset, published).first
+      end
+      
+      def open_by_id(id)
+        if match = Dir.glob("#{article_dir}/#{id}*")
+          Article.open(match.first) unless match.empty?
+        end
       end
 
       def open(filename)
