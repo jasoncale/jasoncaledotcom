@@ -19,12 +19,12 @@
     =article.body
   
 %ul.article_nav
-  -unless @previous_article.blank?
+  -unless @previous_article.blank? || !@previous_article.published
     %li.prev
       Last week:
       =link(@previous_article.title, @previous_article.permalink)
     
-  -unless @next_article.blank?
+  -unless @next_article.blank? || !@next_article.published
     %li{:style => "#{@previous_article.blank? ? '' : 'next' }"}
       Next up:
       =link(@next_article.title, @next_article.permalink)
