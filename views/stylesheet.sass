@@ -296,6 +296,10 @@ ol, ul
           :padding-left 1.5em
           :list-style decimal
           
+        ol.timid
+          li
+            :font-size 0.8em
+          
         blockquote
           :display block
           :padding 2em
@@ -402,7 +406,27 @@ ol, ul
             :padding 0.3em 0.5em
             :color #ccc
             :background #2f2f2f
-        
+            
+        p.code_block
+          :padding-top 1em
+          
+          code
+            :font-size 1.2em
+            :line-height 1.4em
+            :display block
+            :color #ccc
+            :background black
+            :padding 1em 5em
+            :-webkit-box-shadow 0.1em 0.1em 0.4em rgba(0, 0, 0, 0.3)
+            :-moz-box-shadow 0.1em 0.1em 0.4em rgba(0, 0, 0, 0.3)
+            :box-shadow 0.1em 0.1em 0.4em rgba(0, 0, 0, 0.3)
+            -webkit-transition-property: color, background
+            -webkit-transition-duration: 0.5s, 0.5s
+
+            &:hover
+              
+              :color green
+          
         code.eval
           :cursor pointer
           :color inherit

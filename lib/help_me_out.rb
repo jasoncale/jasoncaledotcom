@@ -40,38 +40,69 @@ module Jase
       distance_of_time_in_words(from_time, Time.now)
     end
     
-    def code_sample(title, file, range = nil)
-      lines = File.readlines(File.join('public', 'examples', file))
+    def code_block(lines)
+      haml_tag(:p, :class => "code_block") do
+        lines.each do |line|        
+          haml_tag(:code) do
+            haml_concat h(line)
+          end
+        end
+      end
+    end
+    
+    def irb_session(file, options = {})
+      lines = read_example(file)
+      options = {:range => (0..lines.length), :class => 'code_sample'}.merge!(options)
+      haml_tag(:div, :class => options[:class]) do
+        code_list(lines, file, options)
+      end
+    end
+    
+    def read_example(filename)
+      File.readlines(File.join('public', 'examples', filename))
+    end
+    
+    def code_sample(title, file, options = {})
       
-      haml_tag(:div, :class => 'code_sample') do
+      lines = read_example(file)
+      
+      options = {:range => (0..lines.length), :download_link => "Download code", :class => 'code_sample'}.merge!(options)
+      
+      
+      haml_tag(:div, :class => options[:class]) do
         
         haml_tag(:h3) do
           haml_concat title
-          haml_concat link("(download source)", "/examples/#{file}", "Download code")
+          haml_concat link("(download source)", "/examples/#{file}", options[:download_link])
         end
-        
-        range = (0..lines.length) if range.nil? || !range.respond_to?(:min)
-        
-        haml_tag(:ol, { :class => 'code', :start => (range.min + 1) })  do 
-          
-          lines[range].each do |line|
-            haml_tag(:li) do
-              code_class = line.match(/(\s+)(.+)/) ? "tab_#{($1.length / 2)}" : ""
-              
-              if File.extname(file).match(/rb|js/) 
-                code_class << " comment" if line.match(/^\s*(#|\/{2})/)
-              end
-              
-              haml_tag(:code, {:class => code_class }) do
-                haml_concat h(line)
-              end
-            end
-          end
-
-        end
+                
+        code_list(lines, file, options)
       
       end
       
+    end
+    
+    def code_list(lines, file, options = {})
+      
+      haml_tag(:ol, { :class => 'code', :start => (options[:range].min + 1) })  do 
+        
+        lines[options[:range]].each do |line|
+          haml_tag(:li) do
+            code_class = line.match(/(\s+)(.+)/) ? "tab_#{($1.length / 2)}" : ""
+            
+            if File.extname(file).match(/rb|js/) 
+              code_class << " comment" if line.match(/^\s*(#|\/{2})/)
+            end
+            
+            code_class << " command" if line.match(/^\s*(>>)/)
+            code_class << " result" if line.match(/^\s*(=>)/)
+            
+            haml_tag(:code, {:class => code_class }) do
+              haml_concat h(line)
+            end
+          end
+        end
+      end
     end
     
   end

@@ -1,0 +1,303 @@
+:title: | Scratch your itch: Tiny apps with Ruby, Rack and Heroku.
+:date: Sun Jan 10 23:10:07 +0000 2010
+:meta:
+  :week: two
+:content: |
+
+  %h2 A ramble through the bramble.
+
+  %h3 Humans like to create artefacts
+  %p Either to share with others or to keep a personal record, it helps bring meaning to life and is an important part of that yearning we have to leave a little part of our existence behind. Sometimes when you are dealing with hardship, or just trying to get something done creating a record helps you progress.
+
+  %h4 It helps us work.
+  %p Making lists, writing notes, and sketching on paper. These physical or digital artefacts help gather momentum towards a goal as well as spurring on a feeling of continual creation when travelling towards that goal. 
+  
+  %p Imagine trying to achieve something really substantial keeping everything in your mind, resisting the temptation to deposit knowledge via a physical action you will likely find you don't get very far, or get easily distracted on the little things. 
+  
+  %p Now imagine the scenario when you wake up, still in bed, early morning, tired and not ready to get up. Maybe you try and get your brain in gear thinking about all the things you are going to do once you get out from under the duvet. You make a list in your mind; have a shower, feed the cats, remember some towels for yoga and grind some coffee - oh shit did I run out? 
+  
+  %p &ldquo;Well, I'll remember to pick some up after yoga&rdquo;. 
+  
+  %p If you are anything like me, you spend 10-15 minutes doing this dance, a half baked promise to yourself before physically forcing yourself out from under the warm covers and into the cruel cold room.
+
+  %p That somewhat inane situation is a lot like a task without artefacts, your brain cannot hold all of the actions and steps it needs to take towards a distance goal, so you must break these down into actions, steps and decisions. Writing down, or at least saving state helps you move on and progress.
+  
+  %p
+    %em I imagine you shaking your head in semi-bored disbelief.
+  
+  %h4 A little help from my friends
+  %p 
+    Those that know me personally or perhaps follow my tweets should know that
+    =link "#{(DateTime.now - DateTime.new(2009, 10, 11)).to_i} days ago", "http://soberjase.heroku.com", "Sober jase app"
+    I gave up drinking alcohol. Without detailing the grim circumstances, one can suffice to say a hard thing to do.
+    
+  %p For me, each days elapse is met with a nice pat on the back, and I wanted a little reminder of that I could call upon when I wanted such a little lift.
+
+  %p So I made a tiny app that tells me how many days it has been since I gave up the old vino. 
+  
+  %p Taking approximately 3 minutes to write and deploy it is now accessible from anywhere, on my phone, and in the pub whilst I watch my mates slowly absorb themselves.
+
+  %h4 I'm a one man guy, is me.
+  %p What I would like to share today are the tools I used to get this little app together so quickly and published on the web so easily.
+
+  %p Of course, the unspoken tool is HTML/CSS which I output to the browser, with that ticked off the other pieces of the puzzle are as follows:
+
+  %h4 Ruby
+  %p Unless you have been asleep or trapped in a closet, you will undoubtably know what Ruby is; the fantastic programming language that powers the framework that changed the way I wrote web applications, yes you know that one called Rails.
+
+  %p This will be my fifth year with Ruby as my language of choice and our relationship is as strong as ever, yet I don't feel the urge to persuade you, this isn't some sales pitch, my friend.
+
+  %h4 Rack
+  %p Rack is basically a very simple interface between web servers and a web framework. For example, the popular Ruby framework Rails now runs on Rack, which means any web server that is Rack compatible will run Rails apps (and means any new servers that appear just need to speak Rack to run Rails and countless other Ruby frameworks). 
+  
+  %p
+    %em Rack makes me think of boobies, which apparently is sexist. 
+
+  %p This is very cool, because now we have a common way to interface with lots of different web servers via a simple API.
+
+  %p Whilst Rack was designed to be used by web framework authors and not necessarily end users (in this case programmers), the same API that is used by said frameworks is simple enough for you to use to deploy a very small application that doesn't require the overhead of a whole web framework.
+
+  %p 
+    You can even write software that sits in between your application framework and with Rack itself, this is often referred to as <strong>the middleware</strong> and can take the HTTP request (ie a GET request from a browser) and decide whether to process the response itself or pass it on to the web framework itself. Rails has middleware called 
+    =succeed(',') do
+      =link("Metal", "http://railscasts.com/episodes/150-rails-metal", "Railscast: Rails Metal")
+    which allows a developer to decide (in code) whether to send the request to Rails, or deal with the request there and then. This means you can bypass the potentially slower route of the whole framework and deliver certain end-points fast as your mother likes it.
+
+  %p One example of this is to handle caching, instead of having to spawn Rails to decide if you can deliver cached content, you can do this via middleware and deliver the cached content without ever needing to add the expense of bothering your big ol' Rails app.
+
+  %p 
+    The depth of Rack is beyond the point of this article, but should you want more information a good place to start might be on the 
+    =succeed(',') do
+      =link("official page", "http://rack.rubyforge.org/")
+    but google is also your friend.  
+    
+  %h4 Heroku
+  %p 
+    I have a major crush on 
+    =succeed(',') do
+      =link('Heroku', "http://heroku.com", "Heroku - awesome hosting")
+    I'm not dumb enough to try and decipher, or even suggest that a cloud based hosting provider has a gender, but either way I'm smitten for Her(oku) in a big way.
+
+  %p Possibly the easiest and most grin inducing hosting platform I have ever used, if you have never seen what the whole thing is about, here is a quick run down.
+  
+  %p Heroku is a cloud hosting platform, that allows you to deploy you apps via a git workflow. I already use git for versioning my code (which I might add have major love for git (I hear you - oh Jase that is très passé) but being super easy to work with and helping me instead of stabbing me in the face like subversion used to who can blame me. So when I learned I could deploy my code via a git push, it turned my frown upside down.
+
+  %p Guess what, Heroku knows what to do with Rack apps, so as long as your app is Rack compliant, it will run on Heroku with no setup needed. 
+
+  %p 
+    It's starting to get a bit too geeky around here, so let me get back on the fence and say:
+    
+  %blockquote With Heroku you get your idea live very quickly
+    
+  %p Minimal setup, very little effort, and all for free (low resource apps don't cost anything). It is the perfect solution to launch our little itch apps to the world.
+
+  %h3 Getting started
+  
+  %p 
+    Before I dive into the example, I need to cover some of the basics. I'm also going to assume you have 
+    =succeed(',') do
+      =link("Ruby", "http://ruby-lang.org")
+    and
+    =link("RubyGems", "http://docs.rubygems.org/") 
+    installed on your system. If you have a mac with a recent version of OSX then you will do out the box, but you can also 
+    =succeed('.') do
+      =link("install it from source", "http://hivelogic.com/articles/compiling-ruby-rubygems-and-rails-on-snow-leopard/")
+  
+  
+  %p If you are on windows, well I have no idea, poor you etc. If you are on Linux I imagine you know what you are doing so I'll shut up.
+  
+  %p Also if you are a programmer this might be a chore to read, but I'm also assuming that you are interested, and therefore you need a little primer. Don't get too hung up on the code, the real point of this article is the higher level concept and hopefully getting you to discover the component parts incase they haven't crossed your path before.
+  
+  %h4 Call on me.
+  %p A Rack app is required to respond to a method named <code>call()</code> which gets passed some details of the server environment that the HTTP request (that you need to process) has come from.
+
+  %p 
+    Thankfully the <code>call()</code> method exists in a special type of Ruby object called a <code>Proc</code>, which is basically just a special function that you can create to use later on in your application. If you read 
+    =succeed(',') do
+      =link("my previous article", "/articles/1-degradable-interface-elements", "The fine art of degradable interface elements")
+    you may remember we created a reference to our jQuery widget which was a plugin (fancy name for a function) and applied it to our html via javascript.
+
+  %p Back with Ruby and without going too deep, lets look at a very simple example of a <code>Proc</code>:
+
+  -irb_session('article_2/proc_example.txt')
+
+  %p First we define a variable called <code>hello_method</code> and assign a <code>Proc</code> object to it, we then pass what is known as a <code>block</code> (think of it as a block of code - or closure) into to the <code>initialize()</code> method via <code>Proc.new()</code> which creates an instance we can execute later.
+
+  %p Then we use the <code>call()</code> method on our <code>Proc</code> (via the <code>hello_method</code> reference) passing in the string <code>"Mom"</code>, and the block we defined the in the line before is evaluated and returns <code>"Hello"</code> concatenated with whatever we passed into the block (referenced as a local variable called <code>name</code>). This as you can hopefully see returns <code>"Hello Mom"</code>.
+  
+  %h4 Extra credit
+  %p If you have ruby installed, try typing <code>irb</code> into your computers terminal and entering the lines that start with <code>&gt;&gt;</code> into the prompt (you don't need to type the actual &gt;&gt; into the prompt). <code>irb</code> is the interactive ruby shell which allows you to execute arbitrary bits of ruby on the fly.
+
+  %h3 Back to Rack
+
+  %p First you need to install the Rack gem, which will allow us to run our app.
+
+  %p 
+    %pre
+      %code gem install rack
+
+  %p As we mentioned, Rack expects our application to respond to a method named <code>call()</code>, it also expects that method to return an <code>Array</code> with three elements:
+
+  %ol.timid
+    %li
+      %p HTTP Status response (for example 200 which means the request was successful).
+    %li 
+      %p A hash of any HTTP headers to return to the server, such as the content type and length.
+    %li 
+      %p The body of the response (normally a html file, but could be xml or json for example).
+
+  %p Such an array may look like this:
+
+  %p
+    %pre
+      %code [200, {'Content-Type'=>'text/plain'}, "Hello world"] 
+
+  %p Which would return the text <code>"Hello World"</code> to your browser.
+
+  %p Putting this all together into a working Rack app would look like so:
+
+  -code_sample("Hello World App", 'article_2/hello_world.ru')
+  
+  %h4 Running the Hello World app.
+  
+  %ol.timid
+    %li 
+      %p 
+        Download the 
+        =link("hello_world.ru", "http://localhost:9292/examples/article_2/hello_world.ru") 
+        file from the previous code block.
+    
+    %li 
+      %p Open up your terminal, such as Terminal.app on the mac.
+    
+    %li 
+      %p
+        %code cd /path/to/your/downloads/folder
+    %li 
+      %p
+        then type 
+        %code rackup hello_world.ru
+        (it will hopefully do nothing, and wait for connections).
+    
+    %li 
+      %p 
+        Visit 
+        =link("http://localhost:9292", "http://localhost:9292")
+        in your web browser of choice.
+        
+    %li
+      %p Smile and nod.
+     
+    %li
+      %p Close your terminal, or hit ctrl+c inside your Terminal to quit rack.
+    
+  
+  %h4 Woah there Jase, great but what the hell is that lambda thing?! 
+  %p Well, for the purposes of sanity, lets just say that lambda is another way of doing <code>Proc.new()</code> - there are slight differences, but none that are relevant in this context so don't worry about that - the important thing is you have seen them both so any other examples you find along the way should make sense.
+
+  %p You can also see after our main code block we are calling a method <code>run</code> and passing in our refrence to the <code>Proc</code> via our variable <code>app</code>.
+
+  %p This is the actual launch command for Rack which gets your app up and running ready to take requests.
+
+  %h3 Moving on
+  %p 
+    So 
+    =link("my sober counter app", "http://soberjase.heroku.com")
+    is potentially the simplest app ever, it really doesn't deserve to be called an application but it does go some way in showing how easy these kind of development strategies are, and if you have never played with Rack, Heroku or even Ruby then maybe I have piqued your interest. 
+
+  %p 
+    Chances are you don't really care about my how many days I've saved grace, so maybe we'll do something a little closer to home. 
+    So how about a one line app that tells us what week of 
+    =link("project52", "http://project52.info/")
+    we are on?
+  
+  %p <em>Hey man, give me a break I got a mind full of blanks.</em>
+
+  %p The code to work out the current week is:
+
+  %p
+    %pre
+      %code week = DateTime.now.strftime("%V") #=> "02"
+
+  %p Which is the ISO-8601 date standard, which may or may not be how people are doing p52 counting, but who cares as long as you are pumping something out at least once a week, right?
+
+  %p The only other dependency is a html file that is sucked into the app block and has a placeholder dynamically replaced with the current p52 week.
+  
+  -code_sample("The HTML template", 'article_2/index.html')
+  
+  %p To read in the index.html template file, and replace the placeholder <code>[CURRENT_WEEK]</code> we do:
+  
+  %p 
+    %pre
+      %code body = File.read('index.html').gsub(/\[CURRENT_WEEK\]/, week)
+
+  %p
+    We return the body variable in our code block just like we did with our 
+    =link("Hello World", "http://localhost:9292/examples/article_2/hello_world.ru") 
+    example, and I have added a few extra headers to the response. 
+
+  %p
+    %pre
+      %code "Content-Length" => body.length.to_s
+
+  %p Tells the server the expected length of the response, which is the length of our html that resides inside the body variable and 
+
+  %p
+    %pre
+      %code 'Cache-Control' => 'public, max-age=3600'
+
+  %p 
+    which caches the result of the page (expiring after 3600 seconds or 1 hour) as this will make subsequent requests to our page nice and fast (the caching is 
+    =link("provided by Heroku", "http://docs.heroku.com/http-caching")
+    via
+    =succeed(').') do
+      =link("Varnish", "http://en.wikipedia.org/wiki/Varnish_(software)", "Varnish on wikipedia")
+    
+  
+  %p Here is the whole thing:
+    
+  -code_sample("Current week app", 'article_2/config.ru')
+  
+  %p 
+    if you are playing along at home, here is a both the 
+    =link("required files as a zip", "/examples/article_2/p52_app.zip")
+    for you to run <code>rackup</code> and view in your browser.
+
+  %h3 Deploying to Heroku
+
+  %p 
+    This is the final piece of the puzzle, all you need to do is have a free 
+    =succeed(',') do
+      =link("account with Heroku", "http://heroku.com/signup") 
+    give them your 
+    =link("public ssh key", "http://help.github.com/mac-key-setup/")
+    and then install the heroku gem.
+
+  %p
+    %pre
+      %code gem install heroku
+
+  %p Lets imagine we have created our application, but as it is a quick app we haven't setup git yet, no bones lets do that now as Heroku requires it (you may need to install git on your system first).
+
+  -irb_session('article_2/heroku_setup.txt')
+  
+  %p Without getting bogged down in how to use git, the above basically just initialises your app folder as a git repository, adds all the files inside it to the repository and commits the files with the commit message "my week counter app".
+
+  %p With that all set, you are ready to create your app on Heroku which we will call p52week via the command <code>heroku create p52week</code>
+      
+  -irb_session('article_2/heroku_deploy.txt', :range => 0..1)
+
+  %p All you need to do now is deploy the app, and get on with your life by typing <code>git push heroku master</code>
+
+  -irb_session('article_2/heroku_deploy.txt', :range => 3..118)
+  
+  %h3 And we are done.
+  %p Your little app is ready for the world, just in time for the kettle to boil ready for a nice cuppa.
+  
+  %p
+    Check it out
+    =succeed(',') do
+      =link("http://p52week.heroku.com/", "http://p52week.heroku.com/", "p52 Counter")
+    and until next week, I bid thee adieu.
+  
+

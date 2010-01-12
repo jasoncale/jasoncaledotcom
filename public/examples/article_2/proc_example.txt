@@ -1,0 +1,4 @@
+>> hello_method = Proc.new { |name| "Hello #{name}" }
+=> #<Proc:0x000000010169a328@(irb):16>
+>> hello_method.call("Mom")
+=> "Hello Mom"

@@ -1,0 +1,4 @@
+cd p52_app
+git init
+git add .
+git commit -m "my week counter app"

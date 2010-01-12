@@ -1,5 +1,5 @@
-require 'active_support/core_ext/date'
-require 'active_support/inflector' 
+# require 'active_support/core_ext/date'
+# require 'active_support/inflector' 
 require 'rdiscount'
 require 'net/http'
 require 'uri'

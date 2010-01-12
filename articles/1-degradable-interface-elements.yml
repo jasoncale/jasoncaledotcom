@@ -66,13 +66,13 @@
     =link("download source", '/examples/article_1/example_1.html', "view example script")
     in the code block.
 
-  -code_sample("Creating the widget form", 'article_1/example_1.html', 6..32)
+  -code_sample("Creating the widget form", 'article_1/example_1.html', :range => 6..32)
 
   %p I've also added the basic CSS, which lays out the form as it would look to any poor soul without javascript enabled or available.
 
   %p Here is a snapshot of the action, with a link for you to peruse the full thing.
 
-  -code_sample("Adding some style", 'article_1/screen.css', 22..45)
+  -code_sample("Adding some style", 'article_1/screen.css', :range => 22..45)
 
   %p Yawnsville is just around the corner, so lets divert our attention to the heart of the matter. The javascript that turns this rather timid little form into a man with it's own little bit of Mick Jagger swagger.
 
@@ -113,7 +113,7 @@
   
   %p Even in this little example, I've created two utility functions that encapsulate a little of bit of code that I need to execute over and over in the body of the main script.
   
-  -code_sample("Create link helper", 'article_1/j/jshizzle.js', 15..32)
+  -code_sample("Create link helper", 'article_1/j/jshizzle.js', :range => 15..32)
   
   %p 
     As you can hopefully see 
@@ -139,7 +139,7 @@
     %code append 
     will somewhat expectedly append the link to the element passed into the function instead of wrapping it.
 
-  -code_sample("Sister input", 'article_1/j/jshizzle.js', 34..36)
+  -code_sample("Sister input", 'article_1/j/jshizzle.js', :range => 34..36)
   
   %p 
     The
@@ -150,7 +150,7 @@
     
   %p You can see where I do this a little further down the script, which I've included below .. But you may have to look at that line in context if you want to get the full gist.
     
-  -code_sample("Returning created methods to the outside world", 'article_1/j/jshizzle.js', 117..120)
+  -code_sample("Returning created methods to the outside world", 'article_1/j/jshizzle.js', :range => 117..120)
     
   %p As we move onto the widget details, you will see these functions get used, and hopefully you will see their use in context.
     
@@ -193,7 +193,7 @@
       =link("jQuery documentation", 'http://docs.jquery.com/Utilities/jQuery.extend', "Read about extending objects")
 
   
-  -code_sample("The employee widget plugin", 'article_1/j/jshizzle.js', 138..190)
+  -code_sample("The employee widget plugin", 'article_1/j/jshizzle.js', :range => 138..190)
   
   %p
     If you are struggling try to read the code line by line, breaking it down as they come, you should see they are just simple jQuery statements in isolation. 
@@ -209,7 +209,7 @@
     %code employeeRemoveCallback()
     which can be found in the final three lines of the plugin above.
   
-  -code_sample("The employee widget plugin", 'article_1/j/jshizzle.js', 176..178)
+  -code_sample("The employee widget plugin", 'article_1/j/jshizzle.js', :range => 176..178)
   
   %h4 Taking a lowly label &amp; making it shine.
   %p We want our widget to control the form that is submitted to our application, so whatever fancy ui elements we can think up will ultimately have to be translated onto the form inputs underneath.
@@ -223,7 +223,7 @@
       
   %p Here is the code (I can see you are getting into this now):
     
-  -code_sample("Making labels rock", 'article_1/j/jshizzle.js', 38..115)
+  -code_sample("Making labels rock", 'article_1/j/jshizzle.js', :range => 38..115)
   
   %p 
     A quick summary of what is happening in our
@@ -259,7 +259,7 @@
   
   %p Here are the callbacks as defined in our example:
     
-  -code_sample("Separating out functionality with callbacks", 'article_1/j/jshizzle.js', 126..136)
+  -code_sample("Separating out functionality with callbacks", 'article_1/j/jshizzle.js', :range => 126..136)
   
   %p You should be able to match up what you see in the code to what happens when you click on any of the actions - check your console to see the messages being output (I previously had alerts but I think they detract from the overall experience of the widget example).
   
@@ -281,7 +281,7 @@
   %h3 Adding style to our behavioural additions.
   %p You may remember in our widget plugin, we added a class to our employee list called 'js' which we can use to hook additional CSS declarations onto once the javascript has been attached. You can see these at the bottom of the stylesheet linked to the example page, but here is a quick snapshot of some of the additions to the CSS.
   
-  -code_sample("Uprating our widget", 'article_1/screen.css', 107..138)
+  -code_sample("Uprating our widget", 'article_1/screen.css', :range => 107..138)
   
   %h4 Wrapping up
   %p So there you have it, all the elements needed to create a degradable interface elements that not only enhance the user experience but also degrade gracefully for less able devices.
