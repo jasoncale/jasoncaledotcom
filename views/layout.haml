@@ -9,7 +9,10 @@
     %link{:rel => "alternate", :type => "application/rss+xml", :title => "RSS", :href => "http://#{env['HTTP_HOST']}/rss.xml"}
     %script{ :src => "http://use.typekit.com/tyb5svm.js", :type => "text/javascript" }
     %script{ :type => "text/javascript" }
+      if (navigator.userAgent.toLowerCase().match(/mac/)) {
       try{Typekit.load();}catch(e){}
+      }
+      
     
     /
       [if IE]>
