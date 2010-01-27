@@ -1,25 +1,56 @@
-:title: | The importance of yellow
+:title: | The importance of yellow: I'm a one man guy is me.
 :date: Tue Jan 26 23:45:09 +0000 2010
 :meta:
   :week: four
+:published: true
 :content: |
 
-  %h2 The importance of my own brand.
+  %h2 Sell yourself, to yourself.
 
-  %p Now first thing is first, this isn't some bullshit diatribe about personal branding and how to get yourself noticed, how to promote your blog or whatever other crap people seem to write about self promotion. I couldn't care less, well of course I do care about my own ego, but I'm arrogant enough to assume I don't need to do anything to make you love me, I certainly don't need to come up with artificial ways to try seduce you.
+  %p Now first thing is first, this isn't some bullshit diatribe about personal branding and how to get yourself noticed, how to promote your blog or whatever other crap written about self promotion. I couldn't care less about that, and I'll assume I don't need to come up with artificial ways to try seduce you.
 
-  %p Ok, now we are back together, let me take a small moment to explain what I mean.
+  %p Those soulless buggers who talk about self promotion whilst spoon-feeding you checklists to your own greatness, are the vacuous bleeders who devoid of any real character whom can make us vulnerable people swoon like flowering teenagers, because they know what we crave. 
+  
+  %h4 Make yourself comfortable taking pain.
+  %p It is my belief that any creative endeavour should be traumatic. If I'm drawing from my experience, ability and passion effectively then I should be running to the edge of my control, not knowing what the fuck I'm doing but knowing where I've come from is where I desire to pass through at least once on any project. 
+  
+  %p 
+    My tip is to surround yourself with little reminders of who you are, and aspire to be. It can be immensely beneficial to keeping on track, drawing strength from them as you go. By building a brand and identify for yourself to immerse within can be a very effective proponent when arguing with your own limits. Which brings me to the somewhat loose point of this article: Forget everyone else, build yourself for you, then take confidence from it. It will help you justify yourself and face that fear that seems to linger around every project I start working on (and 
+    =succeed(').') do
+      =link("others do too", "http://twitter.com/mikekus/status/8281631609", "@mikekus on twitter")
+   
+  
+  %p It is worth noting that the trauma when creating must come from you and not your clients; there is a big difference. Although client pain can sometimes indirectly produce results I wouldn't recommend seeking inspiration in that form.
 
-  %p Surrounding yourself with reminders of who you are, and aspire to be is immensely beneficial to keeping on track. A creative endeavour should be traumatic on you, if it isn't then you aren't really doing something with your experience, passion and self belief that you can make everyone else around you look shit. Chances are you are just imitating your surroundings, you are subconsciously fitting in, defining yourself by your peers may get you an invite to a cool party, or make your blog en-vogue - which is something I see everyday, but for most folks we just aren't clever enough to pull that kind of replication off.
+  %h4 Beware of plain sailing.
+  %p When it is easy, the chances are you are just imitating your surroundings, you are subconsciously fitting in. Defining yourself by your peers may get an invite to a cool party, or make your blog en-vogue - but most folks just aren't clever enough to pull that kind of replication off without it being noticeable.
+  
+  %p
+    Worst still you could be imitating and rehashing what you already know.
+    %blockquote 
+      &ldquo;Hmm those guys loved the buttons from the last job.&rdquo;
+      %span.source &mdash; a lazy sod
+  
 
-  %p Those soulless buggers who talk about self promotion and give you checklists to your own greatness, are the vacuous bleeders who devoid of any real character can make us vulnerable people swoon like flowering teenagers.
+  %p The trauma of creating something should be right there in your face, willing you to fail, wanting you to take the easy solution. Yes, sometimes the easy solution is the best one, move on, but more often you need to dig in deep and prepare for battle. Giving yourself some identity to hang off (even if you never share it with anyone else) will help you refute those nagging doubts and insecurities when you work.
 
-  %p The trauma of creating something should be right there in your face, willing you to fail, wanting you to take the easy solution. Sometimes the easy solution is the best one, but often you need to dig in deep and prepare for battle. Giving yourself some identity to hang off even if you never share it with anyone will help you refute those nagging doubts and insecurities when you work.
+  %h4 Yellow be thy guide.
 
-  %p Just before I designed my company website, I had spent the last few weeks reading a book about copywriting which was yellow. At the time I didn't realise that was where my inspiration was coming from, I didn't even have the book with me as I was at my parents house over the christmas holidays and had nothing else to do on a sunday afternoon than make a site for myself.
-
-  %p The point is that book meant something, it was a step I had consciously made to try and begin writing (or because Sam had been prodding me to start for a couple of months), so it made sense that I had ripped some of the style off for my new identity. First thing I did once I launched the site that evening, other than feel vulnerable was plaster my surroundings with the colours, textures and ideas. My wallpaper on my mac had the logo and strap-line and the bright yellow background - a few days later I bought some yellow teeshirts (although at the time I had no idea why). I felt comfortable with what I had created and I was embracing it. Even now I've setup WriteRoom to be black with yellow text so it feels like its a homogenous part of my brand.
-
-  %p What am I getting at with all this? Well I believe that having a brand or identity you can surround yourself with, you have a canvas to start to try and understand what you are about, what turns you on and most importantly to help let you develop the confidence to be who you are, and push your own ability out into the world instead of just absorbing and reflecting what others do around you.
+  %p 
+    Just before I designed my 
+    =succeed(',') do
+      =link("company website", "http://jaseandtonic.com", "Jase & Tonic")
+    I spent the preceding weeks reading a 
+    =link("book about copywriting", "http://www.amazon.co.uk/Copywriting-Successful-Writing-Advertising-Marketing/dp/1856695689/ref=sr_1_1?ie=UTF8&s=books&qid=1264631224&sr=8-1")
+    which has a yellow cover. At the time I didn't realise that was where my inspiration was coming from, I didn't even have the book with me over the christmas holidays when I had nothing else to do other than make a site for myself.
+  
+  %p The point is that book meant something, it was a step I had consciously made to try and begin writing (or because Sam had been prodding me to start for a couple of months), so it made sense that I had ripped some of the style off for my new identity. It defined something that I wanted to believe about myself.
+  
+  %p First thing I did once I launched the site that evening, (other than feel vulnerable) was plaster my surroundings with the colours, textures and ideas. My wallpaper on my mac adorned the logo and strap-line setup upon that bright yellow background - a few days later I bought some yellow teeshirts (although at the time I had no idea why). I felt comfortable with what I had created and I was embracing it. Even now I've setup WriteRoom to be black with yellow text so it feels like it is a homogenous part of my brand.
+  
+  %h4 Developing your own conclusion.
+  %p What am I getting at with all this? Well I believe that by constructing a brand or identity you can surround yourself with, you have a canvas to start and try to understand what you are about, what turns you on and most importantly to let you develop the confidence to be who you are, and push your own ability out into the world instead of just absorbing and reflecting what others do around you. 
+  
+  %p Forget branding to sell yourself to other people, do something that makes you like you a little more, after all it is your head you are living in.
 
   %p{:style => "font-size: 4em; width: auto"} And to those who have objected to the 'garish' yellow, well fuck you, this is my yellow.
