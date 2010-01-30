@@ -31,6 +31,10 @@ get '/' do
   redirect Article.current.path
 end
 
+get '/about' do
+  haml :about
+end
+
 get '/style.css' do  
   content_type 'text/css', :charset => 'utf-8'
   sass :stylesheet
