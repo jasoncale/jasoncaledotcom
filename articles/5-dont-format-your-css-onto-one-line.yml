@@ -1,0 +1,54 @@
+:title: | Be kind to your friends: <br/> hit return.
+:date: Sun Feb 07 18:04:17 +0000 2010
+:meta:
+  :week: 5ive
+:published: true
+:content: |
+  
+  %h2 Viva multi-line CSS declarations!
+  
+  %p 
+    For our latest project at 
+    =link "FreeRange", "http://gofreerange.com", "Software revolutionaries" 
+    we've been handed a few dozen stylesheet updates from an external designer, which means we've had to merge those updates into the work we have been doing. One interesting thing we encountered through this process with a designer whom has a penchant for single line style declarations, is that it makes hard work of collaborative style management&#153;.
+  
+  %p Now this article is someone acute in perspective, your company may well have an in-house style that features one line CSS declarations, hell I know a few friends who work in that way, so I don't begrudge if that works in your remit, but when you are working across multiple teams you may need to consider a few different factors.
+  
+  %h4 How are we doing it?
+  
+  %p For arguments sake, lets assume there are two potential ways to format your CSS, here is a random declaration from this very site laid out as a single line, and then again over multiple.
+  
+  -code_sample("Inline style declarations", 'article_5/example.css', :range => 0...1)
+  
+  -code_sample("Style declarations with line-breaks", 'article_5/example.css', :range => 2..11)
+    
+  %p Writing style declarations on one line has never made sense to me, I find them confusing to read and generally unpleasant to work with, apparently there are some arguments for this style but here is one downside that makes me think all of that should be tossed in the bin:
+
+  %blockquote 
+    Stylesheets that have declarations grouped onto one line, are impossible to 
+    =succeed("!") do
+      =link "diff", "http://en.wikipedia.org/wiki/Diff", "diff on wikipedia"
+
+  %h3 Why is this important? 
+  %p Do you version manage your stylesheets? If you don't then you should wake up and start doing it, I cannot think of a single reason why in this day and age you wouldn't be, next thing you will tell me you still deploy your websites with FTP. Haha.
+
+  %p
+    %em By version manage I mean something like (hopefully) git, or subversion (dropbox could work to some extent).
+
+  %p We all know that one of the advantages of version management is being able to look at two snapshots of a single file during the lifetime of development, and if you version manage well you should have fairly regular commits to draw from for your file comparison.
+
+  %p Usually to compare these two files you would use a tool such as diff, which will usefully and (if you use the right editor) beautifully mark the differences between the file(version)s into an easily digestible format allowing you to make correct assumptions and intelligent changes as needed.
+
+  %p Now imagine you are working in a team with 3 or 4 people writing CSS into single file, each committing changes to their local copies before merging. When you come to do said merge you may need to resolve version conflicts, and using a tool like diff will help you to do this painlessly and quickly. 
+  
+  %blockquote If you have declarations that are all on one line, you cannot diff effectively as the changes are not clearly marked. 
+  
+  %p You have to manually scan across the entire line of declarations as diff will just mark the entire line as being changed, and doing this across a few hundred lines of potential changes means you may as well just look at the stylesheet line by line to work out what has been altered! Something as simple as dropping your declarations onto a line each would prevent the need to practice such methods prone to error.
+
+  %p 
+    Please, if you are going to be writing CSS to send to others to integrate, please do so each declaration has it's own line, it will be most appreciated. (Or just use 
+    =link "SASS", "http://sass-lang.com/"
+    and we'll all be happy).
+  
+  %p 
+    %em (Of course my solution was to just reformat the received CSS files with TextMate, but that isn't the point).
