@@ -1,6 +1,6 @@
-#page #content .article .article_body img { max-width: 904px; margin: 3em 26px 4em 30px; -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); -moz-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); background: #eee; padding: 2em; border: 1px solid #e6e6e6; display: block; }
+.article_body img { max-width: 904px; margin: 3em 26px 4em 30px; -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); -moz-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); background: #eee; padding: 2em; border: 1px solid #e6e6e6; display: block; }
 
-#page #content .article .article_body img {
+.article_body img {
   max-width: 904px;
   margin: 3em 26px 4em 30px;
   -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
