@@ -1,0 +1,26 @@
+:title: | Life is too short.
+:date: Wed Mar 03 16:00:05 +0000 2010
+:content: |
+
+  %h2 Deciding to give up programming (professionally)
+
+  %p For the last 6 years I've been working on the web getting paid to build websites, applications and services. For better or for worse I've been exposed to a multitude of disciplines and practices to get things done. I've written code because there was no-one around who could do it well, I've designed interfaces because I knew how they should work and how to best integrate them with the underlying applications.
+
+  %p I've struggled on for years telling myself I could do everything, that I can design and I can code <em> not html / css I mean real programming</em>. I've been successful, I've worked on big projects and small startups, I've made good money and I've enjoyed seeing myself achieve things that people had no confidence in me completing; because I was the programmer who said he could design, and vice versa.
+
+  %p I know it isn't black and white, and I know programming can at times be an order of magnitude more creative than even the hallowed designer could attain. But I'm tired of the grey garden in which I setup my store.
+
+  %p Just before I left the agency where I'd been able to float between disciplines to start out on my own, I decided I was tired of doing it all and I would focus on development. The one consistent love I had was Ruby and I figured programming would be a more earnest path to follow.
+
+  %p At first I was happy, but in the last 18 months of self employment I've become more and more confident of who I am, and that person (even though I've tried my hardest to resist) just needs to be a visual designer. I can't explain the deep seated urge, and it may turn out to be the greatest failure of my life but I need to try and see what is out there for me.
+
+  %p 
+    So, apart from the outstanding commitments I have for development projects I will no longer be taking on programming jobs, I will be designing interfaces and I will let my talented collaborators at 
+    =link("FreeRange", "http://gofreerange.com")
+    concentrate on the development*, after all it is their unrelenting talent that has given me the courage to step out of the midway and into the traffic; my self-esteem.
+  
+  %blockquote 
+    Is A Designer. (Write this down).
+    %span.source Jase &mdash; Wednesday 3rd March, 2010. 16:17pm.
+  
+  %p *part of this challenge is proving that design can be done in a way that is truly agile.
