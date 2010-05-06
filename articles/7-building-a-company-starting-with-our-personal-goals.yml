@@ -1,17 +1,16 @@
 :title: | Building FreeRange:<br/> Looking inward.
 :date: Thu May 06 22:14:56 +0100 2010
-:meta:
-  :some_attribute: value
+:published: true
 :content: |
   
-  %h2 One mind, collective mind.
+  %h2 Cultivating a collective mind.
   
   %p 
     I'm part of a group of people, together we are building a company called 
     =succeed(".") do
       =link "FreeRange", "http://gofreerange.com", "Software revolutionaries" 
   
-  %h4 The good of the company.
+  %h4 Introspection, for the good of the company.
   %p One of the nice things about FreeRange is the feeling being part of a group, but that requires learning about and trusting each other. We are currently sharpening our focus on what is important to us as a company, and part of this exercise was to write down our personal viewpoint and goals. 
   
   %p I'd like to share what I wrote down.
