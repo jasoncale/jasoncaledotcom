@@ -18,7 +18,7 @@ before do
   if production?
     domain = 'jasoncale.com'
   
-    if !(env['HTTP_HOST'] =~ /localhost|^#{domain}/)
+    if !(env['HTTP_HOST'] =~ /local|^#{domain}/)
       redirect "http://#{domain}"
     else        
       response.headers['Cache-Control'] = 'public, max-age=300'

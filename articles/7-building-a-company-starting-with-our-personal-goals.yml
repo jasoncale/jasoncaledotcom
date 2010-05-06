@@ -1,0 +1,55 @@
+:title: | Building FreeRange:<br/> Looking inward.
+:date: Thu May 06 22:14:56 +0100 2010
+:meta:
+  :some_attribute: value
+:content: |
+  
+  %h2 One mind, collective mind.
+  
+  %p 
+    I'm part of a group of people, together we are building a company called 
+    =succeed(".") do
+      =link "FreeRange", "http://gofreerange.com", "Software revolutionaries" 
+  
+  %h4 The good of the company.
+  %p One of the nice things about FreeRange is the feeling being part of a group, but that requires learning about and trusting each other. We are currently sharpening our focus on what is important to us as a company, and part of this exercise was to write down our personal viewpoint and goals. 
+  
+  %p I'd like to share what I wrote down.
+    
+  %ol
+    %li 
+      %p I want to simplify my decisions.
+    %li 
+      %p I want to work on one thing [FreeRange], because I have found that I'm not very good doing multiple things.
+    %li 
+      %p I want to establish a brand, a cohesive identify I can believe in, tell people about, and give myself to. Other than a group of freelancers, the loose association doesn't make me happy, nor does my singular existence as a freelancer. I have trouble with the term already, I think because my normal inclination is to be drawn into chaos, I prefer to discipline myself.
+    %li 
+      %p I want to refresh myself regularly, I feel I've stagnated since I left my agency, I used to think I was excellent, now I think I'm coasting as mildly good.
+    %li 
+      %p I want to belong to something that with my involvement will be greater, yet perhaps more importantly I'm better off because of my involvement within it.
+    %li 
+      %p I want to work full time, and because of that I will afford myself a set period of sabbatical.
+    %li 
+      %p I want to share space with others and interact with them on a daily basis, I find this allows me to focus and get inspired.
+    %li 
+      %p I want to build products, that are great to use, and inspire me to work on, and use daily. 
+    %li 
+      %p I want to share what I learn with others, and document what I learn, perhaps even publish something.
+    %li 
+      %p I want to become a better designer, and focus on front end development. Weirdly enough I do like javascript.
+    %li 
+      %p I want to work with engineers, and I want to establish working practices that will explore the idea of better integrating design into the software process.
+    %li 
+      %p I've realised that my original idea of allowing ideas to evolve, and prefer an organic approach is actually aversion and delusion of what I perceived to be freedom.
+    %li 
+      %p I now know that discipline and defined action, which followed through daily is the best way I have found to cultivate freedom and happiness.
+    %li 
+      %p My wish to travel and live outside of london (I have considered NY, SF, or Japan etc) is really just aversion, and is an attempt to create a focus by removing all other distractions.
+    %li 
+      %p I want to practice yoga, and meditation everyday, but I feel I can fit this around a structured work day.
+    %li 
+      %p I want to promote education and share knowledge with younger people, as I believe this will help the web / industry that I work in.
+    %li 
+      %p I want to be good, mindful of others and I want to learn.
+    %li 
+      %p I want to learn to live by less money.
