@@ -1,0 +1,31 @@
+:title: | Helping you git back in version control
+:date: Sat May 15 00:51:52 +0100 2010
+:meta:
+  :some_attribute: value
+:content: |
+
+  %h2 Version control is a vital practice.
+  
+  %p I don't care about preaching, how you work is up to you, but I've spoken to a lot of friends recently who are scared of version control, so I'd like to share a little of how I work, hopefully in a clear, consise (erm, perhaps) and delightful manner. 
+  
+  %h4 Let's start with the stuff you already know.
+  
+  %p If you are writing software, or website markup or children's books, you are usually editing text. Part of the process requires moving, deleting and replacing content as you go.
+  
+  %p Unless you are version managing this content you will have to remember all those changes in your mind if you wish to revert to them. Pretty hard to manage if you are not a savant.
+  
+  %p Before computers writers used to write drafts of text (yes, of course they still do) creating a new document with each revision, they marked changes via highlighting and comments. This allowed them to make bold changes, whilst retaining older possibly relevant content.
+  
+  %p So before you claim version control is beyond you, just think of that process, because this is exactly what most version control tools allow you to do.
+  
+  %h3 Getting started with Git
+  
+  %p Git is pretty much the defacto source control management (scm) tool for web developers these days, and for good reason. It is very fast, flexible and de-centralised which means you can be making offline changes without worrying about painful conflicts when sharing your content updates, or when pulling updates from other people.
+  
+  %p Before this, when using a tool like subversion, you could only make commits when you were online, which meant either living on the edge or not being able to lock yourself away in a hermitage for a week. Plus, subversion from my experience makes your life a lot harder than it needs to be.
+  
+  %p I'm not going to indulge in why you should use git, to be honest I couldn't care less what you use to version control, I just wholeheartedly think you should be doing it, for everything, all the time. That even means the little side project thingy, which then escalates into taking all your time forcing you to sell your children.
+  
+  %h4 Sidenote: When Git is overkill.
+  
+  %p Sometimes, and for some things which are stored as binary content (i.e. photoshop documents), version control using Git is a bit pointless. In which case I use Dropbox to version manage my files, in fact I have the whole of my home directory in DropBox so even my git repos are protected between commits!
