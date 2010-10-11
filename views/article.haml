@@ -9,12 +9,12 @@
     =article.body
   
 %ul.article_nav
-  -unless @previous_article.blank? || !@previous_article.published
+  -unless @previous_article.nil? || !@previous_article.published
     %li.prev
       Previously:
       =link(@previous_article.title.gsub(/<br>|<br\/>|<br\s\/>/, " "), @previous_article.permalink)
     
-  -unless @next_article.blank? || !@next_article.published
-    %li{:style => "#{@previous_article.blank? ? '' : 'next' }"}
+  -unless @next_article.nil? || !@next_article.published
+    %li{:style => "#{@previous_article.nil? ? '' : 'next' }"}
       Next up:
       =link(@next_article.title.gsub(/<br>|<br\/>|<br\s\/>/, ""), @next_article.permalink)

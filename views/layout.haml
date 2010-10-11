@@ -22,6 +22,20 @@
 
   %body.tk-republic-web
     #page
+      
+      %p#navigation
+        I write 
+        =link("ephemera", "/articles") 
+        and I stumble upon 
+        =link("artefacts", "http://bits.jasoncale.com") 
+        of my 
+        =succeed(".") do
+          =link("supposed existence", "/about")
+        
+        You can 
+        =succeed(".") do
+          =link("reach me", "mailto:jase@jaseandtonic.com")
+      
       #content
         .main
           = yield
@@ -29,9 +43,8 @@
         %p.copyriiiight
           %a{:href => "http://jaseandtonic.com", :title => "Fine fine fine stuff."}Made by Jase
     
-    %script{ :src => "/js/jquery.js", :type => "text/javascript", :charset => "utf-8" }
-    %script{ :src => "/js/audio-player.js", :type => "text/javascript", :charset => "utf-8" }
-    %script{ :src => "/js/jshizzle.js", :type => "text/javascript", :charset => "utf-8" }  
+    %script{ :src => "http://code.jquery.com/jquery-1.4.2.min.js", :type => "text/javascript", :charset => "utf-8" }
+    %script{ :src => "/sprockets.js", :type => "text/javascript", :charset => "utf-8" }  
     %script{ :type => "text/javascript" }
       var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
       document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));

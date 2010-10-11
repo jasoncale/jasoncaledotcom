@@ -1,0 +1,44 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    backports (1.18.2)
+    crack (0.1.8)
+    haml (3.0.21)
+    httparty (0.6.1)
+      crack (= 0.1.8)
+    less (1.2.21)
+      mutter (>= 0.4.2)
+      treetop (>= 1.4.2)
+    monkey-lib (0.5.4)
+      backports
+    mutter (0.5.3)
+    polyglot (0.3.1)
+    rack (1.2.1)
+    rdiscount (1.6.5)
+    sinatra (1.0)
+      rack (>= 1.0)
+    sinatra-advanced-routes (0.5.1)
+      monkey-lib (~> 0.5.0)
+      sinatra (~> 1.0)
+      sinatra-sugar (~> 0.5.0)
+    sinatra-reloader (0.5.0)
+      sinatra (~> 1.0)
+      sinatra-advanced-routes (~> 0.5.0)
+    sinatra-sugar (0.5.0)
+      monkey-lib (~> 0.5.0)
+      sinatra (~> 1.0)
+    sprockets (1.0.2)
+    treetop (1.4.8)
+      polyglot (>= 0.3.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  haml
+  httparty
+  less
+  rdiscount
+  sinatra
+  sinatra-reloader
+  sprockets

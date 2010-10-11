@@ -1,8 +1,20 @@
-# To use with thin 
-#  thin start -p PORT -R config.ru
+#!/usr/bin/env ruby
+require "rubygems"
+require "bundler"
+Bundler.setup
 
-require File.join(File.dirname(__FILE__), 'jasoncaledotcom.rb')
+$LOAD_PATH << File.dirname(__FILE__) + "/lib"
 
-disable :run
-set :environment, :production
-run Sinatra::Application
+require "sinatra"
+
+enable :logging, :dump_errors, :raise_errors
+
+environment = ENV["RACK_ENV"]
+
+FileUtils.mkdir_p 'log' unless File.exists?('log')
+log = File.new("log/#{environment}.log", "a")
+STDOUT.reopen(log)
+STDERR.reopen(log)
+
+require "jasoncaledotcom"
+run Jasoncaledotcom::Site

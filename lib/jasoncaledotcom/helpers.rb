@@ -1,13 +1,11 @@
-require 'sinatra/base'
-
-module Jase
-  module HelpMeOut
+module Jasoncaledotcom
+  module Helpers
     def h(text)
       Rack::Utils.escape_html(text)
     end
     
     def link(text, link, title = nil)
-      title = "visit link: #{text}" if title.blank?
+      title = "visit link: #{text}" if title.nil?
       "<a href ='#{link}' title='#{title}'>#{text}</a>"
     end
   
@@ -108,6 +106,6 @@ module Jase
   end
 end
 
-module Sinatra
-  helpers Jase::HelpMeOut
+module Haml::Helpers
+  include Jasoncaledotcom::Helpers
 end
