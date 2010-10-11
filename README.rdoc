@@ -6,8 +6,6 @@
 
 This is my website, its a little sinatra app.
 
-Not a new idea, but I didn't need all the other jazz, and I wanted to roll my own without peeking .. so one evening I did.
-
 Lots of love
 Jase
 
