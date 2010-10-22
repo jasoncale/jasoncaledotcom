@@ -1,0 +1,7 @@
+#about
+  %h1 Young delta heart
+  
+  %ol.article_list
+    -@articles.each do |article|
+      %li
+        %p=link(article.title.gsub(/<br>|<br\/>|<br\s\/>/, ""), article.path)

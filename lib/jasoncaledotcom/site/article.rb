@@ -55,7 +55,7 @@ module Jasoncaledotcom
         def current(reset = false, published = true)
           published(reset, published).first
         end
-      
+        
         def open_by_id(id)
           if match = Dir.glob("#{article_dir}/#{id}*")
             Article.open(match.first) unless match.empty?

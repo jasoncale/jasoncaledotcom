@@ -14,7 +14,7 @@
           try{Typekit.load();}catch(e){}
         //]]>
       </script>  
-  %body
+  %body{:class => @body_class}
     #page
       #content
         = yield

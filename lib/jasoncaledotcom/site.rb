@@ -58,15 +58,14 @@ module Jasoncaledotcom
     # pages
     
     get '/' do
+      @articles = Article.published
+      @body_class = 'face'
+      
       haml :index
     end
 
     get '/articles' do
       redirect Article.current.path
-    end
-
-    get '/about' do
-      haml :about
     end
 
     get '/articles/:id' do
