@@ -322,4 +322,4 @@
     =link("I'm for hire", "http://jaseandtonic.com", "Jase &amp; Tonic Ltd") 
     and also available as part of the 
     =succeed('.') do
-      =link("best team in town", "http://gofreerange.com", "Go FreeRange")
+      =link("best team in town", "http://gofreerange.com", "Go Go Free Range")

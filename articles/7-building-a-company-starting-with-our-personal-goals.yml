@@ -1,4 +1,4 @@
-:title: | Building FreeRange:<br/> Looking inward.
+:title: | Building Go Free Range:<br/> Looking inward.
 :date: Thu May 06 22:14:56 +0100 2010
 :published: true
 :content: |
@@ -8,10 +8,10 @@
   %p 
     I'm part of a group of people, together we are building a company called 
     =succeed(".") do
-      =link "FreeRange", "http://gofreerange.com", "Software revolutionaries" 
+      =link "Go Free Range", "http://gofreerange.com", "Software revolutionaries" 
   
   %h4 Introspection, for the good of the company.
-  %p One of the nice things about FreeRange is the feeling being part of a group, but that requires learning about and trusting each other. We are currently sharpening our focus on what is important to us as a company, and part of this exercise was to write down our personal viewpoint and goals. 
+  %p One of the nice things about Go Free Range is the feeling being part of a group, but that requires learning about and trusting each other. We are currently sharpening our focus on what is important to us as a company, and part of this exercise was to write down our personal viewpoint and goals. 
   
   %p I'd like to share what I wrote down.
     
@@ -19,7 +19,7 @@
     %li 
       %p I want to simplify my decisions.
     %li 
-      %p I want to work on one thing [FreeRange], because I have found that I'm not very good doing multiple things.
+      %p I want to work on one thing [Go Free Range], because I have found that I'm not very good doing multiple things.
     %li 
       %p I want to establish a brand, a cohesive identify I can believe in, tell people about, and give myself to. Other than a group of freelancers, the loose association doesn't make me happy, nor does my singular existence as a freelancer. I have trouble with the term already, I think because my normal inclination is to be drawn into chaos, I prefer to discipline myself.
     %li 

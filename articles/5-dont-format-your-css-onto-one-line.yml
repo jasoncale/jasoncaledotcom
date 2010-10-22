@@ -9,7 +9,7 @@
   
   %p 
     For our latest project at 
-    =link "FreeRange", "http://gofreerange.com", "Software revolutionaries" 
+    =link "Go Free Range", "http://gofreerange.com", "Software revolutionaries" 
     we've been handed a few dozen stylesheet updates from an external designer, which means we've had to merge those updates into the work we have been doing. One interesting thing we encountered through this process with a designer whom has a penchant for single line style declarations, is that it makes hard work of collaborative style management&#153;.
   
   %p Now this article is somewhat acute in perspective, your company may well have an in-house style that features one line CSS declarations, or you may just plain love them, hell I know a few friends who work in that way, so I don't begrudge if that works in your remit, but when you are working across multiple teams you may need to consider a few different factors.

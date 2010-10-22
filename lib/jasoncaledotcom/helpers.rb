@@ -103,6 +103,11 @@ module Jasoncaledotcom
       end
     end
     
+    def age(dob = nil)
+      now = Time.now.utc
+      dob ||= Time.utc(1983, 7, 27)
+      now.year - dob.year - ((now < Time.utc(now.year, dob.month, dob.day) ? 1 : 0))
+    end
   end
 end
 
