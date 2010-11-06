@@ -5,27 +5,43 @@
 :content: |
 
   %h2 Version control is a vital practice.
-  
-  %p I don't care about preaching, how you work is up to you, but I've spoken to a lot of friends recently who are scared of version control, so I'd like to share a little of how I work, hopefully in a clear, consise (erm, perhaps) and delightful manner. 
-  
-  %h4 Let's start with the stuff you already know.
-  
-  %p If you are writing software, or website markup or children's books, you are usually editing text. Part of the process requires moving, deleting and replacing content as you go.
-  
+
+  %p I don't care about preaching, how you work is up to you; but I've spoken to a lot of friends recently who are scared of version control so I'd like to share a little of how it works for me. Hopefully we'll journey together in a clear, consise (erm, perhaps) and delightful manner.
+
+  %p Let's start with the stuff you already know.
+
+  %p Writing software, website markup or children's books means you are usually editing text. Part of the process requires moving, deleting and replacing content as you go.
+
   %p Unless you are version managing this content you will have to remember all those changes in your mind if you wish to revert to them. Pretty hard to manage if you are not a savant.
-  
-  %p Before computers writers used to write drafts of text (yes, of course they still do) creating a new document with each revision, they marked changes via highlighting and comments. This allowed them to make bold changes, whilst retaining older possibly relevant content.
-  
-  %p So before you claim version control is beyond you, just think of that process, because this is exactly what most version control tools allow you to do.
-  
-  %h3 Getting started with Git
-  
-  %p Git is pretty much the defacto source control management (scm) tool for web developers these days, and for good reason. It is very fast, flexible and de-centralised which means you can be making offline changes without worrying about painful conflicts when sharing your content updates, or when pulling updates from other people.
-  
-  %p Before this, when using a tool like subversion, you could only make commits when you were online, which meant either living on the edge or not being able to lock yourself away in a hermitage for a week. Plus, subversion from my experience makes your life a lot harder than it needs to be.
-  
-  %p I'm not going to indulge in why you should use git, to be honest I couldn't care less what you use to version control, I just wholeheartedly think you should be doing it, for everything, all the time. That even means the little side project thingy, which then escalates into taking all your time forcing you to sell your children.
-  
+
+  %p Before facebook people used to write on paper, no one does anymore because they found out it caused cancer. When you wrote large amounts of text you would make revisions towards the final published document. This process usually involved marking changes via highlighting, crossing out and scribbling comments in the margin; the revised documents weren't tossed aside because they allowed authors to make bold changes, whilst retaining older, possibly relevant content which they could refer back to at any time.
+
+  %p So before you claim version control is beyond you, just think of that process; because that is exactly what most version control tools allow you to do.
+
+  %h3 A few words about Git
+
+  %p Git is pretty much the defacto source control management (scm) tool for web programmers these days, and for good reason. It is very fast, flexible and de-centralised which means you can be making offline changes without worrying about painful conflicts when sharing your content updates, or when pulling updates from other people.
+
+  %p Before I used git, I used subversion which is centralised by design. One requirement of this is to be "online" to commit changes to the remote repository, which sucks when you are in a hermatiage or on a plane or whatever. Sure you could create a local repository but that isn't much use when sharing code. There are ways to merge repositories perhaps, but I never figured it out in a way that made any sense.
+
+  %p I'm not going to indulge in why you should use git, to be honest I couldn't care less what you use to version control, I just wholeheartedly think you should be doing it, for everything, all the freaking time. That even means the little side project thingy, which then escalates into taking all your time, forcing you to sell your children. This article you are reading was written and revised using git.
+
   %h4 Sidenote: When Git is overkill.
+
+  %p Sometimes, and for some things which are stored as binary content (i.e. photoshop documents), version control using Git is a bit pointless. I mean it will work, but it's not really that great. I prefer something like dropbox for that because it will do the revision on document save, which makes a lot of sense, I've not yet come across a reason to commit changes to my photoshop documents in a way that using git makes sense, but perhaps that is might shortsightedness more than git's inability to do so.
+
+  %h3 Some terms
+
+  %h4 Decentralised
+
+  %p Git is decentralised, but what does this actually mean? Well one way to answer that is with another question. What is centralised version control? Centralised version control could be likened to a bank; everyone agrees to put their money into it and any major transactions that happen are safest when they are done through it. If you want to check your balance, you ask the bank, if you want the money someone paid you, she pays it into the bank, and you get it from the bank - the bank is the central repository for all your hard earned.
   
-  %p Sometimes, and for some things which are stored as binary content (i.e. photoshop documents), version control using Git is a bit pointless. In which case I use Dropbox to version manage my files, in fact I have the whole of my home directory in DropBox so even my git repos are protected between commits!
+  %p This is cool, because sometimes having that kind of central respository is useful - they have a big expensive safe (data backup &amp; security), there can be no arguing with the John about you paying him back, because you both can see the transaction that the bank recorded between you two (single point of truth). 
+  
+  %p However you are at the mercy of the repository, you are bound to it, any radical financial stuff is gonna have to be done off the books, and not to mention if the bank gets screwed you do too, and if they want to screw you (and they will), well my friend, you get screwed.
+  
+  %p You know our old friend subversion? He is centralised and I hate to break it to you, he is also a facist, and like all good facists he <i>will</i> go crazy. He will send you grated swan beak in a used bisto jar for christmas, and dress your grandad's cat in a paella waistcoat. What a prick.
+  
+  %p I'm a mother flippin hippy though, so I keep my millions in an old Bassetts Liquorice Allsorts tin buried in the garden. Because of this, I also use git.
+  
+  
