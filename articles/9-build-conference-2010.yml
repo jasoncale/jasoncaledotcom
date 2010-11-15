@@ -1,0 +1,194 @@
+:title: | The windy leaves did blow: Build Conference 2010
+:date: Sat May 15 00:51:52 +0100 2010
+:meta:
+:content: |
+
+  %h2 That difficult second album
+
+  %p 
+    I have just returned from four days in Belfast, Northern Ireland where I attended the second incarnation of 
+    =succeed(".") do
+      =link "Build", "http://buildconf.com", "Build Conference"
+    A web design conference whose debut I was lucky enough to attend last year. I was impressed enough to go again, and the standard reached this year I'm pleased to say was even higher. 
+
+  %p 
+    The odds of 
+    =link "Build", "http://buildconf.com", "Build Conference"
+    being a success were pretty good.
+    =link "Andy McMillan", "http://twitter.com/goodonpaper" 
+    the titanic heart & mind behind 
+    =link "Build", "http://buildconf.com", "Build Conference"
+    is tireless in his pursuit of putting on a good show. 
+  
+  %p Even with his modesty deflecting praise and graciously praising his collaborators; it is clear that his vision and determination made all the component parts sing in vibrant orchestration.
+
+  %p 
+    Whilst most conferences are sold entirely on the main event 
+    =link "Build", "http://buildconf.com", "Build Conference"
+    widens its lens and offers five days of fringe events. Sure the natural capstones are present with a day of practical workshops followed by a day of talks, but these are surrounded by carefully considered leisure offerings which serve to house and invigorate the discussion which fills the bars and dinner tables afterwards.
+  
+  %h3 Shall we go to the crow bar?
+  %p Most seasoned conference attendees have figured out most of the good stuff happens off-piste. Andy knows this well and has built it into part of the week, even providing a map of local bars and evening activities that funnel the attendees into the best places to talk and unwind. 
+  
+  %p Most of the London based conferences I've been to tend to hire an expensive faux-trendy bar featuring awful music far too loud to talk over and a price list which evaporates the media-temple-sponsored-bar-tab almost instantly. Frustrated attendees scatter to more suitable venues which ends up a fragmented mess; most veterans head off in their own established groups which ruins any chance of cross pollenating the collective consciousness.
+
+  %p I digress but the point I'm fingering is that Andy is clearly a conference attendee who places his own experience and wishes at heart when addressing the needs of his own audience.
+  
+  %h3 Welcome to Belfast
+  %p 
+    I arrived into Belfast on Tuesday morning and was met with mild autumnal sunshine tempered only by the wind which seemed to be the underlying elemental theme throughout the week. Like most people I had booked a room at the chic hotel 
+    =link"Malmaison", "http://www.malmaison-belfast.com/", "Malmaision hotel Belfast"
+    as Andy had set up special rates for attendees &mdash; nice. Packed with revellers, speakers and Andy himself 
+    =link "Build", "http://buildconf.com", "Build Conference"
+    was proudly on display throughout the hotel, even boasting a few additions to the cocktail menu which the jovial delegates in the bar enjoyed until the early hours.
+    
+  %h4 Settle down son, there is work to be done
+  %p 
+    Once I'd made my way to the hotel from the airport, I ordered a black coffee and with complimentary wifi pass in hand unsheathed my laptop to settle into some work. 
+    =link "My company", "http://gofreerange.com", "Building outstanding software for the web" 
+    had been working on secret project for 
+    =link "Build", "http://buildconf.com", "Build Conference"
+    over the last few weeks and I needed to finish off some last minute adjustments before the conference the next day. I was trying to pair with 
+    =link "Chris", "http://chrisroos.co.uk" 
+    who was in our office in London but I kept getting distracted by the many faces appearing in the bar around me. 
+  
+  %p Faces of friends I've made on the web or even previous conferences appearing from behind the oversized velvet high-back chairs which govern the landscape of the Malmaison bar was a most delightful respite from the nerves which sat in my stomach due to the remaining work that needed to be done. 
+  
+  %p 
+    Lunchtime and a dead battery allowed me to catch up over food with 
+    =succeed(",") do
+      =link "Sam", "http://sam.brown.tc"
+    =link "Cole", "http://cole007.net/"
+    and 
+    =succeed(".") do
+      =link "Robbie", "http://www.robbiemanson.com/"  
+    When I returned Chris had worked his magic leaving me with a few meagre lines of CSS to write which would hook it all together. Thanks Chris.
+  
+  %p Decamping to the Merchant hotel to see Andy, work and catch a glimpse of the workshop attendees. Andy showed me a piece of paper with lists on both sides: one side with things he was worried about, the other was things he wasn't. Thankfully our project was on the side that wasn't worrying him and as the day wore on I started to agree.
+
+  
+  %h4 Jessica, Jessica <strike>Simpson</strike> Hische, you've got it all <strike>wrong</strike> right. 
+  
+  %p 
+    There wasn't much time for anxiety though as soon it was time to head over to the University of Ulster to hear 
+    =link "Jessica Hische", "http://jessicahische.com", "Bloody good stuff" 
+    talk. I was already aware of Jessica's work as she is all over the web but it was in 
+    =link "8faces", "http://8faces.com/", "8 Faces is a new magazine for devotees of typography" 
+    where I'd first learned about the girl behind the dropcaps. There was a palpable energy in the room, and once her talk was underway it didn't abate. 
+  
+  %p Jessica is not only insanely talented, she pairs a strong work ethic with a humour and frankness that I really admire. We were taken on a whirlwind tour of her work and career experience with interesting narrative with sumptuous visual accompaniment. It is probably fair to say that she gained &amp; retained many admirers, and that we all left the room quite rightly smitten.
+
+  %p 
+    In high spirits we floated across to 
+    =link "21 Social", "http://www.21social.co.uk/", "A cool bar / eatery in Belfast"
+    for the 
+    =link "Standardistas", "http://www.webstandardistas.com" 
+    rip rollicking take on a pub quiz. Geek trivia and alcohol whipped the room into a frenzy, and with a table full of goodies to be had there was good reason. I joined 
+    =succeed(",") do
+      =link "Gregory", "http://gregorywood.co.uk"
+    =link "Colly", "http://colly.com" 
+    &amp; 
+    =link "James", "http://sleepykyoto.com/", "met James for first time at Build - Good lad, hard worker - could tell from the way he did all the work in the quiz whilst we fucked about" 
+    and we scored a respectable 74/100 most of which can be attributed to James' hard work. 
+  
+  %p 
+    The evening saw everyone suitably plied with booze 
+    = surround("(", ")") do
+      =link "apart from me", "http://soberjase.heroku.com"
+    and in usual Standardista style we laughed and cheered our way past closing time before stumbling back towards the hotel bar for a nightcap. 
+    
+    %p Needing to be up early to kick off our project at the venue, I managed to escape the bar at 1:30 for a little ironing and last minute CSS tweaks before bed. 
+    
+    %p I think the time has come to explain what I'd been working on ...
+  
+  %img.bleed{:src => "http://farm5.static.flickr.com/4104/5176210585_536ac39a26_o.png", :alt => "Campaign monitor"}
+    
+  %h3 Caffeine Monitor
+  %p 
+    Andy asked us at
+    =link "Go Free Range", "http://gofreerange.com", "Bad ass software" 
+    to create an app to track the caffeine intake of conference attendees and display it back to them as a live info-graphic. Sponsored by the kick-ass folks at 
+    =link "Campaign Monitor", "http://campaignmonitor.com"
+    we teamed up with the well known info-graphic sensei 
+    =link "Nicholas Felton", "http://feltron.com" 
+    to bring the idea to life. 
+  
+  %p I'm planning to cover the details on our company blog (and open source the code) but basically we created an offline capable iphone web app to record the drinks, and built a simple rails app to display the info-graphic pictured above in HTML/CSS.
+  
+  %p Andy arranged a team of helpers for the day, I loaded up the app on their iPhones and set them free. The data was collected then displayed on plasma screens around the venue and on the projector in the main conference hall. It all worked seamlessly!
+  
+  %p From what I observed the attendees enjoyed it and there was a positive reception on the web. Personally I'm very happy with the way it turned out; once I'd set it all up I just sat back and watched the visualisation come to life.
+  
+  %p Upon reflection the extra hours we put into making the app rock solid was worth it. From the beginning our top priority was for it to "just work" and I'm pretty happy that on the day it did just that. 
+  
+  %p 
+    You can see the results frozen in time at 
+    =link "http://cm.buildconf.com", "http://cm.buildconf.com"
+  
+  %h3 What about the talks?
+  %p 
+    The conference day was on the whole very good. 
+    =link "Build", "http://buildconf.com", "Build Conference"
+    asks its speakers to convey a story or concept instead of direct practical advice (which should be left for the workshops) because most of us doing our jobs keep up with the practical stuff. The idea is to transcend technique and to inspire; an approach I totally agree with. Unfortunately not all the speakers managed to pull this off, but on the whole the rhetoric was solid. 
+    
+  %blockquote A great day which left me itching to get back to work.
+
+  %p 
+    The highlight for me was 
+    =link "Liz Danzico", "http://bobulate.com" 
+    whose talk was well articulated and thought provoking. I was in awe of her speaking style and could have listened all day. She spoke of the power of the pause, its importance and appearance in not only our work as designers but our life outside of work. As a practitioner of 
+    =link "Zazen", "http://en.wikipedia.org/wiki/Zazen" 
+    I know the power of pause in my day, the resulting clarity and balance which was something I had wanted to share, but I never quite managed to assemble my thoughts and convince myself that I should engage Liz in conversation &mdash; shame.
+
+  %p The irony of wanting to talk to Liz about Zen but not being able to because of my ego wasn't lost on me. Feeling weary and tired I decided against dinner with others in favour of my hotel room to do some yoga, sit zazen and grab some room service.  
+
+  %p 
+    Recentered I headed down to lobby to meet Sam &amp; 
+    =link "Becky", "http://twitter.com/becky_brown" 
+    and we wandered over to 
+    =link "McHugh's", "http://www.mchughsbar.com/" 
+    the venue of the official after party. Now like I mentioned before, Andy is a sensible chap and this after party was in a pub which served good food, had a free bar for nearly all the night and had music which didn't invade your senses. 
+    
+    %p Everyone waltzed merrily around the room in sparks of conversation; wonderfully punctuated by laughter, cigarettes breaks and the almost constant shutter snap of DSLR's worn like geek medallions throughout the room. The festivities spilled out into the night and ended up in the Malmaison bar. I managed to see through a few more hours but without the booze to keep me propelled I faded into a dream state and said and hugged my goodbyes.
+
+  %h3 Thursday slept in Wednesday's clothes
+
+  %p Missing out on much of Thursday &mdash; I slept until half past two. My insomnia riddled body was most thankful as I staggered around my room trying to make sense of the time. A few strong coffees chucked down my gullet and I was ready to head out for the evening's activities. 
+
+  %p 
+    We braved torrential rain and zigzagged back over to the university to hear 
+    =link "Brock Rumer", "http://twitter.com/brockrumer" 
+    talk all about 
+    =succeed(".") do
+      =link "Threadless", "http://threadless.com"
+    I was a bit unsure about whether I wanted to hear the talk but I was soon won over and it was great to see Brock talk enthusiastically about a great company.   
+    
+  %p 
+    This 
+    =link "video", "http://vimeo.com/15672936"
+    Brock showed at the end made me smile.
+
+  %p 
+    After the talk we headed to 21 Social for food, before wandering back to the hotel to drink and talk some more. I struck up a conversation with (speaker) 
+    = link "Tim Brown", "http://nicewebtype.com/"
+    and we ended up having a great chinwag about Typekit, Go Free Range and importance of source control in the design workflow. It was definitely the most lucid conversation I had in Belfast.
+    
+  %p Andy sprung some Champagne on us (I had fake beer), and we toasted all the freaking awesome stuff that has happened in the last year.
+
+  %h3 Just before I headed home
+  %p I caught up with a few faces for lunch on Friday before hugs and goodbyes. I left to wander across a cold windy Belfast to catch the bus to the airport. 
+
+  %p Sitting on the bus I wrote to myself:
+
+  %blockquote Heading back to London with a soft sadness moored in my chest. All aboard.
+
+  %p 
+    But back in my flat I'm feeling good about our little industry: 
+    
+  %p  
+    =link "Build", "http://buildconf.com", "Build Conference"
+    embodied hard work and craftsmanship in its execution and sent gentle reminders that this is what we should aspire to as web professionals. If we put our minds, talent and hearts into what we do; we too can build something truly memorable and worthwhile. 
+
+  %p I'd love to speak at such a conference <br/ > upon it's dark stage I'd spill out my heart<br /> like a cup into the sea. 
+
+  %h3 See you in Belfast next year.

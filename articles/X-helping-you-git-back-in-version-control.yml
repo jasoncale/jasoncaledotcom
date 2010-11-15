@@ -30,18 +30,51 @@
 
   %p Sometimes, and for some things which are stored as binary content (i.e. photoshop documents), version control using Git is a bit pointless. I mean it will work, but it's not really that great. I prefer something like dropbox for that because it will do the revision on document save, which makes a lot of sense, I've not yet come across a reason to commit changes to my photoshop documents in a way that using git makes sense, but perhaps that is might shortsightedness more than git's inability to do so.
 
-  %h3 Some terms
+  %h3 A stroll through the neighbourhood
 
-  %h4 Decentralised
+  %h4 Creating a repository
 
-  %p Git is decentralised, but what does this actually mean? Well one way to answer that is with another question. What is centralised version control? Centralised version control could be likened to a bank; everyone agrees to put their money into it and any major transactions that happen are safest when they are done through it. If you want to check your balance, you ask the bank, if you want the money someone paid you, she pays it into the bank, and you get it from the bank - the bank is the central repository for all your hard earned.
+  %p Sometime in the history of the content you wish to version control you will have to create a respository, you can do this at any time but it is probably best to do it as early as possible.
   
-  %p This is cool, because sometimes having that kind of central respository is useful - they have a big expensive safe (data backup &amp; security), there can be no arguing with the John about you paying him back, because you both can see the transaction that the bank recorded between you two (single point of truth). 
+  %p For our examples we are going to create a webpage about some dimwit who lives in Balham and drinks coffee from a shop called Monmouth whilst writing about using source control.
   
-  %p However you are at the mercy of the repository, you are bound to it, any radical financial stuff is gonna have to be done off the books, and not to mention if the bank gets screwed you do too, and if they want to screw you (and they will), well my friend, you get screwed.
+  %p Ok lets create a folder and some basic files and init the git repo-oh-oh-oh.
   
-  %p You know our old friend subversion? He is centralised and I hate to break it to you, he is also a facist, and like all good facists he <i>will</i> go crazy. He will send you grated swan beak in a used bisto jar for christmas, and dress your grandad's cat in a paella waistcoat. What a prick.
+  -irb_session('article_9/getting_started.txt')
   
-  %p I'm a mother flippin hippy though, so I keep my millions in an old Bassetts Liquorice Allsorts tin buried in the garden. Because of this, I also use git.
+  %p Ok we are rocking, if you ain't super fly like me and don't dig the terminal well that's ok. What I've done above is create a folder called <code>jasencoffee</code> (and then moved inside it) created 3 files <code>index.htm</code>, <code>style.css</code> and <code>shizzle.js</code> before finally creating our git repository by doing <code>git init .</code> the <code>.</code> means the current directory.
+    
+  %p What I'm trying to get across are CONCEPTS, you can use a graphical git client if you want, the basic concepts remain, so that is what I'm gonna tell you. 
+    
+  %h4 Git status - looking at the state of our repository
+  
+  %p Now we have our bare files and git repo setup it is a good time to introduce you to <code>git status</code> which you can use at any time to show you how your repo is looking.
+  
+  %p Running <code>git status</code> provides us with a nice output of the current status, and some instructions of what we might like to do. Git is useful like that, check it out:
+    
+  -irb_session('article_9/status.txt')
+  
+  %p You can see that it mentions we are on the <strong>master branch</strong>, which we'll ignore for now .. and then it says something about <strong>initial commit</strong>. A commit is basically saying "this is a version of the document I want to keep, make a record of it". 
+  
+  %p Git knows that we haven't stored anything yet so it offers up some suggestions by showing the untracked files in the working directory, and telling us how we might add them to the repository. Before we do that, lets quickly look at file states.
+  
+  %h4 The lifecycle of a file between commits
+  
+  %p When working with git there are 3 main states a file can before it can be committed:
+  
+  %ol
+    %li
+      %p <strong>Untracked</strong> means the file exists in the working directory, but you haven't told git to keep an eye on it. This is useful because there are some files you don't want git to track, so when you create a file you must explicitely tell git to track it. Once you do this it will; like a hawk.
+    %li
+      %p <strong>Modified</strong> means a file git is watching has changed since the last commit (or version) it has of it.
+    %li 
+      %p <strong>Staged</strong> means you want git to include the current contents of this file in the next commit, this file would previously had been marked as untracked because it was new or modified in the case of an existing file. 
+      
+  %p It is important to remember that when you create a commit only the files which are <strong>staged</strong> will be included in a commit (we'll look at why this is useful).
+  
+  %h4 Adding a file to stage
+  
+  -irb_session('article_9/add_initial_files.txt')
+  
   
   
