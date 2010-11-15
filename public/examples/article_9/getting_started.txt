@@ -1,0 +1,4 @@
+jase:Sites $ mkdir jasencoffee; cd jasencoffee
+jase:jasencoffee $ touch index.htm style.css shizzle.js
+jase:jasencoffee $ git init .
+Initialized empty Git repository in /Users/jasoncale/Dropbox/Sites/jasencoffee/.git/

@@ -1,0 +1,12 @@
+jase:jasencoffee $ git add index.htm shizzle.js style.css
+jase:jasencoffee $ git status
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#   (use "git rm --cached <file>..." to unstage)
+#
+#	new file:   index.htm
+#	new file:   shizzle.js
+#	new file:   style.css
