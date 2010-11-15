@@ -51,6 +51,10 @@ module Jasoncaledotcom
         def published(reset = false, published = true)
           (article_files(reset).map { |filename| Article.open(filename) }).select {|article| article && (article.published == published) }.reverse
         end
+        
+        def drafts(reset = true)
+          (article_files(reset).map { |filename| Article.open(filename) }).select {|article| article && !article.published }.reverse
+        end
       
         def current(reset = false, published = true)
           published(reset, published).first

@@ -78,6 +78,12 @@ module Jasoncaledotcom
         haml :not_found
       end
     end
+    
+    get '/drafts' do
+      @articles = Article.drafts
+      
+      haml :drafts
+    end
 
     get '/rss.xml' do
       @articles = Article.all
