@@ -2,9 +2,7 @@ require 'rdiscount'
 
 module Jasoncaledotcom
   class Site
-    class Article
-      helpers Jasoncaledotcom::Helpers
-      
+    class Article      
       attr_accessor :title, :body, :post_date, :permalink, :meta, :published
 
       def initialize(body, meta, permalink)
