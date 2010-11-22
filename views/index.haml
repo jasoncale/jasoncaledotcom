@@ -1,7 +1,16 @@
-#about
-  %h1 Young delta heart
-  
-  %ol.article_list
-    -@articles.each do |article|
-      %li
-        %p=link(article.title.gsub(/<br>|<br\/>|<br\s\/>/, ""), article.path)
+%h1 
+  %a{:href => "/", :title => "Looking inwards; it was always there."}Young delta heart
+
+%ol.article_list.group
+  -@articles.each do |article|
+    %li
+      %p=link(article.title.gsub(/<br>|<br\/>|<br\s\/>/, ""), article.path)
+      
+.bio 
+  %h3 Jason Cale. 
+  %p 
+    An aspiring potter, he works at 
+    %a{:href => "http://gofreerange.com", :title => "We are the best"}Go Free Range
+    building software for the web. 
+  %p Funnelled into form by music, prose, yoga &amp; zazen. 
+  %p This is his personal monologue; long essays which challenge the attention span of the average internet participant.

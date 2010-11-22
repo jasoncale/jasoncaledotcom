@@ -58,9 +58,7 @@ module Jasoncaledotcom
     # pages
     
     get '/' do
-      @articles = Article.published
-      @body_class = 'face'
-      
+      @articles = Article.published      
       haml :index
     end
 
