@@ -23,7 +23,7 @@ module Jasoncaledotcom
     def sprockets_options(options = {})
       options.merge(
         :load_path => [ "public/js"],
-        :source_files => ["public/js/jshizzle.js", "public/js/include/*.js"]
+        :source_files => ["public/js/include/*.js", "public/js/jshizzle.js"]
       )
     end
   end

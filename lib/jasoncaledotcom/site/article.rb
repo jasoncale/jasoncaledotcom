@@ -14,6 +14,10 @@ module Jasoncaledotcom
         @published = meta[:published]
       end
     
+      def <=>(other)
+        @post_date.to_i <=> other.post_date.to_i
+      end
+    
       def previous
         Article.open_by_id(id - 1)
       end
@@ -47,11 +51,11 @@ module Jasoncaledotcom
         end
       
         def published(reset = false, published = true)
-          (article_files(reset).map { |filename| Article.open(filename) }).select {|article| article && (article.published == published) }.reverse
+          (article_files(reset).map { |filename| Article.open(filename) }).select {|article| article && (article.published == published) }.sort.reverse
         end
         
         def drafts(reset = true)
-          (article_files(reset).map { |filename| Article.open(filename) }).select {|article| article && !article.published }.reverse
+          (article_files(reset).map { |filename| Article.open(filename) }).select {|article| article && !article.published }.sort.reverse
         end
       
         def current(reset = false, published = true)

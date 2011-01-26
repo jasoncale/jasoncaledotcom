@@ -54,6 +54,7 @@ var hashgrid = function(set) {
 		overlayZForeground = 9999,
 		classNumber = 1;
 
+	// Apply options
 	if (typeof set == 'object') {
 		var k;
 		for (k in set) options[k] = set[k];
@@ -62,10 +63,12 @@ var hashgrid = function(set) {
 		options.id = set;
 	}
 
+	// Remove any conflicting overlay
 	if ($('#' + options.id).length > 0) {
 		$('#' + options.id).remove();
 	}
 
+	// Create overlay, hidden before adding to DOM
 	var overlayEl = $('<div></div>');
 	overlayEl
 		.attr('id', options.id)
@@ -76,40 +79,51 @@ var hashgrid = function(set) {
 	$("body").prepend(overlayEl);
 	var overlay = $('#' + options.id);
 
+	// Unless a custom z-index is set, ensure the overlay will be behind everything
 	if (overlay.css('z-index') == 'auto') overlay.css('z-index', overlayZBackground);
 
+	// Override the default overlay height with the actual page height
 	var pageHeight = parseFloat($(document).height());
 	overlay.height(pageHeight);
 
+	// Add the first grid line so that we can measure it
 	overlay.append('<div id="' + options.id + '-horiz" class="horiz first-line">');
 
+	// Position off-screen and display to calculate height
 	var top = overlay.css("top");
 	overlay.css({
 		top: "-999px",
 		display: "block"
 	});
 
+	// Calculate the number of grid lines needed
 	var line = $('#' + options.id + '-horiz'),
 		lineHeight = line.outerHeight();
 
+	// Hide and reset top
 	overlay.css({
 		display: "none",
 		top: top
 	});
 
+	// Break on zero line height
 	if (lineHeight <= 0) return true;
 
+	// Add the remaining grid lines
 	var i, numGridLines = Math.floor(pageHeight / lineHeight);
 	for (i = numGridLines - 1; i >= 1; i--) {
 		overlay.append('<div class="horiz"></div>');
 	}
 
+	// vertical grid
 	overlay.append($('<div class="vert-container"></div>'));
 	var overlayVert = overlay.children('.vert-container');
 	var gridWidth = overlay.width();
 	overlayVert.css({width: gridWidth, position: 'absolute', top: 0});
 	overlayVert.append('<div class="vert first-line">&nbsp;</div>');
 
+	// 30 is an arbitrarily large number...
+	// can't calculate the margin width properly
 	for (i = 0; i < 30; i++) {
 		overlayVert.append('<div class="vert">&nbsp;</div>');
 	}
@@ -118,6 +132,7 @@ var hashgrid = function(set) {
 		.height(pageHeight)
 		.css({display: 'inline-block'});
 
+	// Check for saved state
 	var overlayCookie = readCookie(options.cookiePrefix + options.id);
 	if (typeof overlayCookie == 'string') {
 		var state = overlayCookie.split(',');
@@ -140,6 +155,7 @@ var hashgrid = function(set) {
 		overlay.addClass(options.classPrefix + classNumber);
 	}
 
+	// Keyboard controls
 	$(document).bind('keydown', keydownHandler);
 	$(document).bind('keyup', keyupHandler);
 
@@ -168,7 +184,9 @@ var hashgrid = function(set) {
 
 	function getKey(e) {
 		var k = false, c = (e.keyCode ? e.keyCode : e.which);
+		// Handle keywords
 		if (c == 13) k = 'enter';
+		// Handle letters
 		else k = String.fromCharCode(c).toLowerCase();
 		return k;
 	}
@@ -180,6 +198,7 @@ var hashgrid = function(set) {
 	function showOverlay() {
 		overlay.show();
 		overlayVert.css({width: overlay.width()});
+		// hide any vertical blocks that aren't at the top of the viewport
 		overlayVert.children('.vert').each(function () {
 			$(this).css('display','inline-block');
 			if ($(this).offset().top > 0) {
@@ -214,12 +233,14 @@ var hashgrid = function(set) {
 				break;
 			case options.holdGridKey:
 				if (overlayOn && !sticky) {
+					// Turn sticky overlay on
 					sticky = true;
 					saveState();
 				}
 				break;
 			case options.foregroundKey:
 				if (overlayOn) {
+					// Toggle sticky overlay z-index
 					if (overlay.css('z-index') == overlayZForeground) {
 						overlay.css('z-index', overlayZBackground);
 						overlayZState = 'B';
@@ -233,6 +254,7 @@ var hashgrid = function(set) {
 				break;
 			case options.jumpGridsKey:
 				if (overlayOn && (options.numberOfGrids > 1)) {
+					// Cycle through the available grids
 					overlay.removeClass(options.classPrefix + classNumber);
 					classNumber++;
 					if (classNumber > options.numberOfGrids) classNumber = 1;
@@ -314,13 +336,5 @@ $(document).ready(function() {
 	var grid = new hashgrid({
 		numberOfGrids: 2
 	});
-
-});
-
-$(document).ready(function() {
-  $('code.eval').click(function () {
-    eval($(this).html());
-  })
-
 
 });
