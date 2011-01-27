@@ -1,15 +1,24 @@
 %h1 
   %a{:href => "/", :title => "Looking inwards; it was always there."}Young delta heart
 
-%ol.article_list.group
-  -@articles.each do |article|
-    %li
-      %p=link(article.title.gsub(/<br>|<br\/>|<br\s\/>/, ""), article.path)
+#article_list
+  %h2 Essays
+  %p.desc Lengthy meditations to ignite the tumbling tired mind.
+  %ol.group
+    -@articles.each do |article|
+      %li
+        %h3
+          =link(article.title.gsub(/<br>|<br\/>|<br\s\/>/, ""), article.path)
+          %em
+            &mdash;
+            %span.published_at 
+              =article.post_date.strftime("%a, #{ordinalize(article.post_date.day)} %b %Y")
+        %p.description=article.description
       
 .bio 
   %h3 Jason Cale. 
   %p 
-    An aspiring potter, he works at 
+    An aspiring potter, working at 
     %a{:href => "http://gofreerange.com", :title => "We are the best"}Go Free Range
     building software for the web. 
   %p Funnelled into form by music, prose, yoga &amp; zazen. 

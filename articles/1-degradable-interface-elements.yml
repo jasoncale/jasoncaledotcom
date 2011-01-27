@@ -1,4 +1,5 @@
-:title: | The fine art of degradable interface elements
+:title: | The fine art of degradable interface elements.
+:description: | An in depth look at building complex inline interface elements using javascript and css that degrade with elegance.
 :date: Fri Jan 01 18:03:18 +0000 2010
 :meta:
   :week: one

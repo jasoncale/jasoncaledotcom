@@ -3,19 +3,20 @@ require 'rdiscount'
 module Jasoncaledotcom
   class Site
     class Article      
-      attr_accessor :title, :body, :post_date, :permalink, :meta, :published
+      attr_accessor :title, :body, :post_date, :permalink, :meta, :published, :description
 
       def initialize(body, meta, permalink)
         @title = meta[:title]
+        @description = meta[:description]
         @body = Haml::Engine.new(body).render
-        @post_date = meta[:date]
+        @post_date = DateTime.parse(meta[:date])
         @meta = meta[:meta]
         @permalink = permalink
         @published = meta[:published]
       end
     
       def <=>(other)
-        @post_date.to_i <=> other.post_date.to_i
+        @post_date <=> other.post_date
       end
     
       def previous
