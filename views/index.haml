@@ -1,10 +1,18 @@
-%h1 
-  %a{:href => "/", :title => "Looking inwards; it was always there."}Young delta heart
-
-#article_list
-  %h2 Essays
-  %p.desc Lengthy meditations to ignite the tumbling tired mind.
-  %ol.group
+#journal.section
+  %h2 Snapshot journal
+  %p.desc Regular extractions of the unfolding existence mixed with purposeful silence.
+  -if @journal_entries
+    %ol.article_list.group
+      -@journal_entries.each do |entry|
+        %li
+          -journal_entry(entry)
+  -else
+    %p.error Crap, it seems tumblr isn't responding.
+  
+#discourse.section
+  %h2 Naked discourse
+  %p.desc Essays which challenge the attention span of the average internet participant.
+  %ol.article_list.group
     -@articles.each do |article|
       %li
         %h3
@@ -22,4 +30,6 @@
     %a{:href => "http://gofreerange.com", :title => "We are the best"}Go Free Range
     building software for the web. 
   %p Funnelled into form by music, prose, yoga &amp; zazen. 
-  %p This is his personal monologue; long essays which challenge the attention span of the average internet participant.
+  
+.instagram
+  %img{:src => @latest_instagram.image_url(306)}

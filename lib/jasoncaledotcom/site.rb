@@ -5,11 +5,13 @@ require "less"
 require "haml"
 require "jasoncaledotcom/helpers"
 require "jasoncaledotcom/sprockets_renderer"
+require 'instagram'
 
 module Jasoncaledotcom
   class Site < Sinatra::Base
     autoload :Article, 'jasoncaledotcom/site/article'
-    include SprocketsRenderer    
+    autoload :Journal, 'jasoncaledotcom/site/journal'
+    include SprocketsRenderer
     
     configure :development do
       enable :logging, :dump_errors, :raise_errors
@@ -58,7 +60,9 @@ module Jasoncaledotcom
     # pages
     
     get '/' do
-      @articles = Article.published      
+      @articles = Article.published
+      @journal_entries = Journal.recent("jason.cale@me.com", "AULjm}K9a.Zs6eqbhd", "jasoncale")
+      @latest_instagram = Instagram::by_user(241).first
       haml :index
     end
 

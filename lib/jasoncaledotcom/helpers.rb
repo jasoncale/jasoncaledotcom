@@ -61,40 +61,27 @@ module Jasoncaledotcom
     end
     
     def code_sample(title, file, options = {})
-      
       lines = read_example(file)
-      
       options = {:range => (0..lines.length), :download_link => "Download code", :class => 'code_sample'}.merge!(options)
-      
-      
       haml_tag(:div, :class => options[:class]) do
-        
         haml_tag(:h3) do
           haml_concat title
           haml_concat link("(download source)", "/examples/#{file}", options[:download_link])
         end
-                
         code_list(lines, file, options)
-      
       end
-      
     end
     
     def code_list(lines, file, options = {})
-      
       haml_tag(:ol, { :class => 'code', :start => (options[:range].min + 1) })  do 
-        
         lines[options[:range]].each do |line|
           haml_tag(:li) do
             code_class = line.match(/(\s+)(.+)/) ? "tab_#{($1.length / 2)}" : ""
-            
             if File.extname(file).match(/rb|js/) 
               code_class << " comment" if line.match(/^\s*(#|\/{2})/)
             end
-            
             code_class << " command" if line.match(/^\s*(>>)/)
             code_class << " result" if line.match(/^\s*(=>)/)
-            
             haml_tag(:code, {:class => code_class }) do
               haml_concat h(line)
             end
@@ -113,14 +100,39 @@ module Jasoncaledotcom
       if (11..13).include?(number.to_i % 100)
         "#{number}th"
       else
-         case number.to_i % 10
-           when 1; "#{number}st"
-           when 2; "#{number}nd"
-           when 3; "#{number}rd"
-           else    "#{number}th"
-         end
-       end
-     end
+        case number.to_i % 10
+          when 1; "#{number}st"
+          when 2; "#{number}nd"
+          when 3; "#{number}rd"
+          else    "#{number}th"
+        end
+      end
+    end
+    
+    def journal_entry(entry)
+      haml_tag(:div, :class => entry.type) do
+        case entry.type
+        when :video
+          haml_concat entry.embed
+          haml_concat entry.caption
+        when :quote
+          haml_tag :blockquote, entry.quote
+          haml_tag (:p, :class => "source") do
+            haml_concat entry.source
+          end
+        when :photo
+          haml_tag(:a, :href => entry.click_through_url) do
+            haml_tag(:img, :src => entry.source)
+          end
+          haml_concat entry.caption
+        else
+          haml_tag(:h3) do
+            haml_concat "Don't know"
+          end
+        end
+      end
+    end
+    
   end
 end
 

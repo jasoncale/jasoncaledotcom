@@ -52,13 +52,13 @@ body {
 }
 
 #page {
-  #content {
-    .group;
-    width: @page_width;
-    margin: 0 auto;
-    
+  #header {
     h1 {
-      text-align: center;      
+      text-align: center;
+      padding-bottom: 0;
+      margin-bottom: 0;
+      line-height: 1em;
+      padding-top: 0.55em;
       a {
         color: rgb(40, 47, 40);
         -webkit-transition-property: color, background;
@@ -69,65 +69,89 @@ body {
         color: #ed1a62;
       }
     }
+    p {
+      font-size: 1.2em;
+      color: #777;
+      font-style: italic;
+      text-align: center;
+      margin-bottom: 1.5em;      
+    }
+  }
+
+  #content {
+    .group;
+    width: @page_width;
+    margin: 0 auto;
     
-    #article_list {
+    h2 {
+      font-family: "ff-typestar-black-web-1","ff-typestar-black-web-2", "Georgia";
+    }
+    
+    .section {
       float: left;
-      
       margin: 4px 0 0 @gutter_width;
-      .span_8;
-      
-      h2 {
-        font-family: "ff-typestar-black-web-1","ff-typestar-black-web-2", "Georgia";
-        
-      }
-      
+      .span_8;     
+            
       p.desc {
         font-size: 1.2em;
         color: #777;
         font-style: italic;
       }
-      
-      ol {
-        margin-top: 2em;
-        li {
-          display: block;
-          margin-bottom: 1.95em;
+    }
+    
+    ol.article_list {
+      margin-top: 2em;
+      li {
+        display: block;
+        margin-bottom: 1.95em;
+        
+        h3 {  
+          font-size: 1.5em;
+          line-height: 1.35em;
+          font-weight: normal;
           
-          h3 {  
-            font-size: 1.5em;
-            line-height: 1.35em;
-            font-weight: normal;
-            
-            em {
-              white-space: nowrap;
-            }
-            
-            span.published_at {
-              font-size: 0.8em;
-              color: #666;
-            }
-                          
-            a {
-              font-family: "museo-slab-1","museo-slab-2", "Georgia", serif;
-              -webkit-transition-property: color, background;
-              -webkit-transition-duration: 0.5s, 0.5s;
-            }
+          em {
+            white-space: nowrap;
+          }
+          
+          span.published_at {
+            font-size: 0.8em;
+            color: #666;
+          }
+                        
+          a {
+            font-family: "museo-slab-1","museo-slab-2", "Georgia", serif;
+            -webkit-transition-property: color, background;
+            -webkit-transition-duration: 0.5s, 0.5s;
+          }
 
-            a:hover {
-              background: #fcef50;
-              color: black;
-              text-decoration: none;
-            }              
-          }
-          
-          p.description {
-            font-size: 1.4em;
-            line-height: 1.45em;
-            color: #999;
-            font-style: italic;
-          }
+          a:hover {
+            background: #fcef50;
+            color: black;
+            text-decoration: none;
+          }              
+        }
+        
+        p.description {
+          font-size: 1.4em;
+          line-height: 1.45em;
+          color: #999;
+          font-style: italic;
         }
       }
+    }
+    
+    #journal {
+      .span_9;
+      
+      p.error {
+        color: #8F230B;
+        margin-top: 1em;
+      }
+    }
+    
+    #discourse {      
+      .span_6;
     }
     
     .bio {
