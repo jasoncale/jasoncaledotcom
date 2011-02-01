@@ -1,17 +1,6 @@
-#journal.section
-  %h2 Snapshot journal
-  %p.desc Regular extractions of the unfolding existence mixed with purposeful silence.
-  -if @journal_entries
-    %ol.article_list.group
-      -@journal_entries.each do |entry|
-        %li
-          -journal_entry(entry)
-  -else
-    %p.error Crap, it seems tumblr isn't responding.
-  
 #discourse.section
-  %h2 Naked discourse
-  %p.desc Essays which challenge the attention span of the average internet participant.
+  %h2 Naked Discourse
+  %p.desc Challenging the attention span of the average internet participant.
   %ol.article_list.group
     -@articles.each do |article|
       %li
@@ -22,8 +11,28 @@
             %span.published_at 
               =article.post_date.strftime("%a, #{ordinalize(article.post_date.day)} %b %Y")
         %p.description=article.description
+  %p.expand
+    Descend into the 
+    =succeed('.') do
+      =link "archives", "/archives", "More articles in the vast backspace of time or just in this instance."
       
-.bio 
+#journal.section
+  %h2 Bedtime Journal
+  %p.desc Regular extractions of the unfolding existence mixed with purposeful silence.
+  -if @journal_entries
+    %ol.article_list.group
+      -@journal_entries.each do |entry|
+        %li
+          -journal_entry(entry)
+  -else
+    %p.error Bugger &mdash; that tumblr isn't responding.
+  
+  %p.expand
+    Sink into the 
+    =succeed('.') do
+      =link "ocean", "http://jasoncale.tumblr.com", "Go to the tumblelog"
+  
+#bio.section
   %h3 Jason Cale. 
   %p 
     An aspiring potter, working at 
@@ -31,5 +40,5 @@
     building software for the web. 
   %p Funnelled into form by music, prose, yoga &amp; zazen. 
   
-.instagram
+.instagram.section
   %img{:src => @latest_instagram.image_url(306)}

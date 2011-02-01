@@ -50,6 +50,10 @@ module Jasoncaledotcom
         def all(reset = false, published = true)
           published(reset, published)
         end
+        
+        def recent(num)
+          published[0..num]
+        end
       
         def published(reset = false, published = true)
           (article_files(reset).map { |filename| Article.open(filename) }).select {|article| article && (article.published == published) }.sort.reverse

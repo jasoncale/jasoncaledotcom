@@ -18,11 +18,40 @@
     #page
       #header
         %h1 
-          %a{:href => "/", :title => "Looking inwards; it was always there."}Young delta heart
-        %p Upon the vast empty sea sails a boat with you and me, Jason Cale.
+          %a{:href => "/", :title => "Looking inwards ... It was always there."}Young delta heart
+        %p
+          &ldquo;Sick of shining in the water below &mdash;
+          so take your turn, to strike the stern,
+          and take a bow&rdquo;
+        
       #content
         = yield
   
+      #footer
+        %p.poem 
+          %span Upon
+          %span a 
+          %span vast
+          %span empty 
+          %span sea 
+          %span sails 
+          %span a 
+          %span boat 
+          %span with 
+          %span room 
+          %span enough 
+          %span for 
+          %span you 
+          %span and 
+          %span me
+        %p.made
+          Cultivate an 
+          =link "open source", "http://github.com/jasoncale/jasoncaledotcom", "Website source on github"
+          mind
+          &mdash;
+          =link "Go Free Range", "http://gofreerange.com", "Makers of real fine software"
+          
+        
     %script{ :src => "http://code.jquery.com/jquery-1.4.2.min.js", :type => "text/javascript", :charset => "utf-8" }
     %script{ :src => "/sprockets.js", :type => "text/javascript", :charset => "utf-8" }  
     -if production?

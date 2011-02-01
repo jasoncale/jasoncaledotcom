@@ -10,16 +10,20 @@
 
 @jase_yellow: #fcef50;
 
+.font_size_in_ems(@px: 5px) {
+  font-size: 0em + (1 / 16 * @px);
+}
+
 body {
   color: black;
-	font-size: 62.5%;
+	font-size: 1em;
   background: #f5f5f5;
-  font-family: "Times New Roman", serif;
+  font-family: "Georgia", "Times New Roman", serif;
   
   h1 {
     color: rgb(40, 47, 40);
-    font-size: 5.7em;
-    line-height: 2.15em;
+    .font_size_in_ems(57);
+    line-height: 1em;
     font-weight: bold;
     text-transform: uppercase;
     font-family: "museo-slab-1","museo-slab-2", "Georgia", serif;  
@@ -28,21 +32,31 @@ body {
 
   h2 {
     color: rgb(40, 47, 40);
-    font-size: 3.5em;
+    .font_size_in_ems(35);
     font-weight: bold;
+    font-family: "ff-typestar-black-web-1","ff-typestar-black-web-2", "Georgia";
   }
 
-  h3, h4, h5, h6, p {
-    font-size: 2em;
+  h3, h4, h5, h6{
+    .font_size_in_ems(20);
   }
-
+  
+  p {
+    .font_size_in_ems(14);
+    line-height: 1.45em;
+  }
+  
   a {
     text-decoration: none;
     color: #ed1a62;
+    -webkit-transition-property: color, background;
+    -webkit-transition-duration: 0.5s, 0.5s;
   }
+
   a:hover, a:focus {
-    text-decoration: underline;
-    background: transparent;
+    background: #fcef50;
+    background-color: rgba(252, 329, 80, 0.8);
+    color: black;
   }
   
   em {
@@ -70,7 +84,8 @@ body {
       }
     }
     p {
-      font-size: 1.2em;
+      .font_size_in_ems(12);
+      line-height: 1.2em;
       color: #777;
       font-style: italic;
       text-align: center;
@@ -82,107 +97,162 @@ body {
     .group;
     width: @page_width;
     margin: 0 auto;
-    
-    h2 {
-      font-family: "ff-typestar-black-web-1","ff-typestar-black-web-2", "Georgia";
-    }
-    
+              
     .section {
       float: left;
-      margin: 4px 0 0 @gutter_width;
+      margin: 0 0 0 @gutter_width;
       .span_8;     
+
+      h2 {
+        .font_size_in_ems(35);
+        line-height: 1.1em;
+        padding-top: 0.2em;
+      }
             
       p.desc {
-        font-size: 1.2em;
+        .font_size_in_ems(11);
+        line-height: 1.85em;
         color: #777;
         font-style: italic;
       }
+      
     }
     
     ol.article_list {
-      margin-top: 2em;
+      margin-top: 1.2em;
+      
       li {
-        display: block;
-        margin-bottom: 1.95em;
+        display: block;      
+        margin-bottom: 18px;  
         
         h3 {  
-          font-size: 1.5em;
-          line-height: 1.35em;
+          .font_size_in_ems(16);
+          line-height: 1.3em;
           font-weight: normal;
+          font-family: "museo-slab-1","museo-slab-2", "Georgia", serif;
           
           em {
             white-space: nowrap;
           }
           
           span.published_at {
-            font-size: 0.8em;
+            .font_size_in_ems(11);
+            line-height: 2em;
             color: #666;
           }
                         
-          a {
-            font-family: "museo-slab-1","museo-slab-2", "Georgia", serif;
-            -webkit-transition-property: color, background;
-            -webkit-transition-duration: 0.5s, 0.5s;
-          }
-
-          a:hover {
-            background: #fcef50;
-            color: black;
-            text-decoration: none;
-          }              
+          
         }
         
         p.description {
-          font-size: 1.4em;
-          line-height: 1.45em;
+          .font_size_in_ems(11);
+          line-height: 1.82em;
+          
           color: #999;
           font-style: italic;
         }
       }
     }
     
+    p.expand {
+      text-align: center;
+      padding-bottom: 0.9em;
+      color: #555;
+      margin-top: 0.7em;
+      padding-top: 0.8em;
+      margin-bottom: 1.55em;
+      font-style: italic;
+      font-size: ;
+    }
+    
     #journal {
-      .span_9;
+      .span_8;
       
       p.error {
-        color: #8F230B;
-        margin-top: 1em;
+        color: #ddd;
+        margin-top: 0.35em;
+        border: 1px solid #ddd;
+        text-align: center;
+        font-family: helvetica, arial, sans-serif;
+        text-transform: uppercase;
+        font-weight: bold;
+        padding: 1.9em (@col_width / 2);
+        line-height: 1.5em;
+        margin-bottom: 1em;
+        .font_size_in_ems(40);
+      }
+      
+      .article_list {
+        
+        p {
+          .font_size_in_ems(13);
+          line-height: 1.6em;
+          margin-bottom: 1.6em;
+        }
+
+      }
+      
+      .video {
+        iframe {
+          width: 100%;
+          margin-bottom: 1.35em;
+        }        
       }
     }
     
     #discourse {      
-      .span_6;
+      .span_7;
+      margin-right: @col_width + @gutter_width;
     }
     
-    .bio {
+    #bio {
       .span_4;
-      float: left;
-      background: #222;
-      font-family: "museo-slab-1","museo-slab-2", "Georgia", serif;  
-      margin-top: 2em;
-      color: white;
-      padding: @gutter_width;
-      padding-bottom: 4em;
-      
-      h3 {
-        font-size: 1.5em;
-      }
-      
-      p {
-        font-size: 1.2em;
-        line-height: 1.7em;
-        padding-bottom: 0.7em;
-      }
+      float: left;      
     }
   
-    h1.on_article {
-      border: none;
-      color: #333;
-      
-      a:hover {
-        color: #ed1a62;
-      }
+  }
+}
+
+#footer {
+  .group;
+  width: @page_width;
+  margin: 2.6em auto;
+  
+  p {
+    .font_size_in_ems(11);
+    float: left;
+    margin: 0 0 0 @gutter_width;
+    line-height: 1.85em;
+  }
+  
+  p.poem {
+    .span_3;
+    letter-spacing: 0.2em;
+    text-align: right;
+    font-style: italic;
+    
+    
+    span {
+      color: #eee;
+      -webkit-transition-property: color;
+      -webkit-transition-duration: 0.5s;
     }
+    
+    span:hover, span::selection {
+      cursor: pointer;
+      color: #AA9991;
+      background: transparent;
+    }
+    
+  }
+  
+  p.poem::selection {
+    background: transparent;
+  }
+  
+  p.made {
+    .span_8;
+    float: right;
   }
 }
 

@@ -60,8 +60,8 @@ module Jasoncaledotcom
     # pages
     
     get '/' do
-      @articles = Article.published
-      @journal_entries = Journal.recent("jason.cale@me.com", "AULjm}K9a.Zs6eqbhd", "jasoncale")
+      @articles = Article.recent(5)
+      @journal_entries = Journal.recent("jason.cale@me.com", "AULjm}K9a.Zs6eqbhd", "jasoncale", { :num => 1 })
       @latest_instagram = Instagram::by_user(241).first
       haml :index
     end
