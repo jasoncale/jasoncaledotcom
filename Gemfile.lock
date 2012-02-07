@@ -16,6 +16,7 @@ GEM
     polyglot (0.3.1)
     rack (1.2.1)
     rdiscount (1.6.5)
+    shoulda (2.11.3)
     sinatra (1.0)
       rack (>= 1.0)
     sinatra-advanced-routes (0.5.1)
@@ -41,6 +42,7 @@ DEPENDENCIES
   httparty
   less
   rdiscount
+  shoulda
   sinatra
   sinatra-reloader
   sprockets

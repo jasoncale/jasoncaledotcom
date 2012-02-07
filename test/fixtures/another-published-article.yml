@@ -1,0 +1,8 @@
+:title: | Another article
+:date: 2012-02-07 23:39:36 +0000
+:published: true
+:content: |
+
+  %h2 This is the title
+
+  %p This is some body content

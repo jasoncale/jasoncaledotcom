@@ -8,3 +8,7 @@ gem "haml"
 gem "httparty"
 gem "rdiscount"
 gem "builder"
+
+group :test do
+  gem "shoulda"
+end
