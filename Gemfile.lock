@@ -14,7 +14,7 @@ GEM
       backports
     mutter (0.5.3)
     polyglot (0.3.1)
-    rack (1.2.1)
+    rack (2.0.7)
     rdiscount (1.6.5)
     shoulda (2.11.3)
     sinatra (1.0)
